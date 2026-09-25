@@ -96,7 +96,7 @@
             <g id="recon-stations" font-size="13" fill="#2c2a26"></g>
             <g id="recon-front">
               <circle class="recon-halo" r="12" cx="200" cy="60"/>
-              <circle id="recon-dot-front" r="8" cx="200" cy="60" fill="#c8102e" stroke="#fff" stroke-width="2"/>
+              <circle id="recon-dot-front" r="8" cx="200" cy="60" fill="#de7a1f" stroke="#fff" stroke-width="2"/>
             </g>
           </svg>
           <div class="chart-source">Source: NDRRMA situation report, 1 Sept 2026. <a href="../datasets/bhotekoshi-flood-wave-timeline.csv" download>Download the CSV</a></div>
@@ -387,7 +387,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var dead = rows.map(function (r) { return parseFloat(r.dead_confirmed); });
     var missing = rows.map(function (r) { return r.missing ? parseFloat(r.missing) : null; });
     H.makeChart(document.getElementById("chart-casualties"), {
-      color: ["#c8102e", "#5d6d7e"],
+      color: ["#de7a1f", "#5d6d7e"],
       tooltip: { trigger: "axis" },
       legend: { data: ["Confirmed dead", "Missing"], bottom: 0, textStyle: { color: "#4a443b" } },
       grid: { left: 60, right: 30, top: 30, bottom: 60 },
@@ -474,7 +474,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var names = rows.map(function (r) { return r.category; });
     var vals = rows.map(function (r) { return parseFloat(r.usd_millions); });
     H.makeChart(document.getElementById("chart-money"), {
-      color: ["#0b3d91"],
+      color: ["#1e7d4f"],
       tooltip: {
         trigger: "axis",
         axisPointer: { type: "shadow" },
@@ -502,7 +502,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var names = rows.map(function (r) { return r.event; });
     var vals = rows.map(function (r) { return parseFloat(r.deaths); });
     H.makeChart(document.getElementById("chart-history"), {
-      color: ["#c8102e"],
+      color: ["#de7a1f"],
       tooltip: {
         trigger: "axis",
         axisPointer: { type: "shadow" },
@@ -520,7 +520,7 @@ document.addEventListener("DOMContentLoaded", function () {
         barWidth: "48%",
         itemStyle: {
           borderRadius: [0, 5, 5, 0],
-          color: function (p) { return names[p.dataIndex].indexOf("2026") === 0 ? "#c8102e" : "#8a9bb0"; }
+          color: function (p) { return names[p.dataIndex].indexOf("2026") === 0 ? "#de7a1f" : "#8a9bb0"; }
         },
         label: { show: true, position: "right", formatter: function (p) { return p.value > 0 ? p.value : "0"; }, color: "#4a443b" }
       }]

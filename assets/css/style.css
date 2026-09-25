@@ -1,5 +1,5 @@
 /* HimalData portal styles
-   Palette inspired by Nepal: crimson, deep blue, warm paper.
+   Palette: marigold orange and Himalayan green on warm paper.
 */
 :root {
   --paper: #faf6ee;
@@ -8,9 +8,10 @@
   --ink-soft: #4a443b;
   --muted: #8a8175;
   --line: #e7dfd0;
-  --crimson: #c8102e;
-  --crimson-dark: #9c0c24;
-  --blue: #0b3d91;
+  --orange: #de7a1f;
+  --orange-dark: #b25e12;
+  --green: #1e7d4f;
+  --green-dark: #145c33;
   --gold: #c98f1b;
   --radius: 12px;
   --shadow: 0 2px 14px rgba(30, 27, 22, 0.07);
@@ -29,15 +30,15 @@ body {
   font-size: 17px;
 }
 
-a { color: var(--blue); }
-a:hover { color: var(--crimson); }
+a { color: var(--green); }
+a:hover { color: var(--orange); }
 
 /* ---------- layout ---------- */
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 22px; }
 .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 22px; }
 
 .site-header {
-  border-bottom: 3px solid var(--crimson);
+  border-bottom: 3px solid var(--orange);
   background: var(--card);
   position: sticky;
   top: 0;
@@ -63,7 +64,7 @@ a:hover { color: var(--crimson); }
   font-size: 26px;
   letter-spacing: -0.5px;
 }
-.brand-mark .dot { color: var(--crimson); }
+.brand-mark .dot { color: var(--orange); }
 .brand-tag {
   font-size: 12.5px;
   color: var(--muted);
@@ -77,7 +78,7 @@ a:hover { color: var(--crimson); }
   font-weight: 600;
   font-size: 15px;
 }
-.site-nav a:hover, .site-nav a.active { color: var(--crimson); }
+.site-nav a:hover, .site-nav a.active { color: var(--orange); }
 
 .site-footer {
   margin-top: 72px;
@@ -93,7 +94,7 @@ a:hover { color: var(--crimson); }
   padding: 64px 0 40px;
 }
 .hero-kicker {
-  color: var(--crimson);
+  color: var(--orange);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -122,12 +123,12 @@ a:hover { color: var(--crimson); }
   text-decoration: none;
   font-weight: 700;
   font-size: 15.5px;
-  border: 2px solid var(--crimson);
+  border: 2px solid var(--orange);
 }
-.btn-primary { background: var(--crimson); color: #fff; }
-.btn-primary:hover { background: var(--crimson-dark); color: #fff; }
-.btn-ghost { color: var(--crimson); background: transparent; }
-.btn-ghost:hover { background: #f6e7ea; color: var(--crimson-dark); }
+.btn-primary { background: var(--orange); color: #fff; }
+.btn-primary:hover { background: var(--orange-dark); color: #fff; }
+.btn-ghost { color: var(--orange); background: transparent; }
+.btn-ghost:hover { background: #f6e7ea; color: var(--orange-dark); }
 
 /* ---------- stat band ---------- */
 .stat-band {
@@ -147,7 +148,7 @@ a:hover { color: var(--crimson); }
   font-family: var(--serif);
   font-size: 34px;
   font-weight: 700;
-  color: var(--crimson);
+  color: var(--orange);
   line-height: 1.1;
 }
 .stat .label { color: var(--ink-soft); font-size: 14.5px; margin-top: 6px; }
@@ -187,7 +188,7 @@ a:hover { color: var(--crimson); }
 .story-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(30,27,22,0.12); color: var(--ink); }
 .story-card .thumb {
   height: 150px;
-  background: linear-gradient(135deg, var(--blue), var(--crimson));
+  background: linear-gradient(135deg, var(--green), var(--orange));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,13 +199,20 @@ a:hover { color: var(--crimson); }
   padding: 16px;
   text-align: center;
 }
+.story-card .thumb.has-photo { padding: 0; }
+.story-card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .story-card .body { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; }
 .story-card .topic {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--crimson);
+  color: var(--orange);
   margin-bottom: 8px;
 }
 .story-card h3 { font-family: var(--serif); font-size: 21px; margin: 0 0 8px; line-height: 1.3; }
@@ -240,7 +248,7 @@ a:hover { color: var(--crimson); }
   color: var(--ink);
   box-shadow: var(--shadow);
 }
-.topic-chip:hover { border-color: var(--crimson); color: var(--ink); }
+.topic-chip:hover { border-color: var(--orange); color: var(--ink); }
 .topic-chip .emoji { font-size: 24px; }
 .topic-chip h4 { margin: 8px 0 4px; font-size: 16.5px; }
 .topic-chip p { margin: 0; font-size: 13.5px; color: var(--muted); }
@@ -248,7 +256,7 @@ a:hover { color: var(--crimson); }
 /* ---------- story article ---------- */
 .story-hero { padding: 56px 0 8px; }
 .story-hero .topic {
-  color: var(--crimson);
+  color: var(--orange);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -292,7 +300,7 @@ a:hover { color: var(--crimson); }
   line-height: 1.5;
 }
 .pull-stat {
-  border-left: 4px solid var(--crimson);
+  border-left: 4px solid var(--orange);
   padding: 6px 0 6px 20px;
   margin: 1.6em 0;
   font-family: var(--serif);
@@ -362,7 +370,7 @@ a:hover { color: var(--crimson); }
   padding: 8px 22px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: #0b3d91;
+  background: #1e7d4f;
   color: #fff;
   cursor: pointer;
 }
@@ -374,7 +382,7 @@ a:hover { color: var(--crimson); }
   min-width: 130px;
 }
 .recon-clock .recon-tz { font-size: 13px; color: var(--muted); margin-left: 6px; font-family: var(--sans, inherit); }
-#recon-scrub { flex: 1; min-width: 160px; accent-color: #0b3d91; }
+#recon-scrub { flex: 1; min-width: 160px; accent-color: #1e7d4f; }
 .recon-status { font-size: 14.5px; color: var(--ink-soft); min-height: 26px; margin: 2px 0 6px; }
 #recon-svg { width: 100%; max-width: 340px; height: auto; display: block; margin: 0 auto; }
 .recon-station .recon-dot { fill: #2c2a26; transition: fill 0.4s; }
@@ -382,7 +390,7 @@ a:hover { color: var(--crimson); }
 .recon-station .recon-t { opacity: 0; transition: opacity 0.4s; font-size: 11px; fill: #8a8175; }
 .recon-station.arrived .recon-t { opacity: 1; }
 .recon-halo {
-  fill: none; stroke: #c8102e; stroke-width: 2; opacity: 0.7;
+  fill: none; stroke: #de7a1f; stroke-width: 2; opacity: 0.7;
   transform-box: fill-box; transform-origin: center;
   animation: recon-pulse 1.6s ease-out infinite;
 }
@@ -425,7 +433,7 @@ a:hover { color: var(--crimson); }
   font-size: 12px;
   font-weight: 700;
   background: #eef1f8;
-  color: var(--blue);
+  color: var(--green);
   border-radius: 6px;
   padding: 2px 8px;
   margin: 2px 4px 2px 0;

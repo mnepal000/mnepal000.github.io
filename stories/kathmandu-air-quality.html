@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var years = rows.map(function (r) { return r.year; });
     var vals = rows.map(function (r) { return parseFloat(r.pm25_ug_m3); });
     H.makeChart(document.getElementById("chart-ktm"), {
-      color: ["#c8102e"],
+      color: ["#de7a1f"],
       tooltip: { trigger: "axis", formatter: "{b}: <b>{c} µg/m³</b>" },
       grid: { left: 54, right: 20, top: 30, bottom: 40 },
       xAxis: Object.assign({ type: "category", data: years }, ax),
@@ -123,8 +123,8 @@ document.addEventListener("DOMContentLoaded", function () {
         markLine: {
           silent: true,
           symbol: "none",
-          lineStyle: { color: "#0b3d91", type: "dashed", width: 2 },
-          label: { formatter: "WHO guideline: 5 µg/m³", position: "insideEndTop", color: "#0b3d91", fontSize: 12 },
+          lineStyle: { color: "#1e7d4f", type: "dashed", width: 2 },
+          label: { formatter: "WHO guideline: 5 µg/m³", position: "insideEndTop", color: "#1e7d4f", fontSize: 12 },
           data: [{ yAxis: 5 }]
         }
       }]
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var names = rows.map(function (r) { return r.capital + ", " + r.country; });
     var vals = rows.map(function (r) { return parseFloat(r.pm25_2023_ug_m3); });
     H.makeChart(document.getElementById("chart-capitals"), {
-      color: ["#c8102e"],
+      color: ["#de7a1f"],
       tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, formatter: "{b}: <b>{c} µg/m³</b>" },
       grid: { left: 130, right: 30, top: 30, bottom: 40 },
       xAxis: Object.assign({ type: "value", name: "µg/m³", nameTextStyle: { color: "#8a8175" } }, ax),
@@ -150,8 +150,8 @@ document.addEventListener("DOMContentLoaded", function () {
         markLine: {
           silent: true,
           symbol: "none",
-          lineStyle: { color: "#0b3d91", type: "dashed", width: 2 },
-          label: { formatter: "WHO: 5", position: "insideEndTop", color: "#0b3d91", fontSize: 12 },
+          lineStyle: { color: "#1e7d4f", type: "dashed", width: 2 },
+          label: { formatter: "WHO: 5", position: "insideEndTop", color: "#1e7d4f", fontSize: 12 },
           data: [{ xAxis: 5 }]
         }
       }]

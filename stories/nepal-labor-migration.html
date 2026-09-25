@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var years = rows.map(function (r) { return r.year; });
     var vals = rows.map(function (r) { return parseFloat(r.remittances_usd_billion); });
     H.makeChart(document.getElementById("chart-remittances"), {
-      color: ["#c8102e"],
+      color: ["#de7a1f"],
       tooltip: { trigger: "axis", formatter: "{b}: <b>${c}B</b>" },
       grid: { left: 54, right: 20, top: 30, bottom: 40 },
       xAxis: Object.assign({ type: "category", data: years }, ax),

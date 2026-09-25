@@ -5,7 +5,7 @@
 (function () {
   "use strict";
 
-  var PALETTE = ["#c8102e", "#0b3d91", "#c98f1b", "#2a7f62", "#7a4fa3", "#d95f43", "#3d6b99", "#8a8175"];
+  var PALETTE = ["#de7a1f", "#1e7d4f", "#c98f1b", "#2a7f62", "#7a4fa3", "#d95f43", "#3d6b99", "#8a8175"];
 
   function basePath() {
     // Works whether the page sits at /, /stories/, or /data/
