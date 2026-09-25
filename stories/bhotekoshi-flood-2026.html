@@ -67,8 +67,8 @@
 
       <figure>
         <div class="chart-box">
-          <h3>The wave's journey downstream</h3>
-          <div class="chart-sub">Time the flood front reached each point on 26 August 2026 (Nepal time). Source: NDRRMA situation report, 1 Sept 2026.</div>
+          <h3>How fast the flood moved downstream</h3>
+          <div class="chart-sub">Time after the 08:40 collapse when the wave front reached each point, 26 August 2026 (Nepal time). Source: NDRRMA situation report, 1 Sept 2026.</div>
           <div class="chart" id="chart-wave"></div>
           <div class="chart-source">Source: NDRRMA. <a href="../datasets/bhotekoshi-flood-wave-timeline.csv" download>Download the CSV</a></div>
         </div>
@@ -262,30 +262,36 @@ document.addEventListener("DOMContentLoaded", function () {
     return h + ":" + (m < 10 ? "0" + m : m);
   }
 
-  /* Chart 1: wave arrival times */
+  /* Chart 1: wave arrival times as elapsed minutes after the collapse */
   H.loadCSV(base + "datasets/bhotekoshi-flood-wave-timeline.csv").then(function (rows) {
     var pts = rows.filter(function (r) { return r.location !== "DHM warning"; });
     var locs = pts.map(function (r) { return r.location; });
-    var hrs = pts.map(function (r) { return toHours(r.time_npt); });
+    var t0 = toHours("08:40");
+    var mins = pts.map(function (r) { return Math.round((toHours(r.time_npt) - t0) * 60); });
+    function dur(m) {
+      if (m < 60) return m + " min";
+      var h = Math.floor(m / 60), mm = m % 60;
+      return h + "h" + (mm ? " " + mm + "m" : "");
+    }
     H.makeChart(document.getElementById("chart-wave"), {
       color: ["#0b3d91"],
       tooltip: {
         trigger: "axis",
+        axisPointer: { type: "shadow" },
         formatter: function (p) {
           var i = p[0].dataIndex;
-          return "<b>" + locs[i] + "</b><br/>Arrived " + clock(hrs[i]) + " NPT<br/>" + pts[i].event;
+          return "<b>" + locs[i] + "</b><br/>Wave arrived " + dur(mins[i]) + " after the collapse (" + clock(toHours(pts[i].time_npt)) + " NPT)<br/>" + pts[i].event;
         }
       },
-      grid: { left: 60, right: 30, top: 30, bottom: 90 },
-      xAxis: Object.assign({ type: "category", data: locs, axisLabel: { rotate: 28, interval: 0 } }, ax),
-      yAxis: Object.assign({ type: "value", min: 8, max: 17, axisLabel: { formatter: function (v) { return clock(v); } } }, ax),
+      grid: { left: 200, right: 60, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "value", name: "minutes after 08:40", nameLocation: "middle", nameGap: 28, nameTextStyle: { color: "#8a8175" } }, ax),
+      yAxis: Object.assign({ type: "category", data: locs, inverse: true }, ax),
       series: [{
-        type: "line",
-        data: hrs,
-        smooth: true,
-        symbolSize: 9,
-        lineStyle: { width: 3 },
-        label: { show: true, formatter: function (p) { return clock(p.value); }, color: "#4a443b", fontSize: 11, position: "top" }
+        type: "bar",
+        data: mins,
+        barWidth: "52%",
+        itemStyle: { borderRadius: [0, 5, 5, 0] },
+        label: { show: true, position: "right", formatter: function (p) { return dur(p.value); }, color: "#4a443b" }
       }]
     });
   });
