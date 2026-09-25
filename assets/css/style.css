@@ -337,6 +337,18 @@ a:hover { color: var(--orange); }
   background: #e8e4dc;
 }
 #recovery-map .leaflet-container { font-family: inherit; }
+
+/* ---------- story heatmaps (Leaflet) ---------- */
+.story-map {
+  height: 430px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  position: relative;
+  z-index: 0;
+  background: #e8e4dc;
+}
+.story-map .leaflet-container { font-family: inherit; }
+.map-fallback { padding: 2em; text-align: center; color: var(--muted); }
 .map-legend {
   background: rgba(255, 255, 255, 0.93);
   padding: 8px 10px;
@@ -354,7 +366,7 @@ a:hover { color: var(--orange); }
   margin-right: 6px;
   vertical-align: -1px;
 }
-@media (max-width: 640px) { #recovery-map { height: 360px; } }
+@media (max-width: 640px) { #recovery-map, .story-map { height: 360px; } }
 
 /* ---------- flood reconstruction animation ---------- */
 .flood-recon .recon-controls {

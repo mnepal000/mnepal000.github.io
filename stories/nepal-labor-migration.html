@@ -6,8 +6,11 @@
 <title>The remittance republic: how migrant money reshaped Nepal's economy | HimalData</title>
 <meta name="description" content="Nepal received $11.25 billion in remittances in 2024, a quarter of its GDP. A data story on the rise of migrant money and where Nepal's workers go.">
 <link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="../assets/js/portal.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
 </head>
 <body>
 
@@ -70,8 +73,8 @@
       <figure>
         <div class="chart-box">
           <h3>Where Nepal's labor migrants go</h3>
-          <div class="chart-sub">Share of foreign employment permits by destination, 2008/09 to 2022</div>
-          <div class="chart" id="chart-destinations"></div>
+          <div class="chart-sub">Share of foreign employment permits by destination, 2008/09 to 2022. Hover or tap a marker for details.</div>
+          <div class="story-map" id="dest-map"></div>
           <div class="chart-source">Source: Department of Foreign Employment, via Nepal Journal of Economics Research. <a href="../datasets/nepal-labor-permit-destinations.csv" download>Download the CSV</a></div>
         </div>
       </figure>
@@ -105,8 +108,8 @@
       <figure>
         <div class="chart-box">
           <h3>Where Nepali migrant workers died, FY 2081/82</h3>
-          <div class="chart-sub">Deaths recorded by the Foreign Employment Board, by destination country</div>
-          <div class="chart" id="chart-deaths-country"></div>
+          <div class="chart-sub">Deaths recorded by the Foreign Employment Board, by destination country. Hover or tap a marker for details.</div>
+          <div class="story-map" id="deaths-map"></div>
           <div class="chart-source">Source: Foreign Employment Board Annual Progress Report FY 2081/82, via People's Review. <a href="../datasets/nepal-migrant-deaths-fy2081-82.csv" download>Download the CSV</a></div>
         </div>
       </figure>
@@ -130,7 +133,7 @@
 
       <div class="method-box">
         <h4>Method and caveats</h4>
-        Remittance figures are World Bank annual inflow estimates in current US dollars. Labor permit counts come from the Department of Foreign Employment and count permits issued, not unique migrants; renewals are included in the totals, and undocumented migration through the open border with India is not captured. Destination shares cover FY 2008/09 through 2022 as compiled from DoFE records. Death figures for FY 2081/82 come from the Foreign Employment Board's annual report as reported by People's Review; cause-of-death categories are the Board's recorded classifications, and the figures were independently corroborated against AFP's reporting on the same period. Human stories are drawn from named reporting by AFP, the Associated Press, and New Spotlight Magazine, with links to the original pieces.
+        Remittance figures are World Bank annual inflow estimates in current US dollars. Labor permit counts come from the Department of Foreign Employment and count permits issued, not unique migrants; renewals are included in the totals, and undocumented migration through the open border with India is not captured. Destination shares cover FY 2008/09 through 2022 as compiled from DoFE records. Death figures for FY 2081/82 come from the Foreign Employment Board's annual report as reported by People's Review; cause-of-death categories are the Board's recorded classifications, and the figures were independently corroborated against AFP's reporting on the same period. Country markers on the two heatmaps sit on approximate centroids and show relative intensity only, not precise locations. Human stories are drawn from named reporting by AFP, the Associated Press, and New Spotlight Magazine, with links to the original pieces.
       </div>
 
       <h2>Sources</h2>
@@ -189,25 +192,131 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  H.loadCSV(base + "datasets/nepal-labor-permit-destinations.csv").then(function (rows) {
-    rows.sort(function (a, b) { return parseFloat(b.share_percent) - parseFloat(a.share_percent); });
-    var names = rows.map(function (r) { return r.destination; });
-    var vals = rows.map(function (r) { return parseFloat(r.share_percent); });
-    H.makeChart(document.getElementById("chart-destinations"), {
-      color: ["#de7a1f"],
-      tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, formatter: "{b}: <b>{c}%</b> of permits" },
-      grid: { left: 140, right: 56, top: 30, bottom: 40 },
-      xAxis: Object.assign({ type: "value", name: "% of permits", nameTextStyle: { color: "#8a8175" } }, ax),
-      yAxis: Object.assign({ type: "category", data: names, inverse: true }, ax),
-      series: [{
-        type: "bar",
-        data: vals,
-        barWidth: "52%",
-        itemStyle: { borderRadius: [0, 5, 5, 0] },
-        label: { show: true, position: "right", formatter: "{c}%", color: "#4a443b" }
-      }]
+  /* Interactive heatmap: where the workers go */
+  (function () {
+    var el = document.getElementById("dest-map");
+    if (!el) return;
+    if (typeof L === "undefined") {
+      el.innerHTML = "<p class='map-fallback'>Map could not be loaded. The underlying data is available in the CSV below.</p>";
+      return;
+    }
+    /* Shares from DoFE permit data, 2008/09 to 2022. Coordinates are approximate country centroids used only to place markers. */
+    var pts = [
+      { d: "Malaysia", share: 33.3, lat: 4.21, lng: 102.25 },
+      { d: "Qatar", share: 19.0, lat: 25.28, lng: 51.53 },
+      { d: "Saudi Arabia", share: 18.9, lat: 24.71, lng: 46.68 },
+      { d: "UAE", share: 9.8, lat: 24.45, lng: 54.38 }
+    ];
+    var maxS = 33.3;
+    var map = L.map("dest-map", { scrollWheelZoom: false });
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors"
+    }).addTo(map);
+    if (L.heatLayer) {
+      L.heatLayer(
+        pts.map(function (p) { return [p.lat, p.lng, Math.max(p.share / maxS, 0.12)]; }),
+        {
+          radius: 48, blur: 32, maxZoom: 10,
+          gradient: { 0.0: "#fdeedd", 0.4: "#f6c08a", 0.65: "#e88a3c", 0.85: "#c0392b", 1.0: "#6e1a10" }
+        }
+      ).addTo(map);
+    }
+    function shareColor(s) {
+      if (s >= 30) return "#6e1a10";
+      if (s >= 15) return "#c0392b";
+      return "#e88a3c";
+    }
+    pts.forEach(function (p) {
+      var m = L.circleMarker([p.lat, p.lng], {
+        radius: 6 + 12 * Math.sqrt(p.share / maxS),
+        color: "#ffffff",
+        weight: 2,
+        fillColor: shareColor(p.share),
+        fillOpacity: 0.9
+      }).addTo(map);
+      m.bindTooltip("<b>" + p.d + "</b><br>" + p.share + "% of labor permits", { direction: "top" });
     });
-  });
+    /* Origin marker: Nepal */
+    var origin = L.circleMarker([27.72, 85.32], {
+      radius: 7, color: "#ffffff", weight: 2, fillColor: "#1e7d4f", fillOpacity: 1
+    }).addTo(map);
+    origin.bindTooltip("<b>Nepal</b><br>Origin", { direction: "top" });
+    var bounds = L.latLngBounds(
+      pts.concat([{ lat: 27.72, lng: 85.32 }]).map(function (p) { return [p.lat, p.lng]; })
+    );
+    map.fitBounds(bounds.pad(0.18));
+    var legend = L.control({ position: "bottomright" });
+    legend.onAdd = function () {
+      var div = L.DomUtil.create("div", "map-legend");
+      div.innerHTML = "<b>Share of permits</b><br>" +
+        "<span><i style=\"background:#6e1a10\"></i>30%+</span><br>" +
+        "<span><i style=\"background:#c0392b\"></i>15&ndash;29%</span><br>" +
+        "<span><i style=\"background:#e88a3c\"></i>under 15%</span><br>" +
+        "<span><i style=\"background:#1e7d4f\"></i>Nepal (origin)</span><br>" +
+        "<span style=\"color:#8a8175\">Other destinations: 19.0%</span>";
+      return div;
+    };
+    legend.addTo(map);
+  })();
+
+  /* Interactive heatmap: where workers died */
+  (function () {
+    var el = document.getElementById("deaths-map");
+    if (!el) return;
+    if (typeof L === "undefined") {
+      el.innerHTML = "<p class='map-fallback'>Map could not be loaded. The underlying data is available in the CSV below.</p>";
+      return;
+    }
+    /* Deaths from the Foreign Employment Board's FY 2081/82 annual report. Coordinates are approximate country centroids used only to place markers. */
+    var pts = [
+      { d: "Malaysia", c: 394, lat: 4.21, lng: 102.25 },
+      { d: "Saudi Arabia", c: 335, lat: 24.71, lng: 46.68 },
+      { d: "UAE", c: 311, lat: 24.45, lng: 54.38 },
+      { d: "Qatar", c: 252, lat: 25.28, lng: 51.53 }
+    ];
+    var maxC = 394;
+    var map = L.map("deaths-map", { scrollWheelZoom: false });
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors"
+    }).addTo(map);
+    if (L.heatLayer) {
+      L.heatLayer(
+        pts.map(function (p) { return [p.lat, p.lng, Math.max(p.c / maxC, 0.15)]; }),
+        {
+          radius: 48, blur: 32, maxZoom: 10,
+          gradient: { 0.0: "#fdeedd", 0.4: "#f6c08a", 0.65: "#e88a3c", 0.85: "#c0392b", 1.0: "#6e1a10" }
+        }
+      ).addTo(map);
+    }
+    function deathColor(c) {
+      if (c >= 350) return "#6e1a10";
+      if (c >= 300) return "#c0392b";
+      return "#e88a3c";
+    }
+    pts.forEach(function (p) {
+      var m = L.circleMarker([p.lat, p.lng], {
+        radius: 6 + 12 * Math.sqrt(p.c / maxC),
+        color: "#ffffff",
+        weight: 2,
+        fillColor: deathColor(p.c),
+        fillOpacity: 0.9
+      }).addTo(map);
+      m.bindTooltip("<b>" + p.d + "</b><br>" + p.c + " deaths, FY 2081/82", { direction: "top" });
+    });
+    map.fitBounds(L.latLngBounds(pts.map(function (p) { return [p.lat, p.lng]; })).pad(0.25));
+    var legend = L.control({ position: "bottomright" });
+    legend.onAdd = function () {
+      var div = L.DomUtil.create("div", "map-legend");
+      div.innerHTML = "<b>Deaths, FY 2081/82</b><br>" +
+        "<span><i style=\"background:#6e1a10\"></i>350+</span><br>" +
+        "<span><i style=\"background:#c0392b\"></i>300&ndash;349</span><br>" +
+        "<span><i style=\"background:#e88a3c\"></i>under 300</span>";
+      return div;
+    };
+    legend.addTo(map);
+  })();
 
   H.loadCSV(base + "datasets/nepal-permits-firsttime-fy2024-25.csv").then(function (rows) {
     var data = rows.map(function (r) { return { name: r.permit_type, value: parseFloat(r.share_percent) }; });
@@ -227,25 +336,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   H.loadCSV(base + "datasets/nepal-migrant-deaths-fy2081-82.csv").then(function (rows) {
-    var countries = rows.filter(function (r) { return r.kind === "country"; });
-    countries.sort(function (a, b) { return parseFloat(b.deaths) - parseFloat(a.deaths); });
-    var cnames = countries.map(function (r) { return r.category; });
-    var cvals = countries.map(function (r) { return parseFloat(r.deaths); });
-    H.makeChart(document.getElementById("chart-deaths-country"), {
-      color: ["#1e7d4f"],
-      tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, formatter: "{b}: <b>{c}</b> deaths" },
-      grid: { left: 110, right: 50, top: 30, bottom: 40 },
-      xAxis: Object.assign({ type: "value", name: "deaths", nameTextStyle: { color: "#8a8175" } }, ax),
-      yAxis: Object.assign({ type: "category", data: cnames, inverse: true }, ax),
-      series: [{
-        type: "bar",
-        data: cvals,
-        barWidth: "52%",
-        itemStyle: { borderRadius: [0, 5, 5, 0] },
-        label: { show: true, position: "right", formatter: "{c}", color: "#4a443b" }
-      }]
-    });
-
     var causes = rows.filter(function (r) { return r.kind === "cause"; });
     var cdata = causes.map(function (r, i) {
       return { name: r.category, value: parseFloat(r.deaths), itemStyle: { color: H.palette[i % H.palette.length] } };
