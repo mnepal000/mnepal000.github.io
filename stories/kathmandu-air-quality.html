@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choking season: Kathmandu and South Asia's air crisis | HimalData</title>
+<meta name="description" content="Kathmandu's 2024 average PM2.5 was 45.1 µg/m³, nine times the WHO guideline. A data story on the valley's smog and South Asia's polluted capitals.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/js/portal.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">Himal<span class="dot">Data</span></span>
+      <span class="brand-tag">Nepal and South Asia</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html" class="active">Stories</a>
+      <a href="../data/index.html">Data</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap-narrow">
+    <section class="story-hero">
+      <div class="topic">Climate and disasters &middot; Nepal and South Asia</div>
+      <h1>Choking season: Kathmandu and South Asia's air crisis</h1>
+      <p class="dek">Kathmandu keeps topping the world's most-polluted-city rankings. The annual averages tell a quieter story: year after year, the air stays far above anything considered safe.</p>
+      <div class="byline"><strong>HimalData</strong> &middot; Published September 2026 &middot; 8 min read</div>
+    </section>
+
+    <section class="stat-band" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
+      <div class="stat"><div class="num">45.1</div><div class="label">Kathmandu's average PM2.5 in 2024 (µg/m³, IQAir)</div></div>
+      <div class="stat"><div class="num">9x</div><div class="label">Times the WHO annual guideline of 5 µg/m³</div></div>
+      <div class="stat"><div class="num">42K</div><div class="label">Air pollution linked deaths per year in Nepal (Ministry of Health)</div></div>
+    </section>
+
+    <article class="article">
+      <p>On several mornings in recent years, Kathmandu has woken up as the most polluted major city on earth: in May 2024, in April 2025 when PM2.5 hit 204.5 µg/m³, and again in March 2026. The headlines capture the spikes. The slower story is in the annual averages, which show a city breathing unsafe air as a matter of routine.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Kathmandu's annual average PM2.5</h3>
+          <div class="chart-sub">Micrograms per cubic meter (µg/m³). The dashed line is the WHO annual guideline.</div>
+          <div class="chart" id="chart-ktm"></div>
+          <div class="chart-source">Source: IQAir. <a href="../datasets/kathmandu-pm25-annual.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>In 2024, Kathmandu averaged <strong>45.1 µg/m³</strong>, equivalent to an AQI of 128 and nine times the WHO guideline. In 2019 the average was 48 µg/m³, and in 2023 it was 41 µg/m³. The numbers move a little year to year, but they never come close to safe.</p>
+
+      <p>The worst months are winter. In January 2019, Kathmandu's monthly average reached <strong>102.7 µg/m³</strong>, deep into the "unhealthy" range. The valley's bowl geography traps pollution under winter inversions, while brick kilns, vehicle exhaust, open waste burning, construction dust, and rubble from the 2015 earthquake keep feeding the haze.</p>
+
+      <div class="pull-stat">Kathmandu's air in an average year is nine times dirtier than the World Health Organization says is safe.</div>
+
+      <h2>A regional pattern</h2>
+      <p>Kathmandu is not an outlier; it is part of one of the most polluted regions on the planet. In IQAir's 2023 capital city ranking, New Delhi was the world's most polluted capital for the sixth straight year at 92.7 µg/m³, followed by Dhaka at 80.2. Islamabad and Kathmandu sat close together in the low forties.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>South Asia's capitals, 2023 annual average PM2.5</h3>
+          <div class="chart-sub">Micrograms per cubic meter (µg/m³). The dashed line is the WHO annual guideline.</div>
+          <div class="chart" id="chart-capitals"></div>
+          <div class="chart-source">Source: IQAir 2023 World Air Quality Report. <a href="../datasets/south-asia-capitals-pm25-2023.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>The 2024 report tells the same story: New Delhi remained the most polluted capital at 91.8 µg/m³, with Dhaka next at 78. Across Asia, 97.7 percent of cities exceeded the WHO guideline in 2024. South Asia's smog is a shared airshed problem, drifting across the Indo-Gangetic plain regardless of borders.</p>
+
+      <h2>The health toll</h2>
+      <p>Nepal's Ministry of Health attributes about <strong>42,000 deaths a year</strong> to air pollution, with children under five and adults over 70 hit hardest. During severe episodes, Kathmandu's major hospitals report spikes in respiratory cases; the Tribhuvan University Teaching Hospital saw its outpatient numbers jump during the April 2025 smog. The health ministry has repeatedly advised residents to wear masks and limit outdoor activity on bad days.</p>
+
+      <p>Policy responses so far are modest: vehicle emission testing, dust control rules for construction, and public advisories. Enforcement is patchy, monitoring outside the valley is thin, and brick kilns and waste burning continue largely unchecked. Until the sources are tackled, the data suggests Kathmandu's choking seasons will keep returning on schedule.</p>
+
+      <div class="method-box">
+        <h4>Method and caveats</h4>
+        Annual PM2.5 figures are IQAir city averages from ground monitoring stations. The 2019 figure comes from IQAir's Kathmandu city page; the 2023 figure from the 2023 World Air Quality Report's capital city ranking; the 2024 figure from IQAir's Kathmandu reporting. Station coverage in Nepal is concentrated in the Kathmandu Valley, so these numbers describe the capital, not the country. Real-time "most polluted city" rankings reflect hourly conditions and swing wildly; the annual averages are the better measure of chronic exposure.
+      </div>
+
+      <h2>Sources</h2>
+      <ul class="sources-list">
+        <li>Kathmandu 2024 annual average (45.1 µg/m³) and March 2026 episode, <a href="https://www.iqair.com/newsroom/kathmandu-among-top-10-most-polluted-cities-in-the-world-3-8-2026">IQAir</a>.</li>
+        <li>Kathmandu 2019 annual average (48 µg/m³) and January 2019 monthly average (102.7 µg/m³), <a href="https://www.iqair.com/nepal/central-region/kathmandu?srsltid=AfmBOorP652C0Pf36KTeNdPwHUlojYGWD4iwjBGVqzxRyoqOEQTu531d">IQAir Kathmandu city page</a>.</li>
+        <li>2023 capital city ranking (New Delhi 92.7, Dhaka 80.2, Islamabad 42.4, Kathmandu 41.0), <a href="https://cold-voice-b72a.comc.workers.dev:443/https/www.iqair.com/dl/2023_World_Air_Quality_Report.pdf">IQAir 2023 World Air Quality Report (PDF)</a>.</li>
+        <li>2024 report summary (New Delhi 91.8, Dhaka 78; 97.7% of Asian cities above WHO guideline), via <a href="https://upscexamnotes.com/upsc-article.php?article=world-air-quality-report-2024-1">World Air Quality Report 2024 summary</a>.</li>
+        <li>April 2025 episode (AQI 279, PM2.5 204.5 µg/m³) and health toll (42,000 deaths/year, Ministry of Health), via <a href="https://www.latestly.com/agency-news/world-news-swiss-firm-ranks-kathmandu-most-polluted-city-in-the-world-6766253.html">ANI / LatestLY</a>.</li>
+        <li>May 2024 "most polluted city" ranking and mask advisory, <a href="https://www.gktoday.in/question/according-to-iqair-which-city-has-recently-been-ranked-as-the-most-pol">GKToday</a>.</li>
+      </ul>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>HimalData &middot; Data stories from Nepal and South Asia</span>
+    <span><a href="index.html">More stories</a></span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var H = HimalData, base = H.basePath(), ax = H.axisStyle();
+
+  H.loadCSV(base + "datasets/kathmandu-pm25-annual.csv").then(function (rows) {
+    var years = rows.map(function (r) { return r.year; });
+    var vals = rows.map(function (r) { return parseFloat(r.pm25_ug_m3); });
+    H.makeChart(document.getElementById("chart-ktm"), {
+      color: ["#c8102e"],
+      tooltip: { trigger: "axis", formatter: "{b}: <b>{c} µg/m³</b>" },
+      grid: { left: 54, right: 20, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "category", data: years }, ax),
+      yAxis: Object.assign({ type: "value", name: "µg/m³", nameTextStyle: { color: "#8a8175" } }, ax),
+      series: [{
+        type: "bar",
+        data: vals,
+        barWidth: "52%",
+        itemStyle: { borderRadius: [5, 5, 0, 0] },
+        markLine: {
+          silent: true,
+          symbol: "none",
+          lineStyle: { color: "#0b3d91", type: "dashed", width: 2 },
+          label: { formatter: "WHO guideline: 5 µg/m³", position: "insideEndTop", color: "#0b3d91", fontSize: 12 },
+          data: [{ yAxis: 5 }]
+        }
+      }]
+    });
+  });
+
+  H.loadCSV(base + "datasets/south-asia-capitals-pm25-2023.csv").then(function (rows) {
+    rows.sort(function (a, b) { return parseFloat(b.pm25_2023_ug_m3) - parseFloat(a.pm25_2023_ug_m3); });
+    var names = rows.map(function (r) { return r.capital + ", " + r.country; });
+    var vals = rows.map(function (r) { return parseFloat(r.pm25_2023_ug_m3); });
+    H.makeChart(document.getElementById("chart-capitals"), {
+      color: ["#c8102e"],
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, formatter: "{b}: <b>{c} µg/m³</b>" },
+      grid: { left: 130, right: 30, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "value", name: "µg/m³", nameTextStyle: { color: "#8a8175" } }, ax),
+      yAxis: Object.assign({ type: "category", data: names, inverse: true }, ax),
+      series: [{
+        type: "bar",
+        data: vals,
+        barWidth: "46%",
+        itemStyle: { borderRadius: [0, 5, 5, 0] },
+        label: { show: true, position: "right", formatter: "{c}", color: "#4a443b" },
+        markLine: {
+          silent: true,
+          symbol: "none",
+          lineStyle: { color: "#0b3d91", type: "dashed", width: 2 },
+          label: { formatter: "WHO: 5", position: "insideEndTop", color: "#0b3d91", fontSize: 12 },
+          data: [{ xAxis: 5 }]
+        }
+      }]
+    });
+  });
+});
+</script>
+
+</body>
+</html>

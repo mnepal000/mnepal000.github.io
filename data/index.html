@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data catalog | HimalData</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/js/portal.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">Himal<span class="dot">Data</span></span>
+      <span class="brand-tag">Nepal and South Asia</span>
+    </a>
+    <nav class="site-nav">
+      <a href="../stories/index.html">Stories</a>
+      <a href="index.html" class="active">Data</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero" style="padding-bottom: 8px;">
+      <div class="hero-kicker">Open data catalog</div>
+      <h1>Every number we publish, in one place.</h1>
+      <p class="lede">Cleaned, documented CSVs behind our stories. Download them, check our work, and reuse them with credit to HimalData and the original source.</p>
+    </section>
+
+    <div class="section-head"><h2>Datasets</h2></div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Dataset</th>
+          <th>Topics</th>
+          <th>Years</th>
+          <th>Source</th>
+          <th>File</th>
+        </tr>
+      </thead>
+      <tbody id="catalog-body">
+        <tr><td colspan="5">Loading catalog&hellip;</td></tr>
+      </tbody>
+    </table>
+
+    <div class="notice">
+      <strong>Use the data:</strong> everything here is published for reuse with credit. Cite the dataset title, HimalData, and the original source named in the table. Found an error? See <a href="../about.html">how to report it</a>.
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>HimalData &middot; Data stories from Nepal and South Asia</span>
+    <span><a href="../about.html">About the project</a></span>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    HimalData.renderCatalog("catalog-body");
+  });
+</script>
+
+</body>
+</html>

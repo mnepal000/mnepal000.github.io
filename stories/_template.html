@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- TODO: replace with the story title -->
+<title>STORY TITLE | HimalData</title>
+<meta name="description" content="TODO: one-sentence summary for search and social cards.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/js/portal.js" defer></script>
+<!-- ECharts is only needed on pages with charts -->
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">Himal<span class="dot">Data</span></span>
+      <span class="brand-tag">Nepal and South Asia</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html" class="active">Stories</a>
+      <a href="../data/index.html">Data</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap-narrow">
+    <section class="story-hero">
+      <!-- TODO: topic line, e.g. "Democracy and elections &middot; South Asia" -->
+      <div class="topic">TOPIC &middot; COUNTRY OR REGION</div>
+      <h1>TODO: story headline</h1>
+      <p class="dek">TODO: one or two sentence summary (the dek).</p>
+      <div class="byline"><strong>HimalData</strong> &middot; Published TODO: Month 2026 &middot; TODO: X min read</div>
+    </section>
+
+    <!-- Optional: 3-4 headline stats. Delete if not needed. -->
+    <section class="stat-band" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
+      <div class="stat"><div class="num">TODO</div><div class="label">TODO: what this number means</div></div>
+      <div class="stat"><div class="num">TODO</div><div class="label">TODO: what this number means</div></div>
+      <div class="stat"><div class="num">TODO</div><div class="label">TODO: what this number means</div></div>
+    </section>
+
+    <article class="article">
+      <p>TODO: opening paragraphs. Set the scene, then let the data carry the argument.</p>
+
+      <!-- Chart block. Copy for each chart. The CSV must live in ../datasets/ -->
+      <figure>
+        <div class="chart-box">
+          <h3>TODO: chart title</h3>
+          <div class="chart-sub">TODO: units and source, one line</div>
+          <div class="chart" id="chart-one"></div>
+          <div class="chart-source">Source: TODO: named source. <a href="../datasets/TODO-FILE.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>TODO: continue the narrative. Reference what the chart shows.</p>
+
+      <div class="pull-stat">TODO: one striking sentence, set apart.</div>
+
+      <h2>TODO: section heading</h2>
+      <p>TODO: more narrative.</p>
+
+      <!-- Method box: required for every story -->
+      <div class="method-box">
+        <h4>Method and caveats</h4>
+        TODO: what the data measures, what it leaves out, and any cleaning decisions. Be honest about limits.
+      </div>
+
+      <h2>Sources</h2>
+      <ul class="sources-list">
+        <!-- TODO: list every source with a link -->
+        <li>TODO: source name and link.</li>
+      </ul>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>HimalData &middot; Data stories from Nepal and South Asia</span>
+    <span><a href="index.html">More stories</a></span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var H = HimalData, base = H.basePath(), ax = H.axisStyle();
+
+  // TODO: load your CSV and build the chart. Example bar chart:
+  H.loadCSV(base + "datasets/TODO-FILE.csv").then(function (rows) {
+    // var labels = rows.map(function (r) { return r.year; });
+    // var values = rows.map(function (r) { return parseFloat(r.some_column); });
+    H.makeChart(document.getElementById("chart-one"), {
+      color: ["#c8102e"],
+      tooltip: { trigger: "axis" },
+      grid: { left: 54, right: 20, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "category", data: [] }, ax),
+      yAxis: Object.assign({ type: "value" }, ax),
+      series: [{ type: "bar", data: [], barWidth: "62%", itemStyle: { borderRadius: [5, 5, 0, 0] } }]
+    });
+  });
+});
+</script>
+
+</body>
+</html>
