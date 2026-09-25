@@ -6,8 +6,11 @@
 <title>When the mountain fell: the 26 August flood that drowned northern Nepal | HimalData</title>
 <meta name="description" content="On 26 August 2026, two square kilometers of Langtang Lirung collapsed, sending a wall of mud and boulders down the Bhote Koshi. About 1,450 people died and more than 5,000 are missing in Nepal's deadliest flood on record.">
 <link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="../assets/js/portal.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
 </head>
 <body>
 
@@ -104,42 +107,6 @@
 
       <div class="pull-stat">The debris moved at about 190 kilometers an hour. In places the water ran 80 meters above the normal river level.</div>
 
-      <figure class="map-figure">
-        <svg viewBox="0 0 400 560" role="img" aria-label="Schematic map of the flood corridor from Langtang Lirung to Devghat">
-          <defs>
-            <linearGradient id="river" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#7fb3d5"/>
-              <stop offset="1" stop-color="#2e86c1"/>
-            </linearGradient>
-          </defs>
-          <text x="200" y="24" text-anchor="middle" font-size="13" fill="#8a8175">Schematic, not to scale</text>
-          <path d="M200,50 C190,110 215,150 200,200 C185,250 210,290 200,340 C190,390 205,440 200,510" fill="none" stroke="url(#river)" stroke-width="14" stroke-linecap="round"/>
-          <g font-size="13" fill="#2c2a26">
-            <circle cx="200" cy="50" r="7" fill="#c8102e"/>
-            <text x="216" y="46">Langtang Lirung</text>
-            <text x="216" y="62" font-size="11" fill="#8a8175">collapse, 08:40</text>
-            <circle cx="200" cy="140" r="5" fill="#2c2a26"/>
-            <text x="216" y="144">Rasuwagadhi / Timure</text>
-            <circle cx="200" cy="215" r="5" fill="#2c2a26"/>
-            <text x="216" y="219">Syafrubesi</text>
-            <circle cx="200" cy="290" r="5" fill="#2c2a26"/>
-            <text x="216" y="294">Trishuli bazaar</text>
-            <circle cx="200" cy="365" r="5" fill="#2c2a26"/>
-            <text x="216" y="369">Mugling</text>
-            <circle cx="200" cy="440" r="5" fill="#2c2a26"/>
-            <text x="216" y="444">Narayangadh</text>
-            <circle cx="200" cy="510" r="7" fill="#0b3d91"/>
-            <text x="216" y="506">Devghat</text>
-            <text x="216" y="522" font-size="11" fill="#8a8175">peak 16:00, 5,850 m3/s</text>
-          </g>
-          <g font-size="11" fill="#8a8175">
-            <text x="120" y="180">Bhote Koshi</text>
-            <text x="120" y="330">Trishuli</text>
-            <text x="120" y="480">Narayani</text>
-          </g>
-        </svg>
-        <figcaption>The flood ran the Bhote Koshi-Trishuli-Narayani corridor, from the Tibetan border to the plains. Bodies were recovered as far downstream as Chitwan and Nawalparasi.</figcaption>
-      </figure>
       <h2>The valley, before and after</h2>
       <p>Two days before the collapse, the Sentinel-2 satellite photographed a normal late-monsoon valley: green slopes, braided river channels, glaciers clinging to the high peaks. The next clear image, from Landsat 9 on the morning of the flood, shows the same valley smeared pale with fresh debris. Watch the animation below and look at the river itself: where it was thin and green, it is now wide, brown and black with sediment, and the pale scars along the valley walls mark where the debris flow scoured everything to bedrock.</p>
 
@@ -169,9 +136,9 @@
       <figure>
         <div class="chart-box">
           <h3>Where bodies were recovered, as of 31 August</h3>
-          <div class="chart-sub">Recovery location, not necessarily home district. Darker cells mean more bodies recovered. The flood carried victims far downstream into the plains.</div>
-          <div class="chart" id="chart-districts"></div>
-          <div class="chart-source">Source: OCHA Situation Report 2 (NDRRMA data). <a href="../datasets/bhotekoshi-flood-body-recovery-district.csv" download>Download the CSV</a></div>
+          <div class="chart-sub">Heatmap of recovery locations in Nepal, plus bodies reported recovered across the border in Bihar, India. Recovery location, not necessarily home district. Click a marker for the count.</div>
+          <div id="recovery-map" role="img" aria-label="Heatmap of body recovery locations across Nepal and northern Bihar, India"></div>
+          <div class="chart-source">Sources: OCHA Situation Report 2 (NDRRMA data) for Nepal; 15 bodies near the Gandak barrage, Bihar, reported by TrendKia citing Nepal APF, Sept 2026. <a href="../datasets/bhotekoshi-flood-body-recovery-district.csv" download>Download the Nepal CSV</a></div>
         </div>
       </figure>
 
@@ -233,7 +200,7 @@
 
       <div class="method-box">
         <h4>Method and caveats</h4>
-        Every figure in this story is dated, because the figures moved. Casualty counts come from Nepal Police bulletins, NDRRMA situation reports and OCHA sitreps; police and disaster-authority totals sometimes differ on the same date because of different reporting cutoffs, and later press-reported figures (about 1,450 dead, 5,000 to 6,000 missing) carry varying cutoffs, with some combining Nepal and Tibet. Infrastructure figures changed as assessments matured: road losses were reported as 40, 55 and 69 km at different dates, motorable bridges as 19, 33 or 41 destroyed, hydropower losses from 400 to 783 MW. The later Rapid Damage Needs Assessment figures are used where available. Damage ($2.56 to $2.7 billion) and reconstruction need ($4.74 to $4.8 billion, roughly 10 percent of GDP) are different things and are not interchangeable. World Weather Attribution's findings are summarized from Carbon Brief and responsibleus reporting because the WWA page could not be fetched directly at research time; the study did not produce a conventional "times more likely" attribution number, and none is given here. Tibet-side casualty figures rest on Chinese state media and are unverified. Human stories are drawn from Nepali outlets (Gothalo/RSS, People's Review, Nepali Times via Global Voices) and international wire reporting where Nepali originals could not be located; names and quotations are as reported by those outlets.
+        Every figure in this story is dated, because the figures moved. Casualty counts come from Nepal Police bulletins, NDRRMA situation reports and OCHA sitreps; police and disaster-authority totals sometimes differ on the same date because of different reporting cutoffs, and later press-reported figures (about 1,450 dead, 5,000 to 6,000 missing) carry varying cutoffs, with some combining Nepal and Tibet. Infrastructure figures changed as assessments matured: road losses were reported as 40, 55 and 69 km at different dates, motorable bridges as 19, 33 or 41 destroyed, hydropower losses from 400 to 783 MW. The later Rapid Damage Needs Assessment figures are used where available. Damage ($2.56 to $2.7 billion) and reconstruction need ($4.74 to $4.8 billion, roughly 10 percent of GDP) are different things and are not interchangeable. World Weather Attribution's findings are summarized from Carbon Brief and responsibleus reporting because the WWA page could not be fetched directly at research time; the study did not produce a conventional "times more likely" attribution number, and none is given here. Tibet-side casualty figures rest on Chinese state media and are unverified. The 15 bodies shown in Bihar, India, are a reported figure from a single outlet citing Nepal's Armed Police Force, with identification still ongoing at report time. Human stories are drawn from Nepali outlets (Gothalo/RSS, People's Review, Nepali Times via Global Voices) and international wire reporting where Nepali originals could not be located; names and quotations are as reported by those outlets.
       </div>
 
       <h2>Sources</h2>
@@ -252,6 +219,7 @@
         <li>Cabinet decisions and $5m ADB grant, <a href="https://www.sharesansar.com/newsdetail/cabinet-unveils-7-key-decisions-approves-5-million-adb-grant-for-flood-relief-2026-09-03">ShareSansar, 3 Sept 2026</a>.</li>
         <li>NDRRMA situation report, <a href="https://ndrrma.gov.np/mediafiles/rasuwa/Rasuwa_Flood_SitRep_Temp_ENG_01_01092026.pdf">1 Sept 2026 (PDF)</a>.</li>
         <li>OCHA situation reports: <a href="https://reliefweb.int/report/nepal/nepal-flood-response-situation-report-2-31-august-2026">SitRep 2, 31 Aug 2026</a> and <a href="https://reliefweb.int/report/nepal/nepal-rasuwa-flood-situation-report-no-8-15-september-2026">SitRep 8, 15 Sept 2026</a>.</li>
+        <li>15 bodies recovered near the Gandak barrage, West Champaran, Bihar, <a href="https://trendkia.com/en/bihar/body-count-at-bihar-s-gandak-barrage-climbs-to-15-as-nepal-flood-debris-keeps-washing-in-29077">TrendKia, Sept 2026</a> (citing Nepal APF; reported figure, identification ongoing).</li>
         <li>UNICEF humanitarian situation report, <a href="https://reliefweb.int/report/nepal/unicef-nepal-humanitarian-situation-report-no-5-22-september-2026">22 Sept 2026</a>.</li>
         <li>One month on: survivors still need aid, <a href="https://reliefweb.int/report/nepal/one-month-nepal-floods-homeless-survivors-still-need-aid-hunger-spreads-0">Islamic Relief, 25 Sept 2026</a>.</li>
         <li>FAO urgent call for assistance, <a href="https://reliefweb.int/report/nepal/nepal-rasuwa-bhotekoshi-flood-urgent-call-assistance">23 Sept 2026</a>.</li>
@@ -432,47 +400,73 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  /* Chart 3: body recovery by district, heatmap strip */
-  H.loadCSV(base + "datasets/bhotekoshi-flood-body-recovery-district.csv").then(function (rows) {
-    rows.sort(function (a, b) { return parseFloat(b.bodies_recovered) - parseFloat(a.bodies_recovered); });
-    var names = rows.map(function (r) { return r.district; });
-    var data = rows.map(function (r, i) { return [i, 0, parseFloat(r.bodies_recovered)]; });
-    var vmax = Math.max.apply(null, rows.map(function (r) { return parseFloat(r.bodies_recovered); }));
-    H.makeChart(document.getElementById("chart-districts"), {
-      tooltip: {
-        formatter: function (p) {
-          var r = rows[p.value[0]];
-          return "<b>" + r.district + "</b><br/>" + r.bodies_recovered + " bodies recovered<br/><span style='color:#8a8175'>" + r.note + "</span>";
+  /* Chart 3: body recovery heatmap on a real map (Leaflet) */
+  (function () {
+    var el = document.getElementById("recovery-map");
+    if (!el || typeof L === "undefined") {
+      if (el) el.innerHTML = "<p style='padding:2em;text-align:center;color:#8a8175'>Map could not be loaded. The data is available in the CSV below.</p>";
+      return;
+    }
+    /* District centroids are approximate; counts are recovery locations, not home districts. */
+    var pts = [
+      { d: "Chitwan", c: 272, lat: 27.68, lng: 84.43 },
+      { d: "Nawalparasi East", c: 207, lat: 27.72, lng: 84.02 },
+      { d: "Nawalparasi West", c: 151, lat: 27.53, lng: 83.67 },
+      { d: "Nuwakot", c: 95, lat: 27.88, lng: 85.13 },
+      { d: "Gorkha", c: 62, lat: 28.00, lng: 84.63 },
+      { d: "Dhading", c: 55, lat: 27.87, lng: 84.90 },
+      { d: "Tanahun", c: 37, lat: 27.98, lng: 84.28 },
+      { d: "Rasuwa", c: 24, lat: 28.12, lng: 85.28 },
+      { d: "Gandak barrage area, West Champaran, Bihar (India)", c: 15, lat: 27.15, lng: 84.05, india: true }
+    ];
+    var maxC = 272;
+    var map = L.map("recovery-map", { scrollWheelZoom: false });
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors"
+    }).addTo(map);
+    if (L.heatLayer) {
+      L.heatLayer(
+        pts.map(function (p) { return [p.lat, p.lng, Math.max(p.c / maxC, 0.08)]; }),
+        {
+          radius: 42, blur: 30, maxZoom: 10,
+          gradient: { 0.0: "#fdeedd", 0.4: "#f6c08a", 0.65: "#e88a3c", 0.85: "#c0392b", 1.0: "#6e1a10" }
         }
-      },
-      grid: { left: 40, right: 30, top: 24, bottom: 150 },
-      xAxis: Object.assign({ type: "category", data: names, splitArea: { show: true }, axisLabel: { rotate: 30, interval: 0 } }, ax),
-      yAxis: Object.assign({ type: "category", data: ["Bodies recovered"], splitArea: { show: true } }, ax),
-      visualMap: {
-        min: 0,
-        max: vmax,
-        calculable: true,
-        orient: "horizontal",
-        left: "center",
-        bottom: 8,
-        inRange: { color: ["#fdeedd", "#f6c08a", "#e88a3c", "#c0392b", "#6e1a10"] },
-        textStyle: { color: "#4a443b", fontSize: 11 }
-      },
-      series: [{
-        name: "Bodies recovered",
-        type: "heatmap",
-        data: data,
-        label: {
-          show: true,
-          fontSize: 14,
-          fontWeight: 600,
-          formatter: function (p) { return p.value[2]; },
-          color: function (p) { return p.value[2] > vmax * 0.45 ? "#ffffff" : "#2c2a26"; }
-        },
-        emphasis: { itemStyle: { shadowBlur: 10, shadowColor: "rgba(0,0,0,0.45)" } }
-      }]
+      ).addTo(map);
+    }
+    function heatColor(c) {
+      if (c >= 200) return "#6e1a10";
+      if (c >= 100) return "#c0392b";
+      if (c >= 50) return "#e88a3c";
+      return "#f6c08a";
+    }
+    pts.forEach(function (p) {
+      var m = L.circleMarker([p.lat, p.lng], {
+        radius: 5 + 11 * Math.sqrt(p.c / maxC),
+        color: "#ffffff",
+        weight: 2,
+        fillColor: heatColor(p.c),
+        fillOpacity: 0.9
+      }).addTo(map);
+      m.bindTooltip(
+        "<b>" + p.d + "</b><br>" + p.c + " bodies recovered" +
+        (p.india ? "<br><span style=\"color:#8a8175\">Reported Sept 2026; outside the 31 Aug Nepal dataset</span>" : ""),
+        { direction: "top" }
+      );
     });
-  });
+    map.fitBounds(L.latLngBounds(pts.map(function (p) { return [p.lat, p.lng]; })).pad(0.12));
+    var legend = L.control({ position: "bottomright" });
+    legend.onAdd = function () {
+      var div = L.DomUtil.create("div", "map-legend");
+      div.innerHTML = "<b>Bodies recovered</b><br>" +
+        "<span><i style=\"background:#6e1a10\"></i>200+</span><br>" +
+        "<span><i style=\"background:#c0392b\"></i>100&ndash;199</span><br>" +
+        "<span><i style=\"background:#e88a3c\"></i>50&ndash;99</span><br>" +
+        "<span><i style=\"background:#f6c08a\"></i>under 50</span>";
+      return div;
+    };
+    legend.addTo(map);
+  })();
 
   /* Chart 4: money, log scale */
   H.loadCSV(base + "datasets/bhotekoshi-flood-money.csv").then(function (rows) {

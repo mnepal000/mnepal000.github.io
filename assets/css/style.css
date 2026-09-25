@@ -319,6 +319,35 @@ a:hover { color: var(--crimson); }
 }
 .chart-source a { color: var(--muted); }
 
+/* ---------- recovery heatmap (Leaflet) ---------- */
+#recovery-map {
+  height: 430px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  position: relative;
+  z-index: 0;
+  background: #e8e4dc;
+}
+#recovery-map .leaflet-container { font-family: inherit; }
+.map-legend {
+  background: rgba(255, 255, 255, 0.93);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  color: #2c2a26;
+  line-height: 1.8;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+.map-legend i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+@media (max-width: 640px) { #recovery-map { height: 360px; } }
+
 /* ---------- flood reconstruction animation ---------- */
 .flood-recon .recon-controls {
   display: flex;
