@@ -274,6 +274,22 @@ a:hover { color: var(--crimson); }
   letter-spacing: -0.4px;
 }
 .article figure { margin: 2em 0; }
+.hero-figure, .map-figure {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px 14px 6px;
+  margin: 2em 0;
+}
+.hero-figure img, .map-figure img { width: 100%; height: auto; display: block; border-radius: 6px; }
+.map-figure svg { width: 100%; max-width: 380px; height: auto; display: block; margin: 0 auto; }
+.hero-figure figcaption, .map-figure figcaption {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 10px 4px 8px;
+  line-height: 1.5;
+}
 .pull-stat {
   border-left: 4px solid var(--crimson);
   padding: 6px 0 6px 20px;

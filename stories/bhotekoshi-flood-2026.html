@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When the mountain fell: the 26 August flood that drowned northern Nepal | HimalData</title>
+<meta name="description" content="On 26 August 2026, two square kilometers of Langtang Lirung collapsed, sending a wall of mud and boulders down the Bhote Koshi. About 1,450 people died and more than 5,000 are missing in Nepal's deadliest flood on record.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/js/portal.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">Himal<span class="dot">Data</span></span>
+      <span class="brand-tag">Nepal and South Asia</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html" class="active">Stories</a>
+      <a href="../data/index.html">Data</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap-narrow">
+    <section class="story-hero">
+      <div class="topic">Climate and disasters &middot; Nepal</div>
+      <h1>When the mountain fell</h1>
+      <p class="dek">At 8:40 on an August morning, two square kilometers of rock and ice tore loose from Langtang Lirung. Seven hours later the water was still rising at Devghat, 150 kilometers downstream. One month on, Nepal is counting its deadliest flood on record.</p>
+      <div class="byline"><strong>HimalData</strong> &middot; Published September 2026 &middot; 14 min read</div>
+    </section>
+
+    <figure class="hero-figure">
+      <img src="../assets/img/bhotekoshi-flood-landsat-2026-08-26.png" alt="Landsat 9 satellite image of the flood-affected Bhote Koshi corridor, 26 August 2026">
+      <figcaption>Landsat 9 satellite image of the flood corridor on 26 August 2026. The pale scars along the river valleys are fresh debris. Credit: Landsat 9 / USGS, processed by Chorchapu, via Wikimedia Commons (public domain).</figcaption>
+    </figure>
+
+    <section class="stat-band" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+      <div class="stat"><div class="num">~1,450</div><div class="label">Confirmed dead in Nepal, one month on</div></div>
+      <div class="stat"><div class="num">5,000+</div><div class="label">Still missing and unaccounted for</div></div>
+      <div class="stat"><div class="num">84,000</div><div class="label">People in need of humanitarian aid</div></div>
+      <div class="stat"><div class="num">$4.7B</div><div class="label">Estimated reconstruction need, about 10% of GDP</div></div>
+    </section>
+
+    <article class="article">
+      <p>Yangee Tamang watched it come from a helicopter over Syabrubesi, and the words she found later still sound unreal. "It wasn't really water," she said. "It was gas-like, all black and it moved like boiling water." What she was looking at was a river that had stopped being a river: a slurry of mud, boulders and splintered forest, 80 meters above its normal level in places, moving at nearly 190 kilometers an hour.</p>
+
+      <p>Shiva Giri was luckier than most. He is a technical officer at the Mailung Hydropower project in Rasuwa, and when the flood hit he ran with seven friends for about twelve hours, a dog at their heels, and spent the night in a cave before a Nepali Army helicopter lifted them out. He lost his cousin and his friends. He told RSS afterward that it would have been worse if the mountain had fallen at night, when everyone was asleep. The mountain fell at 8:40 in the morning.</p>
+
+      <p>This is the story of what happened on <strong>26 August 2026</strong>, told through the numbers that have emerged in the month since: the wave's journey down three rivers, a death toll that kept climbing for weeks, the infrastructure it erased, and the climate math that made it more likely. It is also, necessarily, a story about what the numbers cannot yet say. More than five thousand people are still missing.</p>
+
+      <h2>Eight forty in the morning</h2>
+      <p>The collapse began high in the Lhende Khola watershed, near the Nepal-China border, where about two square kilometers of rock wall and glacier ice broke off Langtang Lirung and fell some 1,400 meters. Seismometers first read the impact as an earthquake, magnitude 4.4, later revised to 5.2. The US Geological Survey concluded there had been no earthquake at all. The shaking <em>was</em> the mountain falling.</p>
+
+      <p>What came down the valley was not, strictly speaking, a flood as most people picture one. Early reports called it a glacial lake outburst, but ICIMOD's investigators found no pre-existing lake at the origin. The better description is an ice-rock avalanche that liquefied into a debris flow: roughly 57 million cubic meters of water, mud and rock, with about 20 million cubic meters above the rivers' normal base flow, according to Nepal's disaster authority.</p>
+
+      <p>The wave announced itself the way disasters do in the mountains, by silencing the instruments. The Bhote Koshi gauge at Syafrubesi stopped transmitting at about 08:50, its last reading 1.62 meters. The Department of Hydrology and Meteorology confirmed a major flood wave by 09:15 and warned downstream districts. The country's cell networks pushed out 679,295 warning SMS messages. Then the water kept its own schedule.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>The wave's journey downstream</h3>
+          <div class="chart-sub">Time the flood front reached each point on 26 August 2026 (Nepal time). Source: NDRRMA situation report, 1 Sept 2026.</div>
+          <div class="chart" id="chart-wave"></div>
+          <div class="chart-source">Source: NDRRMA. <a href="../datasets/bhotekoshi-flood-wave-timeline.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>From Syafrubesi the front took less than two hours to reach Galchhi, and just under seven to travel the full corridor to Devghat, where it peaked at around <strong>5,850 cubic meters per second</strong> at 4 in the afternoon. For comparison, that is roughly forty times the Trishuli's normal August flow. The UNDP later estimated 2.2 million tonnes of debris, including more than half a million tonnes of pulverized buildings.</p>
+
+      <div class="pull-stat">The debris moved at about 190 kilometers an hour. In places the water ran 80 meters above the normal river level.</div>
+
+      <figure class="map-figure">
+        <svg viewBox="0 0 400 560" role="img" aria-label="Schematic map of the flood corridor from Langtang Lirung to Devghat">
+          <defs>
+            <linearGradient id="river" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#7fb3d5"/>
+              <stop offset="1" stop-color="#2e86c1"/>
+            </linearGradient>
+          </defs>
+          <text x="200" y="24" text-anchor="middle" font-size="13" fill="#8a8175">Schematic, not to scale</text>
+          <path d="M200,50 C190,110 215,150 200,200 C185,250 210,290 200,340 C190,390 205,440 200,510" fill="none" stroke="url(#river)" stroke-width="14" stroke-linecap="round"/>
+          <g font-size="13" fill="#2c2a26">
+            <circle cx="200" cy="50" r="7" fill="#c8102e"/>
+            <text x="216" y="46">Langtang Lirung</text>
+            <text x="216" y="62" font-size="11" fill="#8a8175">collapse, 08:40</text>
+            <circle cx="200" cy="140" r="5" fill="#2c2a26"/>
+            <text x="216" y="144">Rasuwagadhi / Timure</text>
+            <circle cx="200" cy="215" r="5" fill="#2c2a26"/>
+            <text x="216" y="219">Syafrubesi</text>
+            <circle cx="200" cy="290" r="5" fill="#2c2a26"/>
+            <text x="216" y="294">Trishuli bazaar</text>
+            <circle cx="200" cy="365" r="5" fill="#2c2a26"/>
+            <text x="216" y="369">Mugling</text>
+            <circle cx="200" cy="440" r="5" fill="#2c2a26"/>
+            <text x="216" y="444">Narayangadh</text>
+            <circle cx="200" cy="510" r="7" fill="#0b3d91"/>
+            <text x="216" y="506">Devghat</text>
+            <text x="216" y="522" font-size="11" fill="#8a8175">peak 16:00, 5,850 m3/s</text>
+          </g>
+          <g font-size="11" fill="#8a8175">
+            <text x="120" y="180">Bhote Koshi</text>
+            <text x="120" y="330">Trishuli</text>
+            <text x="120" y="480">Narayani</text>
+          </g>
+        </svg>
+        <figcaption>The flood ran the Bhote Koshi-Trishuli-Narayani corridor, from the Tibetan border to the plains. Bodies were recovered as far downstream as Chitwan and Nawalparasi.</figcaption>
+      </figure>
+      <h2>The toll, day by day</h2>
+      <p>By 8:30 on the evening of the flood, the police bulletin counted more than a hundred dead. That number now reads like the first line of a ledger that would not stop growing. Within five days the confirmed dead had passed a thousand. By mid-September, the missing outnumbered the confirmed dead by nearly four to one, and they still do.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Confirmed dead and missing, 26 August to 25 September</h3>
+          <div class="chart-sub">Nepal figures as reported on each date. Police and disaster-authority bulletins sometimes differ slightly on the same day because of reporting cutoffs.</div>
+          <div class="chart" id="chart-casualties"></div>
+          <div class="chart-source">Sources: Nepal Police, NDRRMA, OCHA situation reports, Islamic Relief. <a href="../datasets/bhotekoshi-flood-casualties.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>The shape of that missing-persons line is the cruelest part of the data. A bill now before parliament would presume the missing dead after three months of unsuccessful searching, which tells you what officials privately expect. Nepal Police had already taken DNA samples from 1,260 recovered bodies and 1,012 relatives by early September, and listed 1,270 unidentified dead on its website. A parliamentarian does not draft that kind of law for people expected to walk home.</p>
+
+      <p>The missing have an address, too. On 31 August, when 903 bodies had been recovered, the disaster authority published where they were found. Read that list as a map of where the water carried people.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Where bodies were recovered, as of 31 August</h3>
+          <div class="chart-sub">Recovery location, not necessarily home district. The flood carried victims far downstream into the plains.</div>
+          <div class="chart" id="chart-districts"></div>
+          <div class="chart-source">Source: OCHA Situation Report 2 (NDRRMA data). <a href="../datasets/bhotekoshi-flood-body-recovery-district.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>Behind the district totals are the stories Nepali reporters filed in the first days, when the scale was still sinking in. <a href="https://english.gothalokhabar.com/news/detail/39579/">Gothalo's RSS reporters</a> found Shiva Giri and Chippu Dorje Tamang, a Trishuli-3A employee who had been on leave in Kathmandu when the flood took his colleagues. <a href="https://globalvoices.org/2026/08/31/nepal-floods-reporters-diary-august-27-2026/">Suman Nepali's diary for Nepali Times</a>, republished by Global Voices, recorded five-year-old Kirti Tamang of Rasuwa, who watched her mother and sister swept away, was flung onto a slope, and was found alone in a forest, not speaking. In the same dispatch: Biswas Tamang, found badly bruised and identified only by his school ID card.</p>
+
+      <p>Five-year-old Ishara Tamang of Khalte village was swept away with her mother and got tangled in a net before rescuers found her. In a Kathmandu hospital bed she told the staff: "Mother was swept away. I jumped and moved forward, then got trapped in the net." Her father was in Kathmandu. Her mother's whereabouts were still unknown. And at Timure, the trading town on the Tibet border, the flood erased a livelihood in an afternoon: <a href="https://peoplesreview.com.np/2026/09/25/338-trucks-440-drivers-and-helpers-missing-after-rasuwa-flood/">338 trucks and 440 drivers and helpers are missing</a>, People's Review reported on 25 September. Nischal Tripathi, a Timure businessman, jumped from a building as the water hit, lived on noodles and biscuits in a forest, then sheltered in a goat shed with 150 to 200 other people. His brother, his team members and his truck drivers are still missing.</p>
+
+      <h2>Nine days in the dark</h2>
+      <p>Some of the missing came back. On 4 September, nine days after the flood, rescuers heard voices inside the tunnel of the 60-megawatt Upper Trishuli-3A hydropower project and pulled out two men alive from about 170 meters inside: Sanjay Sah, 30, a mechanical foreman from Saptari, and Kabir Maharjan, 45, a mechanical supervisor from Kathmandu. Sah had reportedly stayed behind in the control room to help others escape. His wife Laxmi Kumari Sah told IANS the rescue brought "immense joy" after "very painful" days. The next day, a Nepali Army team working with South Korea's disaster response unit pulled a Chinese worker alive from an audit tunnel at Upper Trishuli-1.</p>
+
+      <p>And then there is Chandrika Shrestha. She is 64, from Betrawati in Nuwakot, and on 5 September, ten days after the flood, an Armed Police Force team clearing mud from her buried four-storey house heard a faint cry. They found her unconscious in an air pocket, half trapped in mud, and flew her toward Kathmandu. <a href="https://peoplesreview.com.np/2026/09/07/bhotekoshi-tragedy-nation-observes-national-mourning-today/">People's Review</a> put her rescue at the top of its 7 September edition, the day Nepal held national mourning. A woman survives ten days under the mud of her own home, and a country stops for a day. Both things are true.</p>
+
+      <div class="pull-stat">UNICEF counts 84,270 people affected, including 32,021 children. Sixty-four water systems, 23 schools and 7 health facilities were destroyed or damaged.</div>
+
+      <p>The slower emergency is the one now unfolding in the relief camps. Islamic Relief, marking one month since the flood, reported 32,000 people still displaced, many in temporary shelters, with emergency food rations running out and farmland destroyed. The Food and Agriculture Organization counts 1,806 hectares of crops damaged, mostly paddy, and more than a quarter of a million livestock and poultry lost. In Devighat, camp residents told reporters they were selling relief noodles for cash to buy medicine the camps did not stock. Affected communities, Islamic Relief warned, are likely to face a hunger crisis well into 2027.</p>
+      <h2>What the water took</h2>
+      <p>The physical damage reads like an inventory of a country's development model. The government's rapid damage needs assessment puts reconstruction at <strong>NPR 723.31 billion, about US$4.74 billion</strong>, roughly a tenth of Nepal's GDP. The breakdown tells its own story: roads and transport NPR 73.34 billion, the social sector NPR 103.55 billion, river-basin management and disaster risk reduction NPR 94.75 billion. The assessment counts 69 kilometers of road gone, 33 motorable bridges washed away plus four partially damaged, and 53 of 64 suspension bridges damaged. In Rasuwa alone, the first surveys found 41 kilometers of road and eight hydropower projects completely destroyed.</p>
+
+      <p>The hydropower damage deserves its own paragraph, because it exposes the bargain Nepal made with its rivers. About 99 percent of the country's electricity comes from hydropower, and the industry was building its future in exactly the valleys the flood chose: the Bhote Koshi-Trishuli corridor. Estimates of knocked-out capacity range from 400 to 780 megawatts, more than a tenth of national capacity, with sector damage put at NPR 130 billion. Twelve to fifteen plants were damaged or halted, including Upper Trishuli-3A, Upper Trishuli-1, Rasuwagadhi and Chilime, and two transmission lines. The Betrawati-Rasuwagadhi road, the Trishuli Corridor highway that was still being rebuilt after a 2025 flood in the same valley, was destroyed again. <a href="https://himalini.com/en/beneath-the-surface-what-the-bhotekoshi-floods-teach-us-about-bridge-engineering-tanuklal-yadav.html">Engineers are already arguing</a> about what bridge design should have survived, which is another way of asking what should be rebuilt, and where.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>The money: damage, needs, and what has been pledged</h3>
+          <div class="chart-sub">Millions of US dollars, log scale. The $20m Loss and Damage approval predates the flood and is not a flood payout.</div>
+          <div class="chart" id="chart-money"></div>
+          <div class="chart-source">Sources: government/RDNA via Spotlight Nepal, UN/OCHA, IFRC, UNICEF, Kathmandu Post, Gothalo. <a href="../datasets/bhotekoshi-flood-money.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>Look at the scale gap in that chart for a moment. The UN's flash appeal asked for $49.6 million to cover four months of emergency aid. The reconstruction need is roughly a hundred times that. Nepal's cabinet accepted a $5 million ADB grant, set compensation of Rs 1 million per bereaved family, and watched its own PM Disaster Relief Fund grow past Rs 13 billion in public donations. None of it is remotely proportional to the loss, which is precisely the argument Nepal is now making to the world.</p>
+
+      <h2>Not a monsoon flood</h2>
+      <p>Here is the detail that should unsettle anyone watching Himalayan weather: the 2026 monsoon was <em>below normal</em>. It arrived six days late, June rainfall ran at barely 70 percent of normal, and the seasonal forecast had called for a drier-than-average season. This catastrophe was not a rainfall flood. It was a cryosphere event, ice and rock and thawed permafrost, during a weak monsoon. ICIMOD's monsoon outlook had carried a warning that reads now like a prophecy: "a drier monsoon is not a safer monsoon."</p>
+
+      <p>The World Weather Attribution group's <a href="https://www.worldweatherattribution.org/rapid-warming-in-the-himalaya-exacerbates-geohazard-cascades-beyond-adaptation-limits/">rapid study</a>, released 17 September, refused the simple story. It called the disaster a "compound crisis": a geologically vulnerable slope, possibly weakened by the 2015 earthquake, destabilized further by retreating glaciers and thawing permafrost, in a July and August that human influence made about 1.5°C warmer, the warmest such months locally recorded. The Langtang-Lirung glacier is thinning at more than half a meter a year, and its retreat has accelerated from about 0.5 percent a year over the previous two centuries to 1 to 2.3 percent a year since 2010. The freezing threshold is climbing roughly 100 meters per decade, exposing ice and permafrost deep in the bedrock to longer thaws. Notably, the scientists did not produce the usual "X times more likely" number. Avalanches are not heatwaves; the statistics do not work the same way. What they said, instead, was that warming had loaded the dice on every part of the cascade.</p>
+
+      <div class="pull-stat">Nepal produces less than 0.1 percent of global greenhouse gas emissions. The July and August before the collapse were about 1.5°C warmer because of human influence.</div>
+
+      <p>That asymmetry is the whole political story, and Nepal's prime minister carried it to New York. But before the politics, the ranking: where does this sit in the country's disaster history?</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Nepal's deadliest disasters, by confirmed deaths</h3>
+          <div class="chart-sub">The 2026 flood is already the deadliest flood in Nepal's recorded history. The 2015 earthquake remains the costliest disaster overall.</div>
+          <div class="chart" id="chart-history"></div>
+          <div class="chart-source">Sources: see historical comparison dataset. <a href="../datasets/nepal-disasters-historical.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>On deaths, only the 2015 Gorkha earthquake, with about 8,800 dead, stands above it. On money, the same ordering holds: roughly $7 billion in 2015 damage against about $2.7 billion now, with a $4.7 billion reconstruction bill. Everything else in modern memory, the September 2024 floods, the 2017 Terai floods, the 2014 Jure landslide, last year's flood in this same Rasuwa corridor, sits an order of magnitude below. Note the zero on that chart, too: the August 2024 glacial lake outburst at Thame, a classic GLOF with a real lake, displaced 135 people and destroyed 25 houses but killed no one. Two years later, a mountain without a lake killed fourteen hundred. The hazard has outgrown the categories.</p>
+      <h2>Waiting for the world</h2>
+      <p>Five days after the flood, Nepal wrote to the UN-backed Fund for Responding to Loss and Damage and asked for help. The letter went from Finance Minister Swarnim Wagle and Minister Gita Chaudhary to the fund's co-chairs on 31 August. The reply, on 3 September, pointed to process. Then, on 9 September, came the kind of clarification that deserves to be quoted in full, because the headlines got it wrong: the <a href="https://kathmandupost.com/national/2026/09/09/nepal-secures-20-million-from-loss-and-damage-fund-awaits-decision-on-bhotekoshi-plea">$20 million Nepal "secured" from the fund</a> was approved under the Barbados Implementation Modalities from proposals submitted <em>before</em> the flood. It is not a flood payout. The flood request is still awaiting a decision.</p>
+
+      <p>The numbers around that wait are stark. The loss and damage fund holds about $342 million in deposits, from $631 million actually contributed of $822 million pledged by 27 contributors. As of late September, no developing country had received a disbursement. Eight of the fund's 26 board members requested an emergency meeting on Nepal's plea; the next scheduled meeting is in December. Carbon Brief calculated that even the $20 million, if it arrives, would cover 0.7 percent of the damage and 0.3 percent of the reconstruction need. At a September workshop in Kathmandu, officials said Nepal's next move is a "country platform" to make its claims evidence-based, a tacit admission that in the climate finance system, the burden of proof falls on the drowned.</p>
+
+      <p>Nepal's prime minister took the argument to the United Nations General Assembly on 24 September. <a href="https://media.un.org/unifeed/en/asset/d363/d3633798">Balendra Shah's speech</a> is worth reading, but three lines carry the data story's whole moral: "We did not create this crisis. Yet we are paying a colossal price for it." Then: "It forces a poor country to borrow money to repair damage it did not cause." Then the line about borders: "Climate change does not recognize borders. Glaciers and floods do not travel with a visa stamped on passports." He cited at least 1,400 dead, more than 6,000 missing, recovery needs near a tenth of GDP, and Nepal's sub-0.1-percent share of global emissions, and proposed a joint Nepal-India-China Himalaya Climate Resilience Mechanism. The flood had crossed a border too: Tibetan villages in Kyirong reported at least 21 dead and more than 500 missing, figures that rest on Chinese state media and could not be independently verified.</p>
+
+      <p>One month on, the search continues along the Narayani's banks. The army has said it will keep looking through the winter dry season, when the rivers drop and give up their dead. Nepal Police's unidentified-bodies list keeps growing. And in the valleys the water left behind, the rebuilding has not started, because nobody has yet agreed who pays for a disaster that a country emitting almost nothing did almost nothing to cause.</p>
+
+      <div class="method-box">
+        <h4>Method and caveats</h4>
+        Every figure in this story is dated, because the figures moved. Casualty counts come from Nepal Police bulletins, NDRRMA situation reports and OCHA sitreps; police and disaster-authority totals sometimes differ on the same date because of different reporting cutoffs, and later press-reported figures (about 1,450 dead, 5,000 to 6,000 missing) carry varying cutoffs, with some combining Nepal and Tibet. Infrastructure figures changed as assessments matured: road losses were reported as 40, 55 and 69 km at different dates, motorable bridges as 19, 33 or 41 destroyed, hydropower losses from 400 to 783 MW. The later Rapid Damage Needs Assessment figures are used where available. Damage ($2.56 to $2.7 billion) and reconstruction need ($4.74 to $4.8 billion, roughly 10 percent of GDP) are different things and are not interchangeable. World Weather Attribution's findings are summarized from Carbon Brief and responsibleus reporting because the WWA page could not be fetched directly at research time; the study did not produce a conventional "times more likely" attribution number, and none is given here. Tibet-side casualty figures rest on Chinese state media and are unverified. Human stories are drawn from Nepali outlets (Gothalo/RSS, People's Review, Nepali Times via Global Voices) and international wire reporting where Nepali originals could not be located; names and quotations are as reported by those outlets.
+      </div>
+
+      <h2>Sources</h2>
+      <ul class="sources-list">
+        <li>Survivor accounts (Shiva Giri, Chippu Dorje Tamang), <a href="https://english.gothalokhabar.com/news/detail/39579/">Gothalo / RSS, 31 Aug 2026</a>.</li>
+        <li>Reporter's diary from Rasuwa (Kirti Tamang, Biswas Tamang), Suman Nepali for <a href="https://globalvoices.org/2026/08/31/nepal-floods-reporters-diary-august-27-2026/">Nepali Times, via Global Voices, 31 Aug 2026</a>.</li>
+        <li>Chandrika Shrestha rescue and national mourning, <a href="https://peoplesreview.com.np/2026/09/07/bhotekoshi-tragedy-nation-observes-national-mourning-today/">People's Review, 7 Sept 2026</a>.</li>
+        <li>338 trucks and 440 drivers and helpers missing at Timure, <a href="https://peoplesreview.com.np/2026/09/25/338-trucks-440-drivers-and-helpers-missing-after-rasuwa-flood/">People's Review, 25 Sept 2026</a>.</li>
+        <li>Nepal secures $20m from Loss and Damage Fund, awaits decision on Bhotekoshi plea, <a href="https://kathmandupost.com/national/2026/09/09/nepal-secures-20-million-from-loss-and-damage-fund-awaits-decision-on-bhotekoshi-plea">Kathmandu Post, 9 Sept 2026</a>.</li>
+        <li>Reconstruction cost Rs 723.31 billion (RDNA), <a href="https://www.spotlightnepal.com/2026/09/18/bhotekoshi-flood-reconstruction-cost-rs-72331-billion/">Spotlight Nepal, 18 Sept 2026</a>.</li>
+        <li>Support or compensation: Nepal's Loss and Damage Fund letter, <a href="https://www.spotlightnepal.com/2026/09/08/support-or-compensation-loss-and-damage-fund/">Spotlight Nepal, 8 Sept 2026</a>.</li>
+        <li>What the floods teach about bridge engineering, <a href="https://himalini.com/en/beneath-the-surface-what-the-bhotekoshi-floods-teach-us-about-bridge-engineering-tanuklal-yadav.html">Himalini, 22 Sept 2026</a>.</li>
+        <li>Nepal needs its own climate evidence, <a href="https://www.himalmag.com/nepal-needs-its-own-climate-evidence/">Himal Southasian, 25 Sept 2026</a>.</li>
+        <li>Affected journalists and media in Rasuwa, <a href="https://www.freedomforum.org.np/publications/item/brief-update-of-affected-journalists-and-media-in-rasuwa-bhotekoshi-flood?wpdmdl=352">Freedom Forum</a>.</li>
+        <li>PM Disaster Relief Fund deposits pass Rs 13.23 billion, <a href="https://english.gothalokhabar.com/news/detail/39782/">Gothalo, 11 Sept 2026</a>.</li>
+        <li>Cabinet decisions and $5m ADB grant, <a href="https://www.sharesansar.com/newsdetail/cabinet-unveils-7-key-decisions-approves-5-million-adb-grant-for-flood-relief-2026-09-03">ShareSansar, 3 Sept 2026</a>.</li>
+        <li>NDRRMA situation report, <a href="https://ndrrma.gov.np/mediafiles/rasuwa/Rasuwa_Flood_SitRep_Temp_ENG_01_01092026.pdf">1 Sept 2026 (PDF)</a>.</li>
+        <li>OCHA situation reports: <a href="https://reliefweb.int/report/nepal/nepal-flood-response-situation-report-2-31-august-2026">SitRep 2, 31 Aug 2026</a> and <a href="https://reliefweb.int/report/nepal/nepal-rasuwa-flood-situation-report-no-8-15-september-2026">SitRep 8, 15 Sept 2026</a>.</li>
+        <li>UNICEF humanitarian situation report, <a href="https://reliefweb.int/report/nepal/unicef-nepal-humanitarian-situation-report-no-5-22-september-2026">22 Sept 2026</a>.</li>
+        <li>One month on: survivors still need aid, <a href="https://reliefweb.int/report/nepal/one-month-nepal-floods-homeless-survivors-still-need-aid-hunger-spreads-0">Islamic Relief, 25 Sept 2026</a>.</li>
+        <li>FAO urgent call for assistance, <a href="https://reliefweb.int/report/nepal/nepal-rasuwa-bhotekoshi-flood-urgent-call-assistance">23 Sept 2026</a>.</li>
+        <li>IFRC emergency appeal, <a href="https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods">27 Aug 2026</a>.</li>
+        <li>World Weather Attribution rapid study, <a href="https://www.worldweatherattribution.org/rapid-warming-in-the-himalaya-exacerbates-geohazard-cascades-beyond-adaptation-limits/">17 Sept 2026</a>.</li>
+        <li>PM Balendra Shah's UN General Assembly address, <a href="https://media.un.org/unifeed/en/asset/d363/d3633798">UN Web TV, 24 Sept 2026</a>.</li>
+        <li>Nepal's $20m claim covers 0.7% of flood costs, <a href="https://www.carbonbrief.org/analysis-nepals-20m-loss-and-damage-claim-only-covers-0-7-of-flood-costs">Carbon Brief</a>.</li>
+        <li>Satellite image: Landsat 9 / USGS, processed by Chorchapu, <a href="https://commons.wikimedia.org/wiki/File:Landsat_Nepal_flood_2026-08-26.png">Wikimedia Commons</a> (public domain).</li>
+      </ul>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>HimalData &middot; Data stories from Nepal and South Asia</span>
+    <span><a href="index.html">More stories</a></span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var H = HimalData, base = H.basePath(), ax = H.axisStyle();
+
+  function toHours(t) {
+    var p = t.split(":");
+    return parseInt(p[0], 10) + parseInt(p[1], 10) / 60;
+  }
+  function clock(v) {
+    var h = Math.floor(v), m = Math.round((v - h) * 60);
+    if (m === 60) { h += 1; m = 0; }
+    return h + ":" + (m < 10 ? "0" + m : m);
+  }
+
+  /* Chart 1: wave arrival times */
+  H.loadCSV(base + "datasets/bhotekoshi-flood-wave-timeline.csv").then(function (rows) {
+    var pts = rows.filter(function (r) { return r.location !== "DHM warning"; });
+    var locs = pts.map(function (r) { return r.location; });
+    var hrs = pts.map(function (r) { return toHours(r.time_npt); });
+    H.makeChart(document.getElementById("chart-wave"), {
+      color: ["#0b3d91"],
+      tooltip: {
+        trigger: "axis",
+        formatter: function (p) {
+          var i = p[0].dataIndex;
+          return "<b>" + locs[i] + "</b><br/>Arrived " + clock(hrs[i]) + " NPT<br/>" + pts[i].event;
+        }
+      },
+      grid: { left: 60, right: 30, top: 30, bottom: 90 },
+      xAxis: Object.assign({ type: "category", data: locs, axisLabel: { rotate: 28, interval: 0 } }, ax),
+      yAxis: Object.assign({ type: "value", min: 8, max: 17, axisLabel: { formatter: function (v) { return clock(v); } } }, ax),
+      series: [{
+        type: "line",
+        data: hrs,
+        smooth: true,
+        symbolSize: 9,
+        lineStyle: { width: 3 },
+        label: { show: true, formatter: function (p) { return clock(p.value); }, color: "#4a443b", fontSize: 11, position: "top" }
+      }]
+    });
+  });
+
+  /* Chart 2: casualty progression */
+  H.loadCSV(base + "datasets/bhotekoshi-flood-casualties.csv").then(function (rows) {
+    var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    var dates = rows.map(function (r) {
+      var d = r.date_reported.split("-");
+      return parseInt(d[2], 10) + " " + months[parseInt(d[1], 10) - 1];
+    });
+    var dead = rows.map(function (r) { return parseFloat(r.dead_confirmed); });
+    var missing = rows.map(function (r) { return r.missing ? parseFloat(r.missing) : null; });
+    H.makeChart(document.getElementById("chart-casualties"), {
+      color: ["#c8102e", "#5d6d7e"],
+      tooltip: { trigger: "axis" },
+      legend: { data: ["Confirmed dead", "Missing"], bottom: 0, textStyle: { color: "#4a443b" } },
+      grid: { left: 60, right: 30, top: 30, bottom: 60 },
+      xAxis: Object.assign({ type: "category", data: dates, boundaryGap: false }, ax),
+      yAxis: Object.assign({ type: "value" }, ax),
+      series: [
+        { name: "Confirmed dead", type: "line", data: dead, smooth: true, symbolSize: 7, lineStyle: { width: 3 } },
+        { name: "Missing", type: "line", data: missing, smooth: true, symbolSize: 7, lineStyle: { width: 3, type: "dashed" }, connectNulls: false }
+      ]
+    });
+  });
+
+  /* Chart 3: body recovery by district */
+  H.loadCSV(base + "datasets/bhotekoshi-flood-body-recovery-district.csv").then(function (rows) {
+    rows.sort(function (a, b) { return parseFloat(b.bodies_recovered) - parseFloat(a.bodies_recovered); });
+    var names = rows.map(function (r) { return r.district; });
+    var vals = rows.map(function (r) { return parseFloat(r.bodies_recovered); });
+    H.makeChart(document.getElementById("chart-districts"), {
+      color: ["#c8102e"],
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, formatter: "{b}: <b>{c}</b> bodies recovered" },
+      grid: { left: 130, right: 40, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "value" }, ax),
+      yAxis: Object.assign({ type: "category", data: names, inverse: true }, ax),
+      series: [{
+        type: "bar",
+        data: vals,
+        barWidth: "52%",
+        itemStyle: { borderRadius: [0, 5, 5, 0] },
+        label: { show: true, position: "right", formatter: "{c}", color: "#4a443b" }
+      }]
+    });
+  });
+
+  /* Chart 4: money, log scale */
+  H.loadCSV(base + "datasets/bhotekoshi-flood-money.csv").then(function (rows) {
+    rows.sort(function (a, b) { return parseFloat(b.usd_millions) - parseFloat(a.usd_millions); });
+    var names = rows.map(function (r) { return r.category; });
+    var vals = rows.map(function (r) { return parseFloat(r.usd_millions); });
+    H.makeChart(document.getElementById("chart-money"), {
+      color: ["#0b3d91"],
+      tooltip: {
+        trigger: "axis",
+        axisPointer: { type: "shadow" },
+        formatter: function (p) {
+          var i = p[0].dataIndex;
+          return "<b>" + names[i] + "</b><br/>$" + vals[i] + " million<br/>" + rows[i].detail;
+        }
+      },
+      grid: { left: 230, right: 50, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "log", logBase: 10, min: 10, axisLabel: { formatter: function (v) { return "$" + v + "m"; } } }, ax),
+      yAxis: Object.assign({ type: "category", data: names, inverse: true }, ax),
+      series: [{
+        type: "bar",
+        data: vals,
+        barWidth: "48%",
+        itemStyle: { borderRadius: [0, 5, 5, 0] },
+        label: { show: true, position: "right", formatter: function (p) { return "$" + p.value + "m"; }, color: "#4a443b" }
+      }]
+    });
+  });
+
+  /* Chart 5: historical disasters */
+  H.loadCSV(base + "datasets/nepal-disasters-historical.csv").then(function (rows) {
+    rows.sort(function (a, b) { return parseFloat(b.deaths) - parseFloat(a.deaths); });
+    var names = rows.map(function (r) { return r.event; });
+    var vals = rows.map(function (r) { return parseFloat(r.deaths); });
+    H.makeChart(document.getElementById("chart-history"), {
+      color: ["#c8102e"],
+      tooltip: {
+        trigger: "axis",
+        axisPointer: { type: "shadow" },
+        formatter: function (p) {
+          var i = p[0].dataIndex;
+          return "<b>" + names[i] + "</b> (" + rows[i].year + ")<br/>" + vals[i] + " deaths<br/>" + (rows[i].notes || "");
+        }
+      },
+      grid: { left: 250, right: 50, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "value" }, ax),
+      yAxis: Object.assign({ type: "category", data: names, inverse: true }, ax),
+      series: [{
+        type: "bar",
+        data: vals,
+        barWidth: "48%",
+        itemStyle: {
+          borderRadius: [0, 5, 5, 0],
+          color: function (p) { return names[p.dataIndex].indexOf("2026") === 0 ? "#c8102e" : "#8a9bb0"; }
+        },
+        label: { show: true, position: "right", formatter: function (p) { return p.value > 0 ? p.value : "0"; }, color: "#4a443b" }
+      }]
+    });
+  });
+});
+</script>
+
+</body>
+</html>
