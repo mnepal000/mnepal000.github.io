@@ -31,14 +31,20 @@
       <div class="topic">Migration and economy &middot; Nepal</div>
       <h1>The remittance republic: how migrant money reshaped Nepal's economy</h1>
       <p class="dek">Every year, hundreds of thousands of Nepalis leave for work abroad. The money they send home now funds a quarter of the national economy. Here is what a decade of data shows.</p>
-      <div class="byline"><strong>HimalData</strong> &middot; Published September 2026 &middot; 10 min read</div>
+      <div class="byline"><strong>HimalData</strong> &middot; Published September 2026 &middot; 13 min read</div>
     </section>
 
     <section class="stat-band" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
       <div class="stat"><div class="num">$11.25B</div><div class="label">Remittances received in 2024</div></div>
       <div class="stat"><div class="num">26%</div><div class="label">Share of GDP in 2023</div></div>
       <div class="stat"><div class="num">839K</div><div class="label">Labor permits issued in FY 2024/25</div></div>
+      <div class="stat"><div class="num">1,544</div><div class="label">Migrant workers who died abroad in FY 2081/82</div></div>
     </section>
+
+    <figure class="hero-figure">
+      <img src="../assets/img/tia-departure-2023.jpg" alt="Travelers with luggage in the departure hall of Tribhuvan International Airport, Kathmandu">
+      <figcaption>Departures at Tribhuvan International Airport, Kathmandu, 2023. Hundreds of thousands of Nepalis pass through here every year on their way to work abroad. Photo: Chainwit, via Wikimedia Commons (CC BY 4.0).</figcaption>
+    </figure>
 
     <article class="article">
       <p>Nepal's economy runs on money earned abroad. In 2024, Nepali migrants sent home <strong>$11.25 billion</strong>, according to World Bank data, a record high and roughly <strong>26 percent of GDP</strong>. Few countries on earth depend this heavily on remittances.</p>
@@ -72,22 +78,70 @@
 
       <p>Malaysia alone accounts for a third of permits, followed by Qatar and Saudi Arabia at about 19 percent each. These are mostly low and semi-skilled jobs in construction, manufacturing, and hospitality.</p>
 
+      <p>And the flow is speeding up. The Department of Foreign Employment issued <strong>839,000 labor permits in FY 2024/25</strong>, and three in five went to first-time migrants, people leaving Nepal to work abroad for the first time in their lives.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>First-time migrants vs. repeat permits, FY 2024/25</h3>
+          <div class="chart-sub">Share of 839,000 labor permits issued</div>
+          <div class="chart" id="chart-permits"></div>
+          <div class="chart-source">Source: Department of Foreign Employment, via Gothalo Khabar. <a href="../datasets/nepal-permits-firsttime-fy2024-25.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
       <p>But the map is slowly changing. Researchers note a gradual shift toward nontraditional destinations such as South Korea, Japan, and Australia, where wages and protections are better. The Nepal Rastra Bank estimates the share of remittances from nontraditional destinations rose from 2 percent in 2010 to 10 percent in 2022.</p>
 
       <h2>The other side of the ledger</h2>
-      <p>The money comes at a cost. Studies of migrant households find most remittances go to daily consumption rather than productive investment. Recruitment fees, debt, and workplace risks remain persistent problems, and Nepal's own reintegration policies for returning workers are widely seen as poorly implemented.</p>
+      <p>The money comes at a cost, and the cost can be counted in coffins. In FY 2081/82 alone, <strong>1,544 Nepali workers died abroad</strong>, according to the Foreign Employment Board's annual report. That is more than four every day. Over eleven years, the Board counts 11,964 deaths.</p>
+
+      <p>Rudra Bahadur Kami, 43, worked more than a decade in Saudi Arabia to support his family. In February 2026 he came home through a back door of Kathmandu airport in a battered coffin, and his eldest son Lalit Bishowkarma, 21, was there to sign the papers. The death certificate said heart attack. "He went to seek happiness for his children and his family, and now his body has returned in a coffin. It's unbearable," Lalit <a href="https://www.yahoo.com/news/articles/nepal-addicted-trade-own-people-041303809.html">told AFP</a>.</p>
+
+      <p>Dipak Magar, 39, of Madi in Chitwan, is one of the ones who came back. Three years of sweat in a Saudi marble factory earned him NPR 700,000, about US$4,800, which he spent building a small concrete-block house. When AFP met him he was rushing to plaster the outside walls before flying back to Riyadh, leaving his family behind yet again. "I need to feed my family and provide education for my children. It feels sad to leave my family, but there is no job here." His father, Dhana Bahadur Magar, 60, put it more simply: they do not have enough land to feed the family.</p>
+
+      <p>Saro Kumari Mandal, 26, waited outside Kathmandu airport clutching her sleeping toddler while a casket marked "Human Remains, Balkisun Mandal Khatwe" was rolled out of baggage claim. Her husband, also 26, had died in his sleep just six weeks after leaving Nepal to help build highways for Qatar's World Cup. The family then faced an eight-hour truck ride to their village in Belhi. In the same <a href="https://www.statnews.com/2016/12/21/nepalis-die-working-abroad/">Associated Press dispatch</a>, returnee Mohammed Tohit, 28, who had sewn for Nike, Lacoste and Columbia in Malaysia for six years and bought a house and farm with the earnings, was leaving for Saudi Arabia anyway. "I am scared, sure, but I have no way to earn anything here."</p>
+
+      <p>Dibas Shrestha, 29, of Borlang in Gorkha, worked as a security guard in the United Arab Emirates, saving to start a small business back home. In March 2026 he was killed during a night shift at Zayed International Airport in Abu Dhabi by debris from an intercepted missile, as regional tensions escalated. His death made headlines briefly, then faded, <a href="https://www.spotlightnepal.com/2026/05/21/foreign-employment-homecomings-silence/">one more name</a> in the Board's annual tables.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Where Nepali migrant workers died, FY 2081/82</h3>
+          <div class="chart-sub">Deaths recorded by the Foreign Employment Board, by destination country</div>
+          <div class="chart" id="chart-deaths-country"></div>
+          <div class="chart-source">Source: Foreign Employment Board Annual Progress Report FY 2081/82, via People's Review. <a href="../datasets/nepal-migrant-deaths-fy2081-82.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>The leading recorded causes that year were illness (329 deaths), heart attacks (224), suicides (191) and road accidents (176). The Board paid NPR 111.9 million in financial assistance to bereaved families, money that arrives after the coffin.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Recorded causes of death, FY 2081/82</h3>
+          <div class="chart-sub">Deaths recorded by the Foreign Employment Board</div>
+          <div class="chart" id="chart-deaths-cause"></div>
+          <div class="chart-source">Source: Foreign Employment Board Annual Progress Report FY 2081/82, via People's Review. <a href="../datasets/nepal-migrant-deaths-fy2081-82.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <div class="pull-stat">More than four Nepali workers died abroad every single day of FY 2081/82.</div>
+
+      <p>Studies of migrant households find most remittances go to daily consumption rather than productive investment. Recruitment fees, debt, and workplace risks remain persistent problems, and Nepal's own reintegration policies for returning workers are widely seen as poorly implemented.</p>
 
       <p>That tension, between a lifeline and a dependency, is the central economic question for Nepal's policymakers. Remittances stabilize the external sector and keep households afloat, but economists warn that over-reliance can dull the pressure to create jobs at home. The government's stated goal is to channel more of these inflows into entrepreneurship and domestic investment. The data will show whether it works.</p>
 
       <div class="method-box">
         <h4>Method and caveats</h4>
-        Remittance figures are World Bank annual inflow estimates in current US dollars. Labor permit counts come from the Department of Foreign Employment and count permits issued, not unique migrants; renewals are included in the totals, and undocumented migration through the open border with India is not captured. Destination shares cover FY 2008/09 through 2022 as compiled from DoFE records.
+        Remittance figures are World Bank annual inflow estimates in current US dollars. Labor permit counts come from the Department of Foreign Employment and count permits issued, not unique migrants; renewals are included in the totals, and undocumented migration through the open border with India is not captured. Destination shares cover FY 2008/09 through 2022 as compiled from DoFE records. Death figures for FY 2081/82 come from the Foreign Employment Board's annual report as reported by People's Review; cause-of-death categories are the Board's recorded classifications, and the figures were independently corroborated against AFP's reporting on the same period. Human stories are drawn from named reporting by AFP, the Associated Press, and New Spotlight Magazine, with links to the original pieces.
       </div>
 
       <h2>Sources</h2>
       <ul class="sources-list">
         <li>World Bank remittance inflows for Nepal, 2015-2024, via <a href="https://pl.theglobaleconomy.com/Nepal/Remittances/">TheGlobalEconomy.com</a> and <a href="https://en.wikipedia.org/wiki/Remittances_to_Nepal">Remittances to Nepal (Wikipedia, citing World Bank)</a>.</li>
         <li>Department of Foreign Employment labor permit statistics, FY 2024/25, via <a href="https://english.gothalokhabar.com/news/detail/31163/">Gothalo Khabar</a>.</li>
+        <li>Foreign Employment Board Annual Progress Report FY 2081/82 (migrant death statistics), via <a href="https://peoplesreview.com.np/2025/11/15/12000-nepalis-lost-lives-abroad-in-11-years/">People's Review</a>; 11-year and 2025 figures also reported by <a href="https://www.yahoo.com/news/articles/nepal-addicted-trade-own-people-041303809.html">AFP</a>.</li>
+        <li>AFP, <a href="https://www.yahoo.com/news/articles/nepal-addicted-trade-own-people-041303809.html">"Nepal 'addicted' to the trade in its own people"</a>, 16 February 2026 (Rudra Bahadur Kami, Dipak Magar).</li>
+        <li>Associated Press, <a href="https://www.statnews.com/2016/12/21/nepalis-die-working-abroad/">"Hundreds of Nepalese die in Qatar, other Gulf nations working abroad"</a>, December 2016 (Saro Kumari Mandal, Balkisun Mandal Khatwe, Mohammed Tohit).</li>
+        <li>New Spotlight Magazine, <a href="https://www.spotlightnepal.com/2026/05/21/foreign-employment-homecomings-silence/">"Foreign Employment: Homecomings of Silence"</a>, May 2026 (Dibas Shrestha).</li>
+        <li>Tribhuvan International Airport departures photograph by Chainwit, via <a href="https://commons.wikimedia.org/wiki/File:Departure_from_Kathmandu_Tribhuvan_Airport_(2023)_-_img_06.jpg">Wikimedia Commons</a>, CC BY 4.0.</li>
         <li>Destination shares and migration analysis, via <a href="https://www.nepjol.info/index.php/jeri/article/download/75787/58133">Trends and Destinations of Foreign Labour Migration in Nepal (Nepal Journal of Economics Research)</a>.</li>
         <li>Nepal Labour Migration Report 2024, <a href="https://ceslam.org/wp-content/uploads/2025/12/Nepal-Labour-Migration-Report-2024.pdf">CESLAM</a>.</li>
         <li>Background on remittance use in households, <a href="https://soscbaha.org/billions-of-rupees-enter-the-country-as-remittance-where-does-it-all-go/">Social Science Baha / The Kathmandu Post</a>.</li>
@@ -114,31 +168,97 @@ document.addEventListener("DOMContentLoaded", function () {
       color: ["#de7a1f"],
       tooltip: { trigger: "axis", formatter: "{b}: <b>${c}B</b>" },
       grid: { left: 54, right: 20, top: 30, bottom: 40 },
-      xAxis: Object.assign({ type: "category", data: years }, ax),
+      xAxis: Object.assign({ type: "category", data: years, boundaryGap: false }, ax),
       yAxis: Object.assign({ type: "value", name: "USD billions", nameTextStyle: { color: "#8a8175" } }, ax),
       series: [{
-        type: "bar",
+        type: "line",
         data: vals,
-        barWidth: "62%",
-        itemStyle: { borderRadius: [5, 5, 0, 0] },
-        markPoint: { data: [{ type: "max", name: "Record high" }], symbolSize: 52, label: { fontSize: 10 } }
+        smooth: true,
+        symbolSize: 8,
+        lineStyle: { width: 3 },
+        areaStyle: { color: { type: "linear", x: 0, y: 0, x2: 0, y2: 1, colorStops: [{ offset: 0, color: "rgba(222,122,31,0.35)" }, { offset: 1, color: "rgba(222,122,31,0.03)" }] } },
+        markPoint: { data: [{ type: "max", name: "Record high" }], symbolSize: 56, label: { fontSize: 10 } },
+        markLine: {
+          silent: true,
+          symbol: "none",
+          lineStyle: { color: "#1e7d4f", type: "dashed", width: 1.5 },
+          label: { fontSize: 11, color: "#1e7d4f", formatter: "{b}" },
+          data: [{ xAxis: "2020", name: "pandemic" }, { xAxis: "2022", name: "departures rebound" }]
+        }
       }]
     });
   });
 
   H.loadCSV(base + "datasets/nepal-labor-permit-destinations.csv").then(function (rows) {
-    var data = rows.map(function (r, i) {
-      return { name: r.destination, value: parseFloat(r.share_percent), itemStyle: { color: H.palette[i % H.palette.length] } };
-    });
+    rows.sort(function (a, b) { return parseFloat(b.share_percent) - parseFloat(a.share_percent); });
+    var names = rows.map(function (r) { return r.destination; });
+    var vals = rows.map(function (r) { return parseFloat(r.share_percent); });
     H.makeChart(document.getElementById("chart-destinations"), {
-      tooltip: { trigger: "item", formatter: "{b}: <b>{d}%</b> of permits" },
+      color: ["#de7a1f"],
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, formatter: "{b}: <b>{c}%</b> of permits" },
+      grid: { left: 140, right: 56, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "value", name: "% of permits", nameTextStyle: { color: "#8a8175" } }, ax),
+      yAxis: Object.assign({ type: "category", data: names, inverse: true }, ax),
+      series: [{
+        type: "bar",
+        data: vals,
+        barWidth: "52%",
+        itemStyle: { borderRadius: [0, 5, 5, 0] },
+        label: { show: true, position: "right", formatter: "{c}%", color: "#4a443b" }
+      }]
+    });
+  });
+
+  H.loadCSV(base + "datasets/nepal-permits-firsttime-fy2024-25.csv").then(function (rows) {
+    var data = rows.map(function (r) { return { name: r.permit_type, value: parseFloat(r.share_percent) }; });
+    H.makeChart(document.getElementById("chart-permits"), {
+      color: ["#de7a1f", "#1e7d4f"],
+      tooltip: { trigger: "item", formatter: "{b}: <b>{c}%</b> of 839,000 permits" },
       legend: { bottom: 0, textStyle: { color: "#4a443b" } },
       series: [{
         type: "pie",
-        radius: ["42%", "68%"],
+        radius: ["48%", "70%"],
         center: ["50%", "44%"],
         data: data,
         label: { formatter: "{b}\n{d}%", color: "#1e1b16" },
+        emphasis: { scale: true, scaleSize: 6 }
+      }]
+    });
+  });
+
+  H.loadCSV(base + "datasets/nepal-migrant-deaths-fy2081-82.csv").then(function (rows) {
+    var countries = rows.filter(function (r) { return r.kind === "country"; });
+    countries.sort(function (a, b) { return parseFloat(b.deaths) - parseFloat(a.deaths); });
+    var cnames = countries.map(function (r) { return r.category; });
+    var cvals = countries.map(function (r) { return parseFloat(r.deaths); });
+    H.makeChart(document.getElementById("chart-deaths-country"), {
+      color: ["#1e7d4f"],
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, formatter: "{b}: <b>{c}</b> deaths" },
+      grid: { left: 110, right: 50, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "value", name: "deaths", nameTextStyle: { color: "#8a8175" } }, ax),
+      yAxis: Object.assign({ type: "category", data: cnames, inverse: true }, ax),
+      series: [{
+        type: "bar",
+        data: cvals,
+        barWidth: "52%",
+        itemStyle: { borderRadius: [0, 5, 5, 0] },
+        label: { show: true, position: "right", formatter: "{c}", color: "#4a443b" }
+      }]
+    });
+
+    var causes = rows.filter(function (r) { return r.kind === "cause"; });
+    var cdata = causes.map(function (r, i) {
+      return { name: r.category, value: parseFloat(r.deaths), itemStyle: { color: H.palette[i % H.palette.length] } };
+    });
+    H.makeChart(document.getElementById("chart-deaths-cause"), {
+      tooltip: { trigger: "item", formatter: "{b}: <b>{c}</b> deaths ({d}%)" },
+      legend: { bottom: 0, textStyle: { color: "#4a443b" } },
+      series: [{
+        type: "pie",
+        radius: ["48%", "70%"],
+        center: ["50%", "44%"],
+        data: cdata,
+        label: { formatter: "{b}\n{c}", color: "#1e1b16" },
         emphasis: { scale: true, scaleSize: 6 }
       }]
     });

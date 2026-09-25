@@ -31,22 +31,28 @@
       <div class="topic">Climate and disasters &middot; Nepal and South Asia</div>
       <h1>Choking season: Kathmandu and South Asia's air crisis</h1>
       <p class="dek">Kathmandu keeps topping the world's most-polluted-city rankings. The annual averages tell a quieter story: year after year, the air stays far above anything considered safe.</p>
-      <div class="byline"><strong>HimalData</strong> &middot; Published September 2026 &middot; 8 min read</div>
+      <div class="byline"><strong>HimalData</strong> &middot; Published September 2026 &middot; 10 min read</div>
     </section>
 
     <section class="stat-band" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
       <div class="stat"><div class="num">45.1</div><div class="label">Kathmandu's average PM2.5 in 2024 (µg/m³, IQAir)</div></div>
       <div class="stat"><div class="num">9x</div><div class="label">Times the WHO annual guideline of 5 µg/m³</div></div>
       <div class="stat"><div class="num">42K</div><div class="label">Air pollution linked deaths per year in Nepal (Ministry of Health)</div></div>
+      <div class="stat"><div class="num">204.5</div><div class="label">PM2.5 (µg/m³) on Kathmandu's worst day, April 2025</div></div>
     </section>
+
+    <figure class="hero-figure">
+      <img src="../assets/img/ktm-valley-haze.jpg" alt="Haze hanging over the Kathmandu Valley, seen from the Shivapuri hills">
+      <figcaption>Haze hangs over the Kathmandu Valley, seen from the Shivapuri hills. The valley's bowl geography traps pollution under winter inversions. Photo: Krishna k. sahh, via Wikimedia Commons (CC0).</figcaption>
+    </figure>
 
     <article class="article">
       <p>On several mornings in recent years, Kathmandu has woken up as the most polluted major city on earth: in May 2024, in April 2025 when PM2.5 hit 204.5 µg/m³, and again in March 2026. The headlines capture the spikes. The slower story is in the annual averages, which show a city breathing unsafe air as a matter of routine.</p>
 
       <figure>
         <div class="chart-box">
-          <h3>Kathmandu's annual average PM2.5</h3>
-          <div class="chart-sub">Micrograms per cubic meter (µg/m³). The dashed line is the WHO annual guideline.</div>
+          <h3>Kathmandu's air as multiples of the WHO guideline</h3>
+          <div class="chart-sub">Annual average PM2.5 divided by the WHO annual guideline of 5 µg/m³. Labels show the raw average.</div>
           <div class="chart" id="chart-ktm"></div>
           <div class="chart-source">Source: IQAir. <a href="../datasets/kathmandu-pm25-annual.csv" download>Download the CSV</a></div>
         </div>
@@ -73,13 +79,28 @@
       <p>The 2024 report tells the same story: New Delhi remained the most polluted capital at 91.8 µg/m³, with Dhaka next at 78. Across Asia, 97.7 percent of cities exceeded the WHO guideline in 2024. South Asia's smog is a shared airshed problem, drifting across the Indo-Gangetic plain regardless of borders.</p>
 
       <h2>The health toll</h2>
-      <p>Nepal's Ministry of Health attributes about <strong>42,000 deaths a year</strong> to air pollution, with children under five and adults over 70 hit hardest. During severe episodes, Kathmandu's major hospitals report spikes in respiratory cases; the Tribhuvan University Teaching Hospital saw its outpatient numbers jump during the April 2025 smog. The health ministry has repeatedly advised residents to wear masks and limit outdoor activity on bad days.</p>
+      <p>Nepal's Ministry of Health attributes about <strong>42,000 deaths a year</strong> to air pollution, with children under five and adults over 70 hit hardest. But the toll is not only in the mortality tables. It is in the waiting rooms.</p>
+
+      <p>"The Kathmandu valley is not a good place for people who are allergic to dust," says Dr. Dirgha Singh Bom. "In fact the number of patients with respiratory problems has increased by 20%." Dr. Kabir Nath Yogi, head of the respiratory ward at the Tribhuvan University Teaching Hospital, puts the cause plainly: "Dust particles suspended in the air from construction and vehicle emissions are the main causes of the increasing cases of respiratory problems." His advice to the people who live along the roadside, where the dust is thickest: "No place in the Kathmandu Valley is free from pollution, but those who live in houses by the roadside should be more cautious about their health." Both doctors were <a href="https://phmuseum.com/projects/air-pollution-kathmandu?f=f">interviewed for a PhMuseum photo essay</a> on the city's air.</p>
+
+      <p>Nobody breathes more of it than the traffic police. Officers spend long hours each day directing traffic at the city's busiest intersections, and a 2015 study of their lung function found that the longer they performed traffic duty, the greater the harm to their lungs. Deputy Inspector General of Police Prakash Aryal <a href="https://www.earthisland.org/journal/index.php/articles/entry/air_pollution_taking_toll_on_kathmandu_residents/">told Earth Island Journal</a>: "My people have to work under extreme circumstances, every time I ask them to go do their duty, I am in a dilemma. As a manager I have a responsibility to ask them to do their job well, but I feel I am exploiting these people knowing the risk to their health."</p>
+
+      <p>During severe episodes, Kathmandu's major hospitals report spikes in respiratory cases; the Tribhuvan University Teaching Hospital saw its outpatient numbers jump during the April 2025 smog, when PM2.5 hit 204.5 µg/m³ and the city topped the world's most-polluted rankings. The health ministry has repeatedly advised residents to wear masks and limit outdoor activity on bad days.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>One bad day vs. an average year</h3>
+          <div class="chart-sub">PM2.5 in micrograms per cubic meter (µg/m³). The April 2025 reading is a single-day peak, not an average.</div>
+          <div class="chart" id="chart-peak"></div>
+          <div class="chart-source">Sources: WHO, IQAir, ANI. <a href="../datasets/kathmandu-pm25-peak-vs-average.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
 
       <p>Policy responses so far are modest: vehicle emission testing, dust control rules for construction, and public advisories. Enforcement is patchy, monitoring outside the valley is thin, and brick kilns and waste burning continue largely unchecked. Until the sources are tackled, the data suggests Kathmandu's choking seasons will keep returning on schedule.</p>
 
       <div class="method-box">
         <h4>Method and caveats</h4>
-        Annual PM2.5 figures are IQAir city averages from ground monitoring stations. The 2019 figure comes from IQAir's Kathmandu city page; the 2023 figure from the 2023 World Air Quality Report's capital city ranking; the 2024 figure from IQAir's Kathmandu reporting. Station coverage in Nepal is concentrated in the Kathmandu Valley, so these numbers describe the capital, not the country. Real-time "most polluted city" rankings reflect hourly conditions and swing wildly; the annual averages are the better measure of chronic exposure.
+        Annual PM2.5 figures are IQAir city averages from ground monitoring stations. The 2019 figure comes from IQAir's Kathmandu city page; the 2023 figure from the 2023 World Air Quality Report's capital city ranking; the 2024 figure from IQAir's Kathmandu reporting. The "multiples of the WHO guideline" chart divides each annual average by the WHO guideline of 5 µg/m³. The peak-day figure (204.5 µg/m³, April 2025) is a single-day reading reported by ANI, not an average. Station coverage in Nepal is concentrated in the Kathmandu Valley, so these numbers describe the capital, not the country. Real-time "most polluted city" rankings reflect hourly conditions and swing wildly; the annual averages are the better measure of chronic exposure. Doctor and police quotations are from named interviews published by PhMuseum and Earth Island Journal, linked below.
       </div>
 
       <h2>Sources</h2>
@@ -90,6 +111,9 @@
         <li>2024 report summary (New Delhi 91.8, Dhaka 78; 97.7% of Asian cities above WHO guideline), via <a href="https://upscexamnotes.com/upsc-article.php?article=world-air-quality-report-2024-1">World Air Quality Report 2024 summary</a>.</li>
         <li>April 2025 episode (AQI 279, PM2.5 204.5 µg/m³) and health toll (42,000 deaths/year, Ministry of Health), via <a href="https://www.latestly.com/agency-news/world-news-swiss-firm-ranks-kathmandu-most-polluted-city-in-the-world-6766253.html">ANI / LatestLY</a>.</li>
         <li>May 2024 "most polluted city" ranking and mask advisory, <a href="https://www.gktoday.in/question/according-to-iqair-which-city-has-recently-been-ranked-as-the-most-pol">GKToday</a>.</li>
+        <li>Doctor interviews (Dr. Dirgha Singh Bom, Dr. Kabir Nath Yogi, Dr. Santa Kumar Das), PhMuseum photo essay <a href="https://phmuseum.com/projects/air-pollution-kathmandu?f=f">"Air Pollution, Kathmandu"</a>.</li>
+        <li>Traffic police lung study and Deputy Inspector General Prakash Aryal interview, <a href="https://www.earthisland.org/journal/index.php/articles/entry/air_pollution_taking_toll_on_kathmandu_residents/">Earth Island Journal</a>.</li>
+        <li>Kathmandu Valley haze photograph by Krishna k. sahh, via <a href="https://commons.wikimedia.org/wiki/File:Kathmandu_Valley_panoramic_view_from_Shivapuri_hills_under_haze.jpg">Wikimedia Commons</a>, CC0.</li>
       </ul>
     </article>
   </div>
@@ -107,25 +131,34 @@ document.addEventListener("DOMContentLoaded", function () {
   var H = HimalData, base = H.basePath(), ax = H.axisStyle();
 
   H.loadCSV(base + "datasets/kathmandu-pm25-annual.csv").then(function (rows) {
-    var years = rows.map(function (r) { return r.year; });
-    var vals = rows.map(function (r) { return parseFloat(r.pm25_ug_m3); });
+    var names = rows.map(function (r) { return r.year; });
+    var raw = rows.map(function (r) { return parseFloat(r.pm25_ug_m3); });
+    var mults = raw.map(function (v) { return Math.round(v / 5 * 10) / 10; });
     H.makeChart(document.getElementById("chart-ktm"), {
       color: ["#de7a1f"],
-      tooltip: { trigger: "axis", formatter: "{b}: <b>{c} µg/m³</b>" },
-      grid: { left: 54, right: 20, top: 30, bottom: 40 },
-      xAxis: Object.assign({ type: "category", data: years }, ax),
-      yAxis: Object.assign({ type: "value", name: "µg/m³", nameTextStyle: { color: "#8a8175" } }, ax),
+      tooltip: {
+        trigger: "axis",
+        axisPointer: { type: "shadow" },
+        formatter: function (p) {
+          var i = p[0].dataIndex;
+          return p[0].name + ": <b>" + mults[i] + "&times;</b> the WHO guideline (" + raw[i] + " &micro;g/m&sup3;)";
+        }
+      },
+      grid: { left: 70, right: 110, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "value", name: "multiples of WHO guideline", nameTextStyle: { color: "#8a8175" } }, ax),
+      yAxis: Object.assign({ type: "category", data: names, inverse: true }, ax),
       series: [{
         type: "bar",
-        data: vals,
+        data: mults,
         barWidth: "52%",
-        itemStyle: { borderRadius: [5, 5, 0, 0] },
+        itemStyle: { borderRadius: [0, 5, 5, 0] },
+        label: { show: true, position: "right", formatter: function (p) { return p.value + "x (" + raw[p.dataIndex] + ")"; }, color: "#4a443b" },
         markLine: {
           silent: true,
           symbol: "none",
           lineStyle: { color: "#1e7d4f", type: "dashed", width: 2 },
-          label: { formatter: "WHO guideline: 5 µg/m³", position: "insideEndTop", color: "#1e7d4f", fontSize: 12 },
-          data: [{ yAxis: 5 }]
+          label: { formatter: "WHO guideline", position: "insideEndTop", color: "#1e7d4f", fontSize: 12 },
+          data: [{ xAxis: 1 }]
         }
       }]
     });
@@ -137,16 +170,15 @@ document.addEventListener("DOMContentLoaded", function () {
     var vals = rows.map(function (r) { return parseFloat(r.pm25_2023_ug_m3); });
     H.makeChart(document.getElementById("chart-capitals"), {
       color: ["#de7a1f"],
-      tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, formatter: "{b}: <b>{c} µg/m³</b>" },
-      grid: { left: 130, right: 30, top: 30, bottom: 40 },
-      xAxis: Object.assign({ type: "value", name: "µg/m³", nameTextStyle: { color: "#8a8175" } }, ax),
+      tooltip: { trigger: "axis", formatter: "{b}: <b>{c} &micro;g/m&sup3;</b>" },
+      grid: { left: 130, right: 60, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "value", name: "&micro;g/m&sup3;", nameTextStyle: { color: "#8a8175" } }, ax),
       yAxis: Object.assign({ type: "category", data: names, inverse: true }, ax),
       series: [{
-        type: "bar",
+        type: "scatter",
         data: vals,
-        barWidth: "46%",
-        itemStyle: { borderRadius: [0, 5, 5, 0] },
-        label: { show: true, position: "right", formatter: "{c}", color: "#4a443b" },
+        symbolSize: 18,
+        label: { show: true, position: "right", formatter: "{c}", color: "#4a443b", distance: 12 },
         markLine: {
           silent: true,
           symbol: "none",
@@ -154,6 +186,25 @@ document.addEventListener("DOMContentLoaded", function () {
           label: { formatter: "WHO: 5", position: "insideEndTop", color: "#1e7d4f", fontSize: 12 },
           data: [{ xAxis: 5 }]
         }
+      }]
+    });
+  });
+
+  H.loadCSV(base + "datasets/kathmandu-pm25-peak-vs-average.csv").then(function (rows) {
+    var names = rows.map(function (r) { return r.measure; });
+    var vals = rows.map(function (r) { return parseFloat(r.pm25_ug_m3); });
+    var cols = ["#1e7d4f", "#de7a1f", "#a33b1f"];
+    var data = vals.map(function (v, i) { return { value: v, itemStyle: { color: cols[i % cols.length], borderRadius: [5, 5, 0, 0] } }; });
+    H.makeChart(document.getElementById("chart-peak"), {
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, formatter: "{b}: <b>{c} &micro;g/m&sup3;</b>" },
+      grid: { left: 54, right: 20, top: 40, bottom: 90 },
+      xAxis: Object.assign({ type: "category", data: names, axisLabel: { interval: 0, rotate: 0, width: 90, overflow: "break" } }, ax),
+      yAxis: Object.assign({ type: "value", name: "&micro;g/m&sup3;", nameTextStyle: { color: "#8a8175" } }, ax),
+      series: [{
+        type: "bar",
+        data: data,
+        barWidth: "46%",
+        label: { show: true, position: "top", formatter: "{c}", color: "#4a443b", fontWeight: "bold" }
       }]
     });
   });
