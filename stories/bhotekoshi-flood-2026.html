@@ -66,11 +66,37 @@
       <p>The wave announced itself the way disasters do in the mountains, by silencing the instruments. The Bhote Koshi gauge at Syafrubesi stopped transmitting at about 08:50, its last reading 1.62 meters. The Department of Hydrology and Meteorology confirmed a major flood wave by 09:15 and warned downstream districts. The country's cell networks pushed out 679,295 warning SMS messages. Then the water kept its own schedule.</p>
 
       <figure>
-        <div class="chart-box">
-          <h3>How fast the flood moved downstream</h3>
-          <div class="chart-sub">Time after the 08:40 collapse when the wave front reached each point, 26 August 2026 (Nepal time). Source: NDRRMA situation report, 1 Sept 2026.</div>
-          <div class="chart" id="chart-wave"></div>
-          <div class="chart-source">Source: NDRRMA. <a href="../datasets/bhotekoshi-flood-wave-timeline.csv" download>Download the CSV</a></div>
+        <div class="chart-box flood-recon">
+          <h3>Reconstructing the flood</h3>
+          <div class="chart-sub">Watch the flood front travel the Bhote Koshi-Trishuli-Narayani corridor on 26 August 2026. Timing from NDRRMA arrival reports; the marker interpolates between recorded points.</div>
+          <div class="recon-controls">
+            <button id="recon-play" type="button">Play</button>
+            <div class="recon-clock"><span id="recon-time">08:40</span><span class="recon-tz">NPT</span></div>
+            <input id="recon-scrub" type="range" min="0" max="440" value="0" step="1" aria-label="Scrub the flood timeline">
+          </div>
+          <div class="recon-status" id="recon-status">08:40, the mountain falls in the upper Lhende Khola.</div>
+          <svg id="recon-svg" viewBox="0 0 400 600" role="img" aria-label="Animated reconstruction of the flood front moving downstream on 26 August 2026">
+            <defs>
+              <linearGradient id="recon-flood-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#b0722e"/>
+                <stop offset="1" stop-color="#7a3f16"/>
+              </linearGradient>
+            </defs>
+            <text x="200" y="22" text-anchor="middle" font-size="12" fill="#8a8175">Schematic, not to scale. Press play.</text>
+            <path id="recon-river" d="M200,60 C192,120 212,170 200,230 C188,290 210,350 200,420 C194,460 198,485 200,512" fill="none" stroke="#7fb3d5" stroke-width="13" stroke-linecap="round"/>
+            <path id="recon-flood" d="M200,60 C192,120 212,170 200,230 C188,290 210,350 200,420 C194,460 198,485 200,512" fill="none" stroke="url(#recon-flood-grad)" stroke-width="13" stroke-linecap="round"/>
+            <g font-size="11" fill="#8a8175">
+              <text x="118" y="200">Bhote Koshi</text>
+              <text x="118" y="350">Trishuli</text>
+              <text x="118" y="490">Narayani</text>
+            </g>
+            <g id="recon-stations" font-size="13" fill="#2c2a26"></g>
+            <g id="recon-front">
+              <circle class="recon-halo" r="12" cx="200" cy="60"/>
+              <circle id="recon-dot-front" r="8" cx="200" cy="60" fill="#c8102e" stroke="#fff" stroke-width="2"/>
+            </g>
+          </svg>
+          <div class="chart-source">Source: NDRRMA situation report, 1 Sept 2026. <a href="../datasets/bhotekoshi-flood-wave-timeline.csv" download>Download the CSV</a></div>
         </div>
       </figure>
 
@@ -252,49 +278,136 @@
 document.addEventListener("DOMContentLoaded", function () {
   var H = HimalData, base = H.basePath(), ax = H.axisStyle();
 
-  function toHours(t) {
-    var p = t.split(":");
-    return parseInt(p[0], 10) + parseInt(p[1], 10) / 60;
-  }
-  function clock(v) {
-    var h = Math.floor(v), m = Math.round((v - h) * 60);
-    if (m === 60) { h += 1; m = 0; }
-    return h + ":" + (m < 10 ? "0" + m : m);
-  }
+  /* Flood reconstruction animation */
+  (function () {
+    var svg = document.getElementById("recon-svg");
+    if (!svg) return;
+    var river = document.getElementById("recon-river");
+    var flood = document.getElementById("recon-flood");
+    var front = document.getElementById("recon-front");
+    var frontDot = document.getElementById("recon-dot-front");
+    var halo = front.querySelector(".recon-halo");
+    var playBtn = document.getElementById("recon-play");
+    var clockEl = document.getElementById("recon-time");
+    var scrub = document.getElementById("recon-scrub");
+    var statusEl = document.getElementById("recon-status");
+    var stationLayer = document.getElementById("recon-stations");
 
-  /* Chart 1: wave arrival times as elapsed minutes after the collapse */
-  H.loadCSV(base + "datasets/bhotekoshi-flood-wave-timeline.csv").then(function (rows) {
-    var pts = rows.filter(function (r) { return r.location !== "DHM warning"; });
-    var locs = pts.map(function (r) { return r.location; });
-    var t0 = toHours("08:40");
-    var mins = pts.map(function (r) { return Math.round((toHours(r.time_npt) - t0) * 60); });
-    function dur(m) {
-      if (m < 60) return m + " min";
-      var h = Math.floor(m / 60), mm = m % 60;
-      return h + "h" + (mm ? " " + mm + "m" : "");
+    var T_END = 440; /* 08:40 -> 16:00 */
+    var DURATION_S = 26;
+
+    var STATIONS = [
+      { label: "Langtang Lirung", note: "collapse",        t: 0,   y: 60,  major: true },
+      { label: "Syafrubesi",      note: "gauge goes silent", t: 10,  y: 150 },
+      { label: "Galchhi",         note: "",                t: 108, y: 250 },
+      { label: "Malekhu",         note: "",                t: 190, y: 340 },
+      { label: "Mugling",         note: "",                t: 260, y: 425 },
+      { label: "Devghat",         note: "peak 5,850 m3/s", t: 400, y: 512, major: true }
+    ];
+
+    var L = river.getTotalLength();
+    flood.style.strokeDasharray = L;
+    flood.style.strokeDashoffset = L;
+
+    function fracAtY(y) {
+      var best = 0, bd = 1e9;
+      for (var i = 0; i <= 300; i++) {
+        var p = river.getPointAtLength(L * i / 300);
+        var d = Math.abs(p.y - y);
+        if (d < bd) { bd = d; best = i / 300; }
+      }
+      return best;
     }
-    H.makeChart(document.getElementById("chart-wave"), {
-      color: ["#0b3d91"],
-      tooltip: {
-        trigger: "axis",
-        axisPointer: { type: "shadow" },
-        formatter: function (p) {
-          var i = p[0].dataIndex;
-          return "<b>" + locs[i] + "</b><br/>Wave arrived " + dur(mins[i]) + " after the collapse (" + clock(toHours(pts[i].time_npt)) + " NPT)<br/>" + pts[i].event;
-        }
-      },
-      grid: { left: 200, right: 60, top: 30, bottom: 40 },
-      xAxis: Object.assign({ type: "value", name: "minutes after 08:40", nameLocation: "middle", nameGap: 28, nameTextStyle: { color: "#8a8175" } }, ax),
-      yAxis: Object.assign({ type: "category", data: locs, inverse: true }, ax),
-      series: [{
-        type: "bar",
-        data: mins,
-        barWidth: "52%",
-        itemStyle: { borderRadius: [0, 5, 5, 0] },
-        label: { show: true, position: "right", formatter: function (p) { return dur(p.value); }, color: "#4a443b" }
-      }]
+    STATIONS.forEach(function (s) { s.frac = fracAtY(s.y); });
+
+    var NS = "http://www.w3.org/2000/svg";
+    STATIONS.forEach(function (s) {
+      var g = document.createElementNS(NS, "g");
+      g.setAttribute("class", "recon-station");
+      var dot = document.createElementNS(NS, "circle");
+      dot.setAttribute("class", "recon-dot");
+      dot.setAttribute("cx", 200); dot.setAttribute("cy", s.y);
+      dot.setAttribute("r", s.major ? 7 : 5);
+      var lab = document.createElementNS(NS, "text");
+      lab.setAttribute("x", 216); lab.setAttribute("y", s.y + 4);
+      lab.textContent = s.label;
+      var tm = document.createElementNS(NS, "text");
+      tm.setAttribute("class", "recon-t");
+      tm.setAttribute("x", 216); tm.setAttribute("y", s.y + 19);
+      tm.textContent = clockOf(s.t) + (s.note ? "  " + s.note : "");
+      g.appendChild(dot); g.appendChild(lab); g.appendChild(tm);
+      stationLayer.appendChild(g);
+      s.el = g;
     });
-  });
+
+    function clockOf(t) {
+      var m = 8 * 60 + 40 + Math.round(t);
+      var h = Math.floor(m / 60), mm = m % 60;
+      return h + ":" + (mm < 10 ? "0" + mm : mm);
+    }
+    function fracAt(t) {
+      if (t <= 0) return 0;
+      for (var i = 0; i < STATIONS.length - 1; i++) {
+        var a = STATIONS[i], b = STATIONS[i + 1];
+        if (t <= b.t) {
+          var k = (t - a.t) / (b.t - a.t);
+          return a.frac + k * (b.frac - a.frac);
+        }
+      }
+      return 1;
+    }
+    function statusFor(t) {
+      if (t < 10) return "08:40, the mountain falls in the upper Lhende Khola.";
+      if (t < 35) return "08:50, the Syafrubesi gauge goes silent mid-reading.";
+      if (t < 108) return "09:15, DHM confirms a major flood wave. 679,295 warning SMS go out.";
+      if (t < 190) return "10:28, the front reaches Galchhi.";
+      if (t < 260) return "11:50, the front reaches Malekhu.";
+      if (t < 400) return "13:00, the front reaches Mugling.";
+      if (t < 440) return "15:20, the front reaches Devghat.";
+      return "16:00, peak flow at Devghat: 5,850 cubic metres per second.";
+    }
+
+    var t = 0, playing = false, raf = null, last = 0;
+    function render() {
+      var f = fracAt(t);
+      flood.style.strokeDashoffset = L * (1 - f);
+      var p = river.getPointAtLength(f * L);
+      frontDot.setAttribute("cx", p.x); frontDot.setAttribute("cy", p.y);
+      halo.setAttribute("cx", p.x); halo.setAttribute("cy", p.y);
+      clockEl.textContent = clockOf(t);
+      statusEl.textContent = statusFor(t);
+      if (document.activeElement !== scrub) scrub.value = Math.round(t);
+      STATIONS.forEach(function (s) {
+        if (t >= s.t) s.el.classList.add("arrived");
+        else s.el.classList.remove("arrived");
+      });
+    }
+    function tick(now) {
+      if (!playing) return;
+      var dt = (now - last) / 1000;
+      last = now;
+      t += dt * (T_END / DURATION_S);
+      if (t >= T_END) { t = T_END; setPlaying(false); playBtn.textContent = "Replay"; }
+      render();
+      if (playing) raf = requestAnimationFrame(tick);
+    }
+    function setPlaying(v) {
+      playing = v;
+      playBtn.textContent = v ? "Pause" : (t >= T_END ? "Replay" : "Play");
+      if (v) { last = performance.now(); raf = requestAnimationFrame(tick); }
+      else if (raf) cancelAnimationFrame(raf);
+    }
+    playBtn.addEventListener("click", function () {
+      if (!playing && t >= T_END) { t = 0; render(); }
+      setPlaying(!playing);
+    });
+    scrub.addEventListener("input", function () {
+      setPlaying(false);
+      t = parseFloat(scrub.value);
+      render();
+    });
+    render();
+  })();
 
   /* Chart 2: casualty progression */
   H.loadCSV(base + "datasets/bhotekoshi-flood-casualties.csv").then(function (rows) {

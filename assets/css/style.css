@@ -319,6 +319,51 @@ a:hover { color: var(--crimson); }
 }
 .chart-source a { color: var(--muted); }
 
+/* ---------- flood reconstruction animation ---------- */
+.flood-recon .recon-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 12px 0 4px;
+  flex-wrap: wrap;
+}
+#recon-play {
+  font-family: var(--serif);
+  font-size: 16px;
+  padding: 8px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #0b3d91;
+  color: #fff;
+  cursor: pointer;
+}
+#recon-play:hover { background: #0a3378; }
+.recon-clock {
+  font-family: var(--serif);
+  font-size: 28px;
+  color: var(--ink);
+  min-width: 130px;
+}
+.recon-clock .recon-tz { font-size: 13px; color: var(--muted); margin-left: 6px; font-family: var(--sans, inherit); }
+#recon-scrub { flex: 1; min-width: 160px; accent-color: #0b3d91; }
+.recon-status { font-size: 14.5px; color: var(--ink-soft); min-height: 26px; margin: 2px 0 6px; }
+#recon-svg { width: 100%; max-width: 340px; height: auto; display: block; margin: 0 auto; }
+.recon-station .recon-dot { fill: #2c2a26; transition: fill 0.4s; }
+.recon-station.arrived .recon-dot { fill: #a0522d; }
+.recon-station .recon-t { opacity: 0; transition: opacity 0.4s; font-size: 11px; fill: #8a8175; }
+.recon-station.arrived .recon-t { opacity: 1; }
+.recon-halo {
+  fill: none; stroke: #c8102e; stroke-width: 2; opacity: 0.7;
+  transform-box: fill-box; transform-origin: center;
+  animation: recon-pulse 1.6s ease-out infinite;
+}
+@keyframes recon-pulse {
+  0% { transform: scale(0.6); opacity: 0.8; }
+  70% { transform: scale(2); opacity: 0; }
+  100% { transform: scale(2); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .recon-halo { animation: none; } }
+
 .method-box {
   background: #f3ecdc;
   border: 1px solid var(--line);
