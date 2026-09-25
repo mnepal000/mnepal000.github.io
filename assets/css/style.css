@@ -283,6 +283,7 @@ a:hover { color: var(--crimson); }
   margin: 2em 0;
 }
 .hero-figure img, .map-figure img { width: 100%; height: auto; display: block; border-radius: 6px; }
+.hero-figure video { width: 100%; height: auto; display: block; border-radius: 6px; background: #0e0d0b; }
 .map-figure svg { width: 100%; max-width: 380px; height: auto; display: block; margin: 0 auto; }
 .hero-figure figcaption, .map-figure figcaption {
   font-size: 13px;
