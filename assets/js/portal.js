@@ -96,4 +96,5 @@
     axisStyle: axisStyle,
     renderCatalog: renderCatalog
   };
+  window.H = window.HimalData;
 })();
