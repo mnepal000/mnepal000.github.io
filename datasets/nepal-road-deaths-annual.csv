@@ -1,0 +1,25 @@
+fiscal_year,deaths,crashes_reported,serious_injuries,minor_injuries,source,notes
+2001/02,879,3823,,,Department of Roads Status Paper 2013 via K C et al. 2025,
+2002/03,682,,,,Department of Roads Status Paper 2013 via K C et al. 2025,
+2003/04,802,,,,Department of Roads Status Paper 2013 via K C et al. 2025,
+2004/05,808,,,,Department of Roads Status Paper 2013 via K C et al. 2025,
+2005/06,825,,,,Department of Roads Status Paper 2013 via K C et al. 2025,
+2006/07,953,,,,Department of Roads Status Paper 2013 via K C et al. 2025,
+2007/08,1131,,,,Department of Roads Status Paper 2013 via K C et al. 2025,
+2008/09,1356,,,,Department of Roads Status Paper 2013 via K C et al. 2025,
+2009/10,1734,,,,Department of Roads Status Paper 2013 via K C et al. 2025,
+2010/11,1689,,,,Department of Roads Status Paper 2013 via K C et al. 2025,
+2011/12,1837,,,,Department of Roads Status Paper 2013 via K C et al. 2025,
+2012/13,1816,13582,,,Department of Roads Status Paper 2013 via K C et al. 2025,
+2013/14,1787,,11368,,K C et al. 2025 (Nepal Police data),
+2014/15,2004,,,,K C et al. 2025 (Nepal Police data),
+2015/16,2006,,,,K C et al. 2025 (Nepal Police data),
+2016/17,2385,,,,K C et al. 2025 (Nepal Police data),
+2017/18,2541,,,,K C et al. 2025 (Nepal Police data),
+2018/19,2789,,,,K C et al. 2025 (Nepal Police data),
+2019/20,2251,,,,K C et al. 2025 (Nepal Police data),COVID lockdown dip
+2020/21,2500,,,,K C et al. 2025 (Nepal Police data),
+2021/22,2883,,33000,,K C et al. 2025 (Nepal Police data),Matches WHO 2021 reported figure; injuries are total reported injuries
+2022/23,2376,,,,K C et al. 2025 (Nepal Police data),
+2023/24,2358,,31034,,K C et al. 2025 (Nepal Police data),"NDRRMA reports 2,369 for the same year, an 11-death discrepancy; see method"
+2024/25,2549,20000,625,3491,NDRRMA via Economic Affair Sep 2026,"More than 20,000 crashes; injury split from Nepal Police monthly report (15 Jun-16 Jul window)"

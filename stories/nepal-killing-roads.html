@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The killing roads: seven deaths a day on Nepal's highways | HimalData</title>
+<meta name="description" content="Nepal loses about seven people every day on its roads, and the official count captures barely a third of the dying. The data behind the country's deadliest daily disaster, from the Simaltal bus plunge to the motorcycles that dominate the toll.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/js/portal.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">Himal<span class="dot">Data</span></span>
+      <span class="brand-tag">Nepal and South Asia</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html" class="active">Stories</a>
+      <a href="../data/index.html">Data</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap-narrow">
+    <section class="story-hero">
+      <div class="topic">Transport and safety &middot; Nepal</div>
+      <h1>The killing roads</h1>
+      <p class="dek">Nepal loses about seven people every single day on its roads, and the official count captures barely a third of the dying. From the buses swept into the Trishuli at Simaltal to the motorcycles that dominate the toll, this is the data behind the country's deadliest daily disaster.</p>
+      <div class="byline"><strong>HimalData</strong> &middot; Published September 2026 &middot; 12 min read</div>
+    </section>
+
+    <section class="stat-band" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+      <div class="stat"><div class="num">2,549</div><div class="label">Road deaths recorded in FY 2024/25, about seven a day</div></div>
+      <div class="stat"><div class="num">28.2</div><div class="label">Estimated deaths per 100,000, the worst rate in South Asia (WHO)</div></div>
+      <div class="stat"><div class="num">&times;3</div><div class="label">WHO's estimated toll versus the police count</div></div>
+      <div class="stat"><div class="num">$3B</div><div class="label">Annual cost of crashes, about 7% of GDP (iRAP)</div></div>
+    </section>
+
+    <article class="article">
+      <p>Ramesh Kumar Patel came to Chitwan with a reserved ambulance and almost no hope. His cousin had been on one of the two buses that a landslide swept into the Trishuli river at Simaltal in the early hours of 12 July 2024, and in the days after, families gathered on the riverbanks the way people gather at hospital gates, waiting for news that only got worse. "If we could only find his body, we would return home," Patel <a href="https://radionepalonline.com/en/2024/07/13/383382.html">told Radio Nepal</a>. "There is no other hope."</p>
+
+      <p>Vikesh Kumar Patel had come from Gaur after learning his grandfather was on the ill-fated bus; the family and the village, he said, were in a state of mourning. Binod Prasad Jaiswal, who chairs Parasouni Rural Municipality in Bara, had two neighbours on the bus, and his grief found a target: the state, he said, mobilizes everything when a helicopter or an aircraft goes down, but not when a bus does. "More than fifty families are suffering."</p>
+
+      <p>This is a story about why Jaiswal is right to be angry, and about what the numbers say when you line them up: about seven deaths every day, a toll that tripled in two decades, an official count that misses two out of every three victims, and a death rate the World Health Organization ranks as the worst in South Asia.</p>
+
+      <h2>Seven deaths a day, every day</h2>
+      <p>In the fiscal year that ended in mid-July 2025, Nepal recorded <strong>2,549 road deaths</strong>. That is just under seven a day, every day, weekends and festivals included. The five-year police average sits at about 2,469 a year, which the government's own health-sector reporting describes, with unusual bluntness, as "nearly seven preventable deaths every day."</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Road deaths in Nepal, FY 2001/02 to 2024/25</h3>
+          <div class="chart-sub">Deaths recorded by Nepal Police (2001/02 to 2012/13 via Department of Roads; 2013/14 onward via Nepal Police as compiled by K C et al. 2025; 2024/25 via NDRRMA). Fiscal years run mid-July to mid-July.</div>
+          <div class="chart" id="chart-deaths-annual"></div>
+          <div class="chart-source">Sources: Department of Roads Status Paper 2013; K C et al. 2025 (Nepal Police data); NDRRMA via Economic Affair. <a href="../datasets/nepal-road-deaths-annual.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>The curve tells the story of a country that motorized faster than it learned to survive its vehicles. In 2001/02, 879 people died. By 2018/19 the toll had more than tripled to 2,789. The dip in 2019/20 is the COVID lockdown, when the country stopped moving and the dying paused with it, the only year in two decades the curve bent downward for a reason anyone would choose. Then traffic returned, and so did the deaths. Reported crashes tell the same story at higher volume: 3,823 crashes in 2001/02, 13,582 by 2012/13, and more than 20,000 in FY 2024/25, double the figure of a decade ago.</p>
+
+      <div class="pull-stat">The death toll tripled between 2001 and 2019. The only sustained fall came when COVID locked the country down.</div>
+
+      <h2>The count that misses two-thirds</h2>
+      <p>Here is the uncomfortable part: 2,549 is almost certainly an undercount. For 2021, Nepal Police recorded 2,883 deaths. The World Health Organization, modelling from hospital records, surveys and demographic data, estimated <strong>8,479</strong>, with a confidence interval of 7,622 to 9,336. The Global Burden of Disease study lands around 2,000. Different methods give different answers, but the WHO's central estimate is roughly three times the police figure.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>How many died on Nepal's roads in 2021?</h3>
+          <div class="chart-sub">It depends who is counting. Police records capture reported deaths; WHO and GBD model the true toll.</div>
+          <div class="chart" id="chart-estimates"></div>
+          <div class="chart-source">Sources: Nepal Police; WHO Global Status Report on Road Safety 2023 (Nepal country profile); Asian Transport Observatory Nepal profile 2025. <a href="../datasets/nepal-road-death-estimates-2021.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>The Asian Transport Observatory's 2025 Nepal profile confirms the pattern for 2021 and 2022: official statistics and the Global Burden of Disease both report about 2,000 deaths, far below WHO's roughly 8,000. One community study found police data captured about 62.5 percent of fatalities, and far less of minor crashes. If the WHO is right, the real toll is not seven a day. It is closer to <strong>twenty-three</strong>.</p>
+
+      <h2>The worst rate in South Asia</h2>
+      <p>WHO's estimated rate for Nepal is <strong>28.2 deaths per 100,000 people</strong> in 2021. Bangladesh comes next in the region at 18.6, then India at 15.4. Bhutan, Pakistan and Sri Lanka sit between 11 and 12. The global average is 15. Nepal's rate is nearly double the global average, and it rose 13 percent between 2010 and 2021 while the region as a whole improved.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Estimated road deaths per 100,000 people, 2021</h3>
+          <div class="chart-sub">WHO modelled estimates. Nepal's rate is the highest in South Asia and nearly double the global average.</div>
+          <div class="chart" id="chart-sa-rates"></div>
+          <div class="chart-source">Sources: WHO Global Status Report on Road Safety 2023; Asian Transport Observatory 2025. <a href="../datasets/south-asia-road-death-rates-2021.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>Puspa Raj Pant of NASA Foundation Nepal, a road-safety advocacy group, called the rising mortality rate a wake-up call for the country. His organization highlights two numbers that explain much of it: roughly a third of the dead are motorcyclists, and more than a fifth are pedestrians, the two groups with the least steel around them.</p>
+      <h2>Reconstructing Simaltal</h2>
+      <p>At about <strong>3:30 on the morning of 12 July 2024</strong>, monsoon rain loosened the hillside above Simaltal, on the Narayangadh-Muglin road in Chitwan, and a landslide of mud and debris swept two passenger buses into the swollen Trishuli. The Ganapati Deluxe was travelling from Kathmandu to Gaur. The Angel Deluxe was going the other way, from Birgunj to Kathmandu. Early reports put 24 people on the Angel bus and about 41 on the Ganapati; the district administration later published a 65-person list, 38 on one bus and 27 on the other. The manifests changed as the accounting sharpened. What never changed was the river.</p>
+
+      <figure>
+        <div class="chart-box flood-recon">
+          <h3>The Simaltal bus plunge, day by day</h3>
+          <div class="chart-sub">Press play to follow the search down the Trishuli, from the crash site at Simaltal to the Gandak Barrage, 103 km downstream. Recovery counts changed across dated reports; each stage shows what was known then.</div>
+          <div class="recon-controls">
+            <button id="recon-play" type="button">Play</button>
+            <div class="recon-clock"><span id="recon-time">Day 0</span><span class="recon-tz">12 Jul 2024</span></div>
+            <input id="recon-scrub" type="range" min="0" max="185" value="0" step="1" aria-label="Scrub the Simaltal search timeline">
+          </div>
+          <div class="recon-status" id="recon-status">Day 0, 03:30. A landslide sweeps two buses into the Trishuli at Simaltal. 65 people are aboard.</div>
+          <svg id="recon-svg" viewBox="0 0 600 300" role="img" aria-label="Animated reconstruction of the Simaltal bus crash search along the Trishuli river">
+            <defs>
+              <linearGradient id="recon-search-grad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#b0722e"/>
+                <stop offset="1" stop-color="#7a3f16"/>
+              </linearGradient>
+            </defs>
+            <text x="300" y="20" text-anchor="middle" font-size="12" fill="#8a8175">Schematic, not to scale. Press play.</text>
+            <path id="recon-river" d="M70,120 C150,100 200,150 280,135 C360,120 420,160 500,145 C530,140 550,148 565,150" fill="none" stroke="#7fb3d5" stroke-width="14" stroke-linecap="round"/>
+            <path id="recon-search" d="M70,120 C150,100 200,150 280,135 C360,120 420,160 500,145 C530,140 550,148 565,150" fill="none" stroke="url(#recon-search-grad)" stroke-width="14" stroke-linecap="round"/>
+            <g font-size="11" fill="#8a8175">
+              <text x="255" y="60" text-anchor="middle">Trishuli river, flowing downstream</text>
+            </g>
+            <g id="recon-stations" font-size="12" fill="#2c2a26"></g>
+            <g id="recon-front">
+              <circle class="recon-halo" r="12" cx="70" cy="120"/>
+              <circle id="recon-dot-front" r="8" cx="70" cy="120" fill="#de7a1f" stroke="#fff" stroke-width="2"/>
+            </g>
+            <g font-size="11" fill="#8a8175">
+              <text x="70" y="175" text-anchor="middle">Simaltal</text>
+              <text x="70" y="190" text-anchor="middle">crash site</text>
+              <text x="300" y="200" text-anchor="middle">bodies recovered</text>
+              <text x="300" y="213" text-anchor="middle">up to 100 km downstream</text>
+              <text x="545" y="200" text-anchor="middle">Gandak Barrage</text>
+              <text x="545" y="213" text-anchor="middle">103 km downstream</text>
+            </g>
+          </svg>
+          <div class="chart-source">Sources: AP, PA News, Himalaya Times, Radio Nepal, RedVoice Nepal, NTV. <a href="../datasets/simaltal-bus-crash-timeline.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>Three passengers survived, reportedly by jumping from a bus and swimming to the banks, where locals found them and took them to hospital. Their names never appeared in the reporting that followed. The dead did. The first body identified was <strong>Rishi Pal Shahi</strong>, 40, an Indian national. Four days after the crash, near the Gandak Barrage 103 kilometers downstream, police recovered the bodies of the Ganapati Deluxe driver, <strong>Kishor Kumar Chaudhary</strong>, 35, and its conductor, <strong>Rishi Kumar Singh</strong>, 48. The river had carried them the length of a small country.</p>
+
+      <p>By day 12, searchers had found 25 bodies; one was later ruled unrelated to the crash, and seven of the rest could not be identified. Of those identified, 16 were men and 2 women, 13 Nepali and 5 Indian. A 12-member team from India's National Disaster Response Force joined the search. In January 2026, eighteen months on, suspected wreckage of the Ganapati bus was found buried in sand near Dwandrang Bensi in Tanahun, though police said a full recovery would be needed to confirm it. Radio Nepal's accounting at that point: 65 aboard, 11 bodies recovered, 3 survivors, <strong>51 still missing</strong>.</p>
+
+      <p>After Simaltal, the Home Ministry banned night passenger bus travel in areas under weather warnings. It was the kind of rule that arrives after the funerals.</p>
+
+      <h2>Who dies on the roads</h2>
+      <p>The WHO's breakdown of Nepal's 2021 reported deaths shows who the roads harvest. More than a third were occupants of four-wheel vehicles, just over a third were on powered two- and three-wheelers, and nearly a quarter were pedestrians. Cyclists add another 4 percent. Put the unprotected together, motorcyclists, pedestrians and cyclists, and they are well over half the dead.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Who died: road users, 2021 reported deaths</h3>
+          <div class="chart-sub">Share of deaths recorded by Nepal Police, as compiled by WHO.</div>
+          <div class="chart" id="chart-road-user"></div>
+          <div class="chart-source">Source: WHO Global Status Report on Road Safety 2023, Nepal country profile. <a href="../datasets/nepal-road-user-deaths-2021.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>Men are <strong>82 percent</strong> of the dead. Children under 14 and seniors over 65 together account for 41 to 43 percent of fatalities. Geography matters too: the government's health-sector reporting puts the death rate at 15 per 100,000 a year in the Terai, 12 in the Hills and 9 in the Mountains, with urban areas deadlier than rural ones.</p>
+
+      <div class="chart-grid">
+        <figure>
+          <div class="chart-box">
+            <h3>Deaths by sex, 2021</h3>
+            <div class="chart-sub">WHO Nepal country profile.</div>
+            <div class="chart" id="chart-sex"></div>
+            <div class="chart-source">Source: WHO 2023. <a href="../datasets/nepal-road-deaths-sex-2021.csv" download>Download the CSV</a></div>
+          </div>
+        </figure>
+        <figure>
+          <div class="chart-box">
+            <h3>Death rate by ecological zone</h3>
+            <div class="chart-sub">Deaths per 100,000 per year.</div>
+            <div class="chart" id="chart-ecozone"></div>
+            <div class="chart-source">Source: Government health-sector report (NJAR 2024/25). <a href="../datasets/nepal-road-deaths-ecozone.csv" download>Download the CSV</a></div>
+          </div>
+        </figure>
+      </div>
+      <h2>Why it happens</h2>
+      <p>Ask why, and the data thins out, which is itself part of the answer. Nepal Police do not publish national shares for crash causes; their reporting leans on a "negligence" catch-all that explains everything and nothing. The clearest cause breakdown available covers only the Kathmandu Valley in FY 2019/20, where the Metropolitan Traffic Police attributed 89.7 percent of crashes to driver negligence, 4.5 percent to overspeeding and 4.4 percent to drink driving. Nationally, police reports name overspeeding, drunk driving and jaywalking as recurring factors, and traffic police in Koshi point to careless driving at high speed. The categories are blunt instruments for a sharp problem.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Attributed causes of crashes, Kathmandu Valley, FY 2019/20</h3>
+          <div class="chart-sub">Metropolitan Traffic Police data. Kathmandu only; no national cause breakdown is published.</div>
+          <div class="chart" id="chart-causes"></div>
+          <div class="chart-source">Source: Metropolitan Traffic Police via Journal of Health Promotion. <a href="../datasets/kathmandu-crash-causes-fy2019-20.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>What is not in doubt is the vehicle at the center of it. Motorcycles are involved in 40 to 55 percent of vehicle-related crashes every year; in one police monthly report they accounted for 56.57 percent of 4,428 vehicles in crashes, and a 2025 peer-reviewed study attributed 68 percent of road-traffic fatalities and injuries to motorcycle crashes. Note the different metrics, but the direction is consistent. Helmet use tells a story of partial compliance: 98 percent of drivers wear one, fewer than 1 percent of passengers do. Drivers aged 25 to 40 account for more than half of crashes in most years; the 16 to 25 group, old enough to license a motorcycle at 16, holds steady at about 31 percent.</p>
+
+      <h2>More vehicles, same roads</h2>
+      <p>In 1994/95, Nepal had 159,272 registered vehicles. By 2014/15 it had nearly two million, almost four million by 2021, and about <strong>6.25 million by March 2026</strong>, roughly one vehicle for every five Nepalis. Three-quarters of new registrations are motorcycles. One caveat from the Infrastructure Development Committee: only about 60 percent of registered vehicles are estimated to actually be on the road.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Registered motor vehicles in Nepal</h3>
+          <div class="chart-sub">Department of Transport Management. Selected years; 2024/25 figure is approximate.</div>
+          <div class="chart" id="chart-motorization"></div>
+          <div class="chart-source">Sources: Department of Transport Management via Economic Surveys and media; WHO 2023; National Transport Policy 2083. <a href="../datasets/nepal-registered-vehicles.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>The roads did not keep up. The international Road Assessment Programme's 2024 survey found only 17 percent of assessed roads rated 3-star or better for pedestrians, 32 percent for bicyclists and 27 percent for motorcyclists, the very groups dying in the largest numbers. Nepal suffers about 78 fatalities for every 1,000 kilometers of road. The vehicles multiplied; the infrastructure that keeps their riders alive did not.</p>
+
+      <h2>What it costs</h2>
+      <p>The international Road Assessment Programme estimated that road fatalities and serious injuries cost Nepal about <strong>$3 billion in 2021, roughly 7 percent of GDP</strong>, more than the 5.4 percent of GDP the country spends on health. The dying, in other words, costs more than the healing. iRAP's arithmetic also contains an offer: investing $134 million a year, 0.4 percent of GDP, in safer roads could save about 3,000 lives annually.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>The economic toll, as a share of GDP</h3>
+          <div class="chart-sub">Crash costs exceed what Nepal spends on health care.</div>
+          <div class="chart" id="chart-economic"></div>
+          <div class="chart-source">Source: iRAP 2024 via Asian Transport Observatory Nepal profile 2025. <a href="../datasets/nepal-road-crash-economic-toll.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>The policy response exists mostly on paper. A National Road Safety Action Plan for 2021 to 2030 was published in 2022 but had reportedly still not been passed by the cabinet. A draft National Road Safety Policy in 2025 set targets of halving crashes by 2030 against the 2021 baseline and zero deaths and serious injuries by 2050. On the riverbanks at Simaltal, where 51 families are still waiting for bodies the Trishuli has not given back, those targets must sound like they were written on another planet.</p>
+
+      <div class="method-box">
+        <h4>Method and caveats</h4>
+        Police counts, WHO modelled estimates and Global Burden of Disease figures measure different things and are not interchangeable; police data capture roughly three-fifths of fatalities in one community study and far less of minor crashes. Fiscal years run mid-July to mid-July (BS 2081/82 is FY 2024/25). The 2023/24 death toll is reported as 2,358 by Nepal Police via K C et al. 2025 and 2,369 by NDRRMA, an 11-death discrepancy that reflects different reporting cutoffs. Simaltal recovery counts changed across dated reports and are presented as dated stages, never as a single settled toll; the exact arrival date of the Indian NDRF team was not reported and is placed approximately in mid-July. Survivor names were not found in available sources and are not given. The three Simaltal survivors remain unnamed in published reporting. Vehicle registration is not vehicles in use; about 60 percent are estimated to actually operate. "Vehicles involved in crashes" and "deaths by vehicle type" are different metrics and are labelled separately. The Kathmandu cause breakdown covers the Valley only. The six-year sex totals in the Nepal Disaster Report sum to one less than the stated total. Economic cost figures come from different methods and years and are not directly comparable across studies.
+      </div>
+
+      <h4>Sources</h4>
+      <ul class="sources-list">
+        <li>Annual deaths, crashes and injuries, <a href="https://nepjol.info">K C et al. 2025 (Nepal Police data)</a>; Department of Roads Status Paper 2013; NDRRMA via Economic Affair, September 2026.</li>
+        <li>WHO modelled estimates and rates, <a href="https://www.aprso.org/sites/default/files/2025-03/road-safety-2023-npl.pdf">Global Status Report on Road Safety 2023, Nepal country profile (PDF)</a>.</li>
+        <li>Regional comparison and infrastructure ratings, <a href="https://asiantransportobservatory.org/documents/392/Nepal_road_safety_profile_2025.pdf?download=1">Asian Transport Observatory Nepal road safety profile 2025 (PDF)</a>.</li>
+        <li>Simaltal families' accounts, <a href="https://radionepalonline.com/en/2024/07/13/383382.html">Radio Nepal, 13 July 2024</a>; driver and conductor recoveries, <a href="https://redvoicenepal.com/2024/07/16/simaltal-mishap-bodies-of-ganapati-deluxe-bus-driver-and-conductor-recovered-from-gandak-barrage/">RedVoice Nepal, 16 July 2024</a>.</li>
+        <li>Kathmandu crash causes, <a href="https://nepjol.info/index.php/jhp/article/download/50989/38082">Journal of Health Promotion (Metropolitan Traffic Police data)</a>.</li>
+        <li>Road-safety advocacy perspective, <a href="https://www.roadsafetyngos.org/events/alliance-members-reflect-on-the-global-status-report-on-road-safety-2023/">Global Alliance of NGOs for Road Safety</a>.</li>
+        <li>Government health-sector reporting, <a href="https://giwmscdntwo.gov.np/media/pdf_upload/NJAR_Report_2024_25%20(2081_82)_ag6xlgz.pdf">NJAR Report 2024/25 (PDF)</a>.</li>
+      </ul>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>HimalData</strong> turns public datasets into clear, interactive stories about Nepal and South Asia. Every chart is backed by a downloadable dataset and a named source.</p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var base = "../";
+  var ax = {
+    axisLine: { lineStyle: { color: "#8a8175" } },
+    axisTick: { show: false },
+    axisLabel: { color: "#4a443b" },
+    splitLine: { lineStyle: { color: "#e8e0d2" } }
+  };
+
+  /* Chart 1: annual deaths */
+  H.loadCSV(base + "datasets/nepal-road-deaths-annual.csv").then(function (rows) {
+    var labels = rows.map(function (r) {
+      var p = r.fiscal_year.split("/");
+      return "'" + p[0].slice(2) + "/" + p[1];
+    });
+    var deaths = rows.map(function (r) { return parseFloat(r.deaths); });
+    H.makeChart(document.getElementById("chart-deaths-annual"), {
+      color: ["#de7a1f"],
+      tooltip: {
+        trigger: "axis",
+        formatter: function (p) {
+          var i = p[0].dataIndex, r = rows[i];
+          return "<b>FY " + r.fiscal_year + "</b><br>" + r.deaths + " deaths" + (r.notes ? "<br><span style='color:#8a8175'>" + r.notes + "</span>" : "");
+        }
+      },
+      grid: { left: 56, right: 30, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "category", data: labels, axisLabel: { interval: 2, rotate: 45 } }, ax),
+      yAxis: Object.assign({ type: "value", name: "deaths", nameTextStyle: { color: "#8a8175" } }, ax),
+      series: [{
+        type: "line",
+        data: deaths,
+        smooth: true,
+        symbolSize: 6,
+        lineStyle: { width: 3 },
+        areaStyle: { color: "rgba(222,122,31,0.15)" },
+        markPoint: {
+          symbolSize: 1,
+          label: { formatter: "COVID lockdown dip", color: "#8a8175", position: "bottom", distance: 8 },
+          data: [{ coord: [18, 2251] }]
+        }
+      }]
+    });
+  });
+
+  /* Chart 2: reported vs estimated 2021 */
+  H.loadCSV(base + "datasets/nepal-road-death-estimates-2021.csv").then(function (rows) {
+    var names = rows.map(function (r) { return r.source; });
+    var vals = rows.map(function (r) { return parseFloat(r.deaths); });
+    var cols = ["#8a9bb0", "#c0392b", "#8a8175"];
+    H.makeChart(document.getElementById("chart-estimates"), {
+      tooltip: {
+        trigger: "axis",
+        axisPointer: { type: "shadow" },
+        formatter: function (p) {
+          var i = p[0].dataIndex, r = rows[i];
+          var t = "<b>" + r.source + "</b><br>" + Number(r.deaths).toLocaleString("en-US") + " deaths";
+          if (r.low_ci) t += "<br>95% CI: " + Number(r.low_ci).toLocaleString("en-US") + " to " + Number(r.high_ci).toLocaleString("en-US");
+          return t + "<br><span style='color:#8a8175'>" + r.notes + "</span>";
+        }
+      },
+      grid: { left: 200, right: 60, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "value" }, ax),
+      yAxis: Object.assign({ type: "category", data: names, inverse: true, axisLabel: { width: 190, overflow: "break" } }, ax),
+      series: [{
+        type: "bar",
+        data: vals.map(function (v, i) { return { value: v, itemStyle: { color: cols[i], borderRadius: [0, 5, 5, 0] } }; }),
+        barWidth: "44%",
+        label: { show: true, position: "right", formatter: function (p) { return Number(p.value).toLocaleString("en-US"); }, color: "#4a443b", fontWeight: 700 }
+      }]
+    });
+  });
+
+  /* Chart 3: South Asia rates */
+  H.loadCSV(base + "datasets/south-asia-road-death-rates-2021.csv").then(function (rows) {
+    rows.sort(function (a, b) { return parseFloat(b.deaths_per_100k) - parseFloat(a.deaths_per_100k); });
+    var names = rows.map(function (r) { return r.entity; });
+    var vals = rows.map(function (r) { return parseFloat(r.deaths_per_100k); });
+    H.makeChart(document.getElementById("chart-sa-rates"), {
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
+      grid: { left: 120, right: 60, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "value", name: "deaths per 100,000", nameTextStyle: { color: "#8a8175" } }, ax),
+      yAxis: Object.assign({ type: "category", data: names, inverse: true }, ax),
+      series: [{
+        type: "bar",
+        data: vals,
+        barWidth: "52%",
+        itemStyle: {
+          borderRadius: [0, 5, 5, 0],
+          color: function (p) { return names[p.dataIndex] === "Nepal" ? "#de7a1f" : (rows[p.dataIndex].type === "country" ? "#8a9bb0" : "#b9c4b1"); }
+        },
+        label: { show: true, position: "right", formatter: "{c}", color: "#4a443b", fontWeight: 700 }
+      }]
+    });
+  });
+
+  /* Chart 4: road-user donut */
+  H.loadCSV(base + "datasets/nepal-road-user-deaths-2021.csv").then(function (rows) {
+    var cols = { "Four-wheel vehicle occupants": "#1e7d4f", "Powered two- and three-wheelers": "#de7a1f", "Pedestrians": "#c0392b", "Cyclists": "#e88a3c", "Other and unknown": "#8a8175" };
+    var data = rows.map(function (r) {
+      return { name: r.road_user, value: parseFloat(r.share_percent), itemStyle: { color: cols[r.road_user] || "#5d6d7e" } };
+    });
+    H.makeChart(document.getElementById("chart-road-user"), {
+      tooltip: { trigger: "item", formatter: function (p) { return "<b>" + p.name + "</b><br>" + p.value + "% of reported deaths"; } },
+      legend: { bottom: 0, textStyle: { color: "#4a443b" } },
+      series: [{
+        type: "pie",
+        radius: ["48%", "70%"],
+        center: ["50%", "42%"],
+        data: data,
+        label: { formatter: "{d}%", color: "#1e1b16", fontWeight: 700 },
+        emphasis: { scale: true, scaleSize: 6 }
+      }]
+    });
+  });
+
+  /* Chart 5: sex split */
+  H.loadCSV(base + "datasets/nepal-road-deaths-sex-2021.csv").then(function (rows) {
+    var names = rows.map(function (r) { return r.sex; });
+    var vals = rows.map(function (r) { return parseFloat(r.share_percent); });
+    H.makeChart(document.getElementById("chart-sex"), {
+      color: ["#2c5f8a", "#c98a5e"],
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
+      grid: { left: 50, right: 40, top: 30, bottom: 30 },
+      xAxis: Object.assign({ type: "category", data: names }, ax),
+      yAxis: Object.assign({ type: "value", max: 100, name: "%", nameTextStyle: { color: "#8a8175" } }, ax),
+      series: [{
+        type: "bar",
+        data: vals,
+        barWidth: "40%",
+        itemStyle: { borderRadius: [5, 5, 0, 0] },
+        label: { show: true, position: "top", formatter: "{c}%", color: "#4a443b", fontWeight: 700 }
+      }]
+    });
+  });
+
+  /* Chart 6: ecozone rates */
+  H.loadCSV(base + "datasets/nepal-road-deaths-ecozone.csv").then(function (rows) {
+    var names = rows.map(function (r) { return r.ecological_zone; });
+    var vals = rows.map(function (r) { return parseFloat(r.deaths_per_100k_per_year); });
+    H.makeChart(document.getElementById("chart-ecozone"), {
+      color: ["#1e7d4f"],
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
+      grid: { left: 50, right: 40, top: 30, bottom: 30 },
+      xAxis: Object.assign({ type: "category", data: names }, ax),
+      yAxis: Object.assign({ type: "value", name: "per 100,000 / year", nameTextStyle: { color: "#8a8175" } }, ax),
+      series: [{
+        type: "bar",
+        data: vals,
+        barWidth: "40%",
+        itemStyle: { borderRadius: [5, 5, 0, 0] },
+        label: { show: true, position: "top", formatter: "{c}", color: "#4a443b", fontWeight: 700 }
+      }]
+    });
+  });
+
+  /* Chart 7: Kathmandu causes */
+  H.loadCSV(base + "datasets/kathmandu-crash-causes-fy2019-20.csv").then(function (rows) {
+    var names = rows.map(function (r) { return r.cause; });
+    var vals = rows.map(function (r) { return parseFloat(r.share_percent); });
+    H.makeChart(document.getElementById("chart-causes"), {
+      color: ["#b25e12"],
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
+      grid: { left: 170, right: 60, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "value", max: 100, name: "% of crashes", nameTextStyle: { color: "#8a8175" } }, ax),
+      yAxis: Object.assign({ type: "category", data: names, inverse: true }, ax),
+      series: [{
+        type: "bar",
+        data: vals,
+        barWidth: "46%",
+        itemStyle: { borderRadius: [0, 5, 5, 0] },
+        label: { show: true, position: "right", formatter: "{c}%", color: "#4a443b", fontWeight: 700 }
+      }]
+    });
+  });
+
+  /* Chart 8: motorization */
+  H.loadCSV(base + "datasets/nepal-registered-vehicles.csv").then(function (rows) {
+    var labels = rows.map(function (r) { return r.fiscal_year; });
+    var vals = rows.map(function (r) { return parseFloat(r.registered_vehicles); });
+    H.makeChart(document.getElementById("chart-motorization"), {
+      color: ["#1e7d4f"],
+      tooltip: {
+        trigger: "axis",
+        formatter: function (p) {
+          var i = p[0].dataIndex, r = rows[i];
+          return "<b>" + r.fiscal_year + "</b><br>" + Number(r.registered_vehicles).toLocaleString("en-US") + " registered vehicles" + (r.notes ? "<br><span style='color:#8a8175'>" + r.notes + "</span>" : "");
+        }
+      },
+      grid: { left: 70, right: 30, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "category", data: labels, axisLabel: { interval: 0, rotate: 40 } }, ax),
+      yAxis: Object.assign({ type: "value", name: "vehicles", nameTextStyle: { color: "#8a8175" }, axisLabel: { formatter: function (v) { return (v / 1000000) + "m"; } } }, ax),
+      series: [{
+        type: "line",
+        data: vals,
+        smooth: true,
+        symbolSize: 8,
+        lineStyle: { width: 3 },
+        areaStyle: { color: "rgba(30,125,79,0.12)" }
+      }]
+    });
+  });
+
+  /* Chart 9: economic toll */
+  H.loadCSV(base + "datasets/nepal-road-crash-economic-toll.csv").then(function (rows) {
+    var names = rows.map(function (r) { return r.category; });
+    var vals = rows.map(function (r) { return parseFloat(r.percent_of_gdp); });
+    H.makeChart(document.getElementById("chart-economic"), {
+      tooltip: {
+        trigger: "axis",
+        axisPointer: { type: "shadow" },
+        formatter: function (p) {
+          var i = p[0].dataIndex, r = rows[i];
+          return "<b>" + r.category + "</b><br>" + r.percent_of_gdp + "% of GDP" + (r.amount_usd ? " (about $" + (parseFloat(r.amount_usd) / 1000000000) + " billion)" : "");
+        }
+      },
+      grid: { left: 260, right: 60, top: 30, bottom: 40 },
+      xAxis: Object.assign({ type: "value", name: "% of GDP", nameTextStyle: { color: "#8a8175" } }, ax),
+      yAxis: Object.assign({ type: "category", data: names, inverse: true, axisLabel: { width: 250, overflow: "break" } }, ax),
+      series: [{
+        type: "bar",
+        data: vals.map(function (v, i) { return { value: v, itemStyle: { color: i === 0 ? "#c0392b" : "#1e7d4f", borderRadius: [0, 5, 5, 0] } }; }),
+        barWidth: "44%",
+        label: { show: true, position: "right", formatter: "{c}%", color: "#4a443b", fontWeight: 700 }
+      }]
+    });
+  });
+
+  /* Reconstruction: Simaltal day-by-day */
+  (function () {
+    var playBtn = document.getElementById("recon-play");
+    var scrub = document.getElementById("recon-scrub");
+    var clockEl = document.getElementById("recon-time");
+    var statusEl = document.getElementById("recon-status");
+    var river = document.getElementById("recon-river");
+    var search = document.getElementById("recon-search");
+    var frontDot = document.getElementById("recon-dot-front");
+    var halo = document.querySelector("#recon-front .recon-halo");
+    var stationG = document.getElementById("recon-stations");
+    if (!playBtn || !river) return;
+
+    var STAGES = [
+      { t: 0,   date: "12 Jul 2024", label: "Day 0, 03:30. A landslide sweeps two buses into the Trishuli at Simaltal. 65 people are aboard." },
+      { t: 0.6, date: "12 Jul 2024", label: "Day 0. Three passengers jump from a bus and swim to the banks. Locals find them and take them to hospital." },
+      { t: 4,   date: "16 Jul 2024", label: "Day 4. 14 bodies recovered, some washed 100 km downstream. The first identified is Rishi Pal Shahi, 40." },
+      { t: 4.6, date: "16 Jul 2024", label: "Day 4. Near the Gandak Barrage, 103 km downstream: the bodies of driver Kishor Kumar Chaudhary, 35, and conductor Rishi Kumar Singh, 48." },
+      { t: 10,  date: "Jul 2024",    label: "Mid-July. A 12-member Indian NDRF team joins the search. (Exact date unreported.)" },
+      { t: 12,  date: "~23 Jul 2024", label: "Day 12. 25 bodies found; one later ruled unrelated. Seven remain unidentified." },
+      { t: 183, date: "11 Jan 2026", label: "Day 183. Suspected Ganapati wreckage found buried in sand near Dwandrang Bensi. 65 aboard, 11 bodies recovered, 3 survivors, 51 missing." }
+    ];
+    var STATIONS = [
+      { t: 0,   f: 0.02, label: "Simaltal" },
+      { t: 4,   f: 0.55, label: "100 km" },
+      { t: 4.6, f: 0.92, label: "Gandak Barrage" },
+      { t: 183, f: 0.62, label: "Dwandrang Bensi" }
+    ];
+    var T_END = 185, DURATION_S = 24;
+    var L = river.getTotalLength();
+    search.style.strokeDasharray = L;
+    search.style.strokeDashoffset = L;
+
+    STATIONS.forEach(function (s) {
+      var p = river.getPointAtLength(s.f * L);
+      var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      c.setAttribute("cx", p.x); c.setAttribute("cy", p.y); c.setAttribute("r", 6);
+      c.setAttribute("fill", "#c0392b"); c.setAttribute("stroke", "#fff"); c.setAttribute("stroke-width", 2);
+      var tx = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      tx.setAttribute("x", p.x); tx.setAttribute("y", p.y - 12);
+      tx.setAttribute("text-anchor", "middle"); tx.setAttribute("font-size", "11"); tx.setAttribute("fill", "#4a443b");
+      tx.textContent = s.label;
+      g.appendChild(c); g.appendChild(tx);
+      g.style.opacity = "0.25";
+      stationG.appendChild(g);
+      s.el = g;
+    });
+
+    var t = 0, playing = false, raf = null, last = 0;
+    function fracAt(tt) {
+      var lastS = STAGES[0];
+      for (var i = 0; i < STAGES.length; i++) if (tt >= STAGES[i].t) lastS = STAGES[i];
+      var idx = STAGES.indexOf(lastS);
+      var f0 = [0.02, 0.02, 0.45, 0.92, 0.92, 0.92, 0.62][idx];
+      return Math.min(f0 + tt / T_END * 0.15, 0.98);
+    }
+    function stageFor(tt) {
+      var s = STAGES[0];
+      for (var i = 0; i < STAGES.length; i++) if (tt >= STAGES[i].t) s = STAGES[i];
+      return s;
+    }
+    function render() {
+      var f = fracAt(t);
+      search.style.strokeDashoffset = L * (1 - f);
+      var p = river.getPointAtLength(f * L);
+      frontDot.setAttribute("cx", p.x); frontDot.setAttribute("cy", p.y);
+      halo.setAttribute("cx", p.x); halo.setAttribute("cy", p.y);
+      var s = stageFor(t);
+      clockEl.textContent = t < 1 ? "Day 0" : "Day " + Math.floor(t);
+      document.querySelector(".recon-tz").textContent = s.date;
+      statusEl.textContent = s.label;
+      if (document.activeElement !== scrub) scrub.value = Math.round(t);
+      STATIONS.forEach(function (st) {
+        st.el.style.opacity = t >= st.t ? "1" : "0.25";
+      });
+    }
+    function tick(now) {
+      if (!playing) return;
+      var dt = (now - last) / 1000;
+      last = now;
+      t += dt * (T_END / DURATION_S);
+      if (t >= T_END) { t = T_END; setPlaying(false); playBtn.textContent = "Replay"; }
+      render();
+      if (playing) raf = requestAnimationFrame(tick);
+    }
+    function setPlaying(v) {
+      playing = v;
+      playBtn.textContent = v ? "Pause" : (t >= T_END ? "Replay" : "Play");
+      if (v) { last = performance.now(); raf = requestAnimationFrame(tick); }
+      else if (raf) cancelAnimationFrame(raf);
+    }
+    playBtn.addEventListener("click", function () {
+      if (!playing && t >= T_END) { t = 0; render(); }
+      setPlaying(!playing);
+    });
+    scrub.addEventListener("input", function () {
+      setPlaying(false);
+      t = parseFloat(scrub.value);
+      render();
+    });
+    render();
+  })();
+});
+</script>
+
+</body>
+</html>
