@@ -169,7 +169,7 @@
       <figure>
         <div class="chart-box">
           <h3>Where bodies were recovered, as of 31 August</h3>
-          <div class="chart-sub">Recovery location, not necessarily home district. The flood carried victims far downstream into the plains.</div>
+          <div class="chart-sub">Recovery location, not necessarily home district. Darker cells mean more bodies recovered. The flood carried victims far downstream into the plains.</div>
           <div class="chart" id="chart-districts"></div>
           <div class="chart-source">Source: OCHA Situation Report 2 (NDRRMA data). <a href="../datasets/bhotekoshi-flood-body-recovery-district.csv" download>Download the CSV</a></div>
         </div>
@@ -432,23 +432,44 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  /* Chart 3: body recovery by district */
+  /* Chart 3: body recovery by district, heatmap strip */
   H.loadCSV(base + "datasets/bhotekoshi-flood-body-recovery-district.csv").then(function (rows) {
     rows.sort(function (a, b) { return parseFloat(b.bodies_recovered) - parseFloat(a.bodies_recovered); });
     var names = rows.map(function (r) { return r.district; });
-    var vals = rows.map(function (r) { return parseFloat(r.bodies_recovered); });
+    var data = rows.map(function (r, i) { return [i, 0, parseFloat(r.bodies_recovered)]; });
+    var vmax = Math.max.apply(null, rows.map(function (r) { return parseFloat(r.bodies_recovered); }));
     H.makeChart(document.getElementById("chart-districts"), {
-      color: ["#c8102e"],
-      tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, formatter: "{b}: <b>{c}</b> bodies recovered" },
-      grid: { left: 130, right: 40, top: 30, bottom: 40 },
-      xAxis: Object.assign({ type: "value" }, ax),
-      yAxis: Object.assign({ type: "category", data: names, inverse: true }, ax),
+      tooltip: {
+        formatter: function (p) {
+          var r = rows[p.value[0]];
+          return "<b>" + r.district + "</b><br/>" + r.bodies_recovered + " bodies recovered<br/><span style='color:#8a8175'>" + r.note + "</span>";
+        }
+      },
+      grid: { left: 40, right: 30, top: 24, bottom: 150 },
+      xAxis: Object.assign({ type: "category", data: names, splitArea: { show: true }, axisLabel: { rotate: 30, interval: 0 } }, ax),
+      yAxis: Object.assign({ type: "category", data: ["Bodies recovered"], splitArea: { show: true } }, ax),
+      visualMap: {
+        min: 0,
+        max: vmax,
+        calculable: true,
+        orient: "horizontal",
+        left: "center",
+        bottom: 8,
+        inRange: { color: ["#fdeedd", "#f6c08a", "#e88a3c", "#c0392b", "#6e1a10"] },
+        textStyle: { color: "#4a443b", fontSize: 11 }
+      },
       series: [{
-        type: "bar",
-        data: vals,
-        barWidth: "52%",
-        itemStyle: { borderRadius: [0, 5, 5, 0] },
-        label: { show: true, position: "right", formatter: "{c}", color: "#4a443b" }
+        name: "Bodies recovered",
+        type: "heatmap",
+        data: data,
+        label: {
+          show: true,
+          fontSize: 14,
+          fontWeight: 600,
+          formatter: function (p) { return p.value[2]; },
+          color: function (p) { return p.value[2] > vmax * 0.45 ? "#ffffff" : "#2c2a26"; }
+        },
+        emphasis: { itemStyle: { shadowBlur: 10, shadowColor: "rgba(0,0,0,0.45)" } }
       }]
     });
   });
