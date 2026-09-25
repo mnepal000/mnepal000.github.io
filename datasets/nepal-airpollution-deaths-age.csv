@@ -1,0 +1,4 @@
+age_group,share_percent,deaths_estimate,period,source
+Under 5,21,8820,MoHP statement March 2026,"Ministry of Health and Population spokesperson Dr. Prakash Budhathoki, via Himalaya Times, 13 March 2026; share applied to the Ministry's estimate of 42,000 annual air-pollution deaths"
+70 and over,27,11340,MoHP statement April 2025,"Ministry of Health and Population, via ANI, 7 April 2025; share applied to the Ministry's estimate of 42,000 annual air-pollution deaths"
+All other ages,52,21840,derived,"Residual of the two Ministry statements applied to 42,000 annual air-pollution deaths"
