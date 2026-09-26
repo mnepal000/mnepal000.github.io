@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bullied behind the screen: Nepal's online safety crisis | HimalData</title>
+<meta name="description" content="Cybercrime complaints in Nepal have risen 57-fold in seven years. The data behind the surge, and the teenagers, women, and journalists caught in it.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/js/portal.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">Himal<span class="dot">Data</span></span>
+      <span class="brand-tag">Nepal and South Asia</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html" class="active">Stories</a>
+      <a href="../data/index.html">Data</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap-narrow">
+    <section class="story-hero">
+      <div class="topic">Digital safety &middot; Nepal</div>
+      <h1>Bullied behind the screen</h1>
+      <p class="dek">Cybercrime complaints in Nepal have risen 57-fold in seven years. Behind the curve are teenagers shamed on TikTok, women journalists driven toward silence, and a police bureau struggling to keep up.</p>
+      <div class="byline"><strong>HimalData</strong> &middot; Published September 2026 &middot; 12 min read</div>
+    </section>
+
+    <section class="stat-band" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
+      <div class="stat"><div class="num">20,526</div><div class="label">cybercrime complaints registered in FY 2025/26</div></div>
+      <div class="stat"><div class="num">57&times;</div><div class="label">growth in complaints since FY 2018/19</div></div>
+      <div class="stat"><div class="num">42%</div><div class="label">of Pokhara adolescents reporting lifetime cyber-victimisation</div></div>
+      <div class="stat"><div class="num">8%</div><div class="label">of abused children in a Kathmandu Valley survey who reported to police</div></div>
+    </section>
+
+    <article class="article">
+      <p>In early September 2026, police in Surkhet arrested a 20-year-old man from Jumla. Janak Shahi had downloaded a young woman's photograph from Facebook and posted it on his own Facebook and TikTok accounts with the caption "My Wife." When she asked him to take it down, he refused. After an informal settlement, investigators say, he created a fake account and posted photographs of the woman and her brother alongside offensive language. She filed a formal complaint on August 29. Shahi spent 18 days in custody, and prosecutors have charged him under the Electronic Transactions Act, which carries up to five years in prison. He admitted the offense, telling investigators he acted out of anger after she stopped communicating with him.</p>
+
+      <p>Shahi's case is one of 20,526 cybercrime complaints registered in a single fiscal year. It is also, by the standards of Nepal's Cyber Bureau, routine: a young woman harassed on the country's two biggest platforms, by someone she knows, in a case that only moved because she refused to stay quiet. Most do.</p>
+
+      <h2>The complaints keep climbing</h2>
+
+      <p>Nepal's Cyber Bureau was established in June 2018. In its first full fiscal year it received 357 complaints. Seven years later, the annual count has multiplied 57 times over, and the curve has barely paused.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Cybercrime complaints registered with the Nepal Police Cyber Bureau</h3>
+          <div class="chart-sub">Complaints per fiscal year (mid-July to mid-July) &middot; Source: Nepal Police Cyber Bureau, via Radio Nepal, Himalaya Times, MEA Tech Watch</div>
+          <div class="chart" id="chart-trend"></div>
+          <div class="chart-source">Source: Nepal Police Cyber Bureau. <a href="../datasets/nepal-cyberbureau-complaints-annual.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>The one dip in the series, in FY 2024/25, looks more like a reporting artifact than a reprieve: officials note that district police offices now handle some cases locally, which depresses the central count. By the bureau's own account, officers receive 80 to 90 cybercrime complaints every single day. The Inspector General of Police told a National Assembly committee in April 2026 that about 3,000 complaints of cyberbullying and violence were registered in a single year.</p>
+
+      <h2>Where the abuse happens</h2>
+
+      <p>For years, Facebook and Messenger were the undisputed center of gravity for reported online abuse in Nepal. They still lead, but TikTok has nearly caught them, and the speed of that chase is the story.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Complaints by platform, FY 2025/26</h3>
+          <div class="chart-sub">All cybercrime complaints by platform where reported &middot; Source: Nepal Police Cyber Bureau, via Himalaya Times</div>
+          <div class="chart" id="chart-platforms"></div>
+          <div class="chart-source">Source: Nepal Police Cyber Bureau. <a href="../datasets/nepal-cyberbureau-complaints-by-platform.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>In FY 2020/21, TikTok accounted for 70 complaints. Five years later it accounts for 6,776, just behind Facebook and Messenger at 7,123. WhatsApp (3,105) and Telegram (1,031) follow. The platform mix matters because it shapes what abuse looks like: short-video virality on TikTok rewards pile-ons, while Messenger and WhatsApp carry the private threats, the morphed photographs, and the sextortion demands that rarely become public.</p>
+
+      <h2>What the complaints describe</h2>
+
+      <p>Financial fraud dominates the bureau's caseload, but the harassment stack underneath it is large and growing. In FY 2024/25, police logged 1,801 bullying and harassment complaints, 1,026 cases of criminal defamation, 495 of hate speech, 437 of sexting, and 84 of sextortion. Researchers tracking the bureau's data also report rising categories that barely existed a few years ago: photo mutilation, where a victim's face is grafted onto explicit images, revenge porn, and defamation carried out through impersonator accounts.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Complaints by offense type, FY 2024/25</h3>
+          <div class="chart-sub">Selected categories &middot; Source: Nepal Police Cyber Bureau, via MEA Tech Watch</div>
+          <div class="chart" id="chart-offenses"></div>
+          <div class="chart-source">Source: Nepal Police Cyber Bureau. <a href="../datasets/nepal-cyberbureau-offense-types.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <div class="pull-stat">Fraud may fill the caseload, but nearly 4,000 complaints in one year described harassment, defamation, hate speech, or sexual coercion.</div>
+
+      <h2>Women and girls report more, every year</h2>
+
+      <p>The gender pattern in the complaints data is unmistakable. In FY 2018/19, girls and women filed 904 complaints against 412 from boys and men. By FY 2023/24, complaints from girls and women had reached 19,079, against 17,797 from boys and men. Women now make up about 44 percent of cybercrime victims recorded by police, and the bureau's own snapshots show women and girls consistently out-reporting men and boys in harassment categories.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Complaints by gender of complainant</h3>
+          <div class="chart-sub">Girls and women vs boys and men &middot; Source: Nepal Police Cyber Bureau, via The Farsight Nepal and MEA Tech Watch</div>
+          <div class="chart" id="chart-gender"></div>
+          <div class="chart-source">Source: Nepal Police Cyber Bureau. <a href="../datasets/nepal-cyberbureau-complaints-by-gender.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>Police data only captures those who walk into a station or file online. Surveys suggest the underlying experience is far more common, especially among the young.</p>
+
+      <h2>How common it is among the young</h2>
+
+      <p>No national prevalence survey exists, but a cluster of peer-reviewed Nepali studies points in the same direction. Among adolescents aged 16 to 19 in Pokhara, 42.2 percent said they had experienced cyber-victimisation at some point, and 19.8 percent in the past 30 days. Among female adolescents in Ilam's Deumai Municipality, 32.5 percent reported experiencing cyberbullying. Among school students in Nepalgunj, 28 percent said they had been cyberbullied, and 16 percent admitted bullying others.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Reported cyberbullying victimisation, selected Nepal studies</h3>
+          <div class="chart-sub">Share of respondents reporting victimisation; samples are local, not national &middot; Sources: BMJ Open, Academia Research Journal, ChildSafeNet/UNICEF</div>
+          <div class="chart" id="chart-prevalence"></div>
+          <div class="chart-source">Sources: BMJ Open; Academia Research Journal; ChildSafeNet/UNICEF Nepal. <a href="../datasets/nepal-cyberbullying-prevalence.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>A ChildSafeNet and UNICEF Nepal survey conducted during the 2020 lockdown found that one in five adolescent girls and young women, and one in ten adolescent boys and young men, had experienced online sexual abuse or exploitation, with victims as young as 12. A 2024 ChildSafeNet study across all seven provinces found that one in four young people aged 16 to 24 in intimate relationships had experienced online intimate-partner violence, rising to 38 percent in Sunsari district.</p>
+
+      <h2>Four cases, one pattern</h2>
+
+      <p>The statistics describe a system under strain. The cases describe what the strain feels like.</p>
+
+      <p><strong>Subina Rai, 42,</strong> a Nepali woman living in the UK, was charged by prosecutors in Sunsari in April 2026 over a TikTok campaign against a female journalist. From an account under her name, she allegedly uploaded profane videos, urged viewers to sexually assault the journalist publicly at Bhanu Chowk in Dharan, offered money to anyone who carried it out, and posted vulgar remarks meant to destroy the journalist's reputation. The journalist told investigators she and her family suffered severe mental stress as the videos circulated. Rai is abroad and on a wanted list; authorities have begun the process for an Interpol Red Corner Notice.</p>
+
+      <p><strong>Babita Basnet,</strong> a journalist and activist, published an article in March 2022 arguing that Nepal's rape law needed review. What followed, documented by Freedom Forum and CIVICUS, was a coordinated harassment campaign across Facebook and Twitter rallying around the hashtag #BoycottBabitaBasnet. Her offense was writing about sexual violence law; the punishment was an organized pile-on designed to make the cost of writing visible to every other woman watching.</p>
+
+      <p><strong>Prakriti Lamsal, 20,</strong> a third-year engineering student from Butwal studying at KIIT University in Bhubaneswar, India, died in February 2025. Reporting by the Kathmandu Post and others states she had faced persistent harassment from her boyfriend, who threatened to leak her intimate videos, and that her complaints to university authorities were allegedly ignored. A fellow student was arrested. Her death triggered protests by Nepali students, parliamentary attention in Kathmandu, and a diplomatic intervention. It remains the most nationally resonant recent case linking online sexual coercion to a young Nepali woman's death.</p>
+
+      <p>Then there is <strong>Rishita</strong> (a pseudonym), whose account appears in Terre des Hommes' child-led research. After a fight with her best friend, unflattering photos of Rishita were posted in her Instagram comments alongside cruel remarks about her appearance. She told the researchers she compulsively checked the app for a month, unable to sleep, eat, or interact with others, watching her follower count fall. No police complaint. No court case. Just a teenager, alone with a feed.</p>
+
+      <p>The pattern across the cases is consistent: the harasser is usually known to the victim, the platform is usually TikTok, Facebook, or Instagram, and the abuse usually mixes sexual shaming with threats. In another case documented by researchers, a 23-year-old man in Nepalgunj hacked the Facebook accounts of more than 40 women, posted obscene images, and sent lewd messages to blackmail them.</p>
+
+      <h2>The silence around it</h2>
+
+      <p>For all the growth in complaints, reporting remains the exception. In a 2017 survey of 452 children in the Kathmandu Valley by Voice of Children and ECPAT Luxembourg, only about 8 percent of those abused online had reported to police. Twenty-one percent blocked the person, 11 percent told a close friend, and 72 percent said they did not know what to do or what services existed.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>How abused children responded, Kathmandu Valley 2017</h3>
+          <div class="chart-sub">Share of children abused online, by response (multiple responses possible) &middot; Source: Voice of Children/ECPAT Luxembourg KAP survey, n=452</div>
+          <div class="chart" id="chart-reporting"></div>
+          <div class="chart-source">Source: Voice of Children/ECPAT Luxembourg. <a href="../datasets/nepal-online-abuse-reporting.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>The silence starts at home. A 2025 ChildSafeNet survey of 900 parents in Kathmandu and Lalitpur found that 85 percent had never discussed online sexual abuse with their children, 92 percent were unaware of the online safety issues affecting children, and 73 percent had never used parental control tools. In the same study, 59 percent of children under 13 had their own social media accounts. When children in Bagmati and Gandaki provinces were asked what they do about online negativity, the most common answers were confiding in friends (31.6 percent) and talking to parents (27.5 percent); one in five kept it private.</p>
+
+      <h2>Complaints in, cases out</h2>
+
+      <p>Even when victims do report, the funnel narrows brutally. In FY 2019/20, the bureau received 2,301 complaints and registered 57 cases in court. In FY 2025/26, it received 20,526 complaints, filed 161 cases, and made 155 arrests. No conviction figures are published at all.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>The enforcement funnel: complaints vs cases</h3>
+          <div class="chart-sub">Log scale; cases are those registered/filed, definitions vary by year &middot; Sources: GIWMS government study (2022), Himalaya Times</div>
+          <div class="chart" id="chart-enforcement"></div>
+          <div class="chart-source">Sources: GIWMS; Nepal Police Cyber Bureau. <a href="../datasets/nepal-cyberbureau-enforcement-gap.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>The law itself is not lenient. Section 47 of the Electronic Transactions Act punishes online harassment with up to five years in prison, a fine of up to Rs 100,000, or both. The gap is not in the statute but in everything around it: investigation capacity, digital evidence handling, the years cases take, and victims who give up. Janak Shahi's 18 days in custody and filed charge sheet make his case the exception that proves the funnel.</p>
+
+      <h2>Nepal is not alone</h2>
+
+      <p>The pattern is regional and global. A 2019 UNICEF poll across 30 countries found that one in three young people had been a victim of online bullying, and one in five had skipped school because of it. In Indonesia, 48 percent of children in a 2023 UNICEF baseline study said they had been bullied by other children online. In Pakistan, a 2026 nationally representative study by UNICEF Innocenti, ECPAT International, and INTERPOL estimated that nearly one in 16 internet-using children aged 12 to 17 had experienced technology-facilitated sexual exploitation or abuse in a single year.</p>
+
+      <figure>
+        <div class="chart-box">
+          <h3>Online bullying and abuse: global reference points</h3>
+          <div class="chart-sub">Share of young respondents affected &middot; Sources: UNICEF, UNICEF Indonesia, UNICEF Innocenti/ECPAT/INTERPOL</div>
+          <div class="chart" id="chart-global"></div>
+          <div class="chart-source">Sources: UNICEF; UNICEF Indonesia; UNICEF Innocenti. <a href="../datasets/global-online-bullying-comparators.csv" download>Download the CSV</a></div>
+        </div>
+      </figure>
+
+      <p>What distinguishes Nepal is the velocity: few countries have a central complaints series that rises 57-fold in seven years, and fewer still have that series driven so visibly by two apps competing for the same teenagers.</p>
+
+      <p>The data counts complaints. It does not count the months Rishita could not sleep, the year a woman in a 2018 study stayed off Facebook after her photo was grafted onto a naked body, or the calculations every woman journalist makes before publishing. Those costs are real, they are growing, and for now, they are mostly borne in silence. The first step toward changing that is the least technical one: more victims reporting, more parents asking, and a system that turns the 20,526 complaints into something closer to justice.</p>
+
+      <div class="method-box">
+        <h4>Method and caveats</h4>
+        <p>Every police figure in this story counts <em>complaints registered</em>, not crimes proven or people convicted. Complaints can rise because abuse rises, because reporting improves, or both; the two cannot be separated in this data. Officials note that district police offices now handle some cases locally, which depresses the Cyber Bureau's central count, so recent years may understate the true volume.</p>
+        <p>Two published breakdowns of FY 2024/25 complaints by offense type disagree substantially (one via MEA Tech Watch, one via a peer-reviewed journal citing bureau system data), likely because of different categorization or reporting dates. This story charts the MEA Tech Watch breakdown and flags the conflict here rather than averaging two incompatible series.</p>
+        <p>Survey figures come from local samples (Pokhara, Ilam, Nepalgunj, Kathmandu Valley) and are not nationally representative. The ChildSafeNet/UNICEF 2020 survey is cited in the organizations' white paper as an unpublished manuscript; its sample size is not published. No conviction statistics for cybercrime are published by any source found. Nepal's fiscal year runs from mid-July to mid-July.</p>
+      </div>
+
+      <h2>Sources</h2>
+      <ul class="sources-list">
+        <li>Nepal Police Cyber Bureau complaint statistics, via <a href="https://radionepalonline.com/en/2024/03/10/373619.html">Radio Nepal</a>, <a href="https://english.himalayatimes.com.np/2026/08/100131/">Himalaya Times</a>, and <a href="https://meatechwatch.com/2025/07/24/nepal-registers-nearly-19000-cybercrime-cases-in-fy-2024-25-amid-rising-fraud-and-complex-attacks/">MEA Tech Watch</a></li>
+        <li>Inspector General Dan Bahadur Karki briefing to the National Assembly, via <a href="https://english.gothalokhabar.com/news/detail/37437/">Gothalo Khabar</a></li>
+        <li>Platform and category analysis, <a href="https://farsightnepal.com/news/364">The Farsight Nepal</a> and <a href="https://nationalcybersecurity.com/nepal-news-nepals-first-online-news-portal-cybercrime-infosec-2/">National Cyber Security News</a></li>
+        <li>Janak Shahi case, <a href="https://techpana.com/2026/159265/jumla-man-spends-18-days-in-custody-over-facebook-post-calling-aunts-sister-my-wife">TechPana</a>; Subina Rai case, <a href="https://techpana.com/2026/156375/case-filed-against-uk-based-nepali-woman-over-tiktok-harassment-of-journalist">TechPana</a></li>
+        <li>Babita Basnet case, <a href="https://monitor.civicus.org/explore/excessive-force-used-against-protesters-while-journalists-risk-nepal/">CIVICUS Monitor</a> (citing Freedom Forum)</li>
+        <li>Prakriti Lamsal case, <a href="https://globalvoices.org/2025/02/21/nepali-students-death-in-an-indian-university-raises-questions-about-harassment-and-accountability/">Global Voices</a> (citing Kathmandu Post reporting)</li>
+        <li>Pokhara adolescent cyber-victimisation study, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10916119/">BMJ Open</a>; Deumai female adolescent study, <a href="https://ouci.dntb.gov.ua/works/lDR8OEg7/">BMJ Open via OUCI</a>; Nepalgunj student study, <a href="https://nepjol.info/index.php/academia/article/view/97464">Academia Research Journal (NepJOL)</a></li>
+        <li>ChildSafeNet and UNICEF Nepal white paper on child online protection, <a href="https://static1.squarespace.com/static/5b434204da02bc0f557905b9/t/605731059ce4f72ce5831151/1616326963934/COP+White+Paper%2C+Short+Version%2C+ChildSafeNet+%26+Unicef%2C+Feb+2021.pdf">ChildSafeNet</a>; ChildSafeNet/SVRI online intimate-partner violence study, via <a href="https://ictsamachar.com/news/childsafenet-unveils-ground-breaking-study-on-online-intimate/">ICT Samachar</a></li>
+        <li>Terre des Hommes child-led research on online negativity, <a href="https://staging.terredeshommes.nl/uploads/ea8bbbc8-nepal-child-led-research-full-paper.pdf">Terre des Hommes Netherlands</a></li>
+        <li>Voice of Children and ECPAT Luxembourg KAP baseline survey 2017, <a href="https://www.voiceofchildren.org.np/wp-content/uploads/2023/12/Baseline-Survey-2017-Final.pdf">Voice of Children</a></li>
+        <li>ChildSafeNet parent survey 2025, via <a href="https://ictframe.com/nepali-parents-never-discussed-online/">ICT Frame</a></li>
+        <li>Victim shares by gender, <a href="https://nepal.accountabilitylab.org/wp-content/uploads/2025/11/Governance-Weekly-194.pdf">Accountability Lab Governance Weekly</a></li>
+        <li>GIWMS government study of cybercrime cases in Nepal (2022), <a href="https://giwmscdnone.gov.np/media/files/22071352423-Final%20A%20Study%20on%20Cyber%20Crime%20Cases%20in%20Nepal,%202022-10_u52gj23.pdf">GIWMS</a></li>
+        <li>UNICEF U-Report global poll, <a href="https://www.unicef.org/ukraine/en/press-releases/unicef-poll-more-third-young-people-30-countries-report-being-victim-online-bullying">UNICEF</a>; UNICEF Indonesia baseline study, <a href="https://www.unicef.org/indonesia/media/22561/file/infographic-online-knowledge-practice-Indonesia-baseline-study-2023.pdf">UNICEF Indonesia</a>; Disrupting Harm Pakistan, <a href="https://www.unicef.org/pakistan/press-releases/nearly-1-16-internet-using-children-pakistan-experienced-technology-facilitated">UNICEF Pakistan</a></li>
+      </ul>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>HimalData &middot; Data stories from Nepal and South Asia</span>
+    <span><a href="index.html">More stories</a></span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var H = window.HimalData, base = H.basePath(), ax = H.axisStyle();
+  var ORANGE = "#de7a1f", TEAL = "#1f9e89", BLUE = "#2b6cb0", RED = "#c0392b", PURPLE = "#7c3aed", GREEN = "#2f9e44";
+  function num(v) { return parseFloat(String(v).replace(/,/g, "")); }
+
+  // 1. Annual complaints trend
+  H.loadCSV(base + "datasets/nepal-cyberbureau-complaints-annual.csv").then(function (rows) {
+    var labels = rows.map(function (r) { return r.fiscal_year_ce; });
+    var vals = rows.map(function (r) { return num(r.complaints); });
+    H.makeChart(document.getElementById("chart-trend"), {
+      color: [ORANGE],
+      tooltip: { trigger: "axis", valueFormatter: function (v) { return Number(v).toLocaleString("en-US"); } },
+      grid: { left: 60, right: 20, top: 30, bottom: 44 },
+      xAxis: Object.assign({ type: "category", data: labels, axisLabel: { rotate: 28 } }, ax),
+      yAxis: Object.assign({ type: "value", axisLabel: { formatter: function (v) { return v >= 1000 ? (v / 1000) + "k" : v; } } }, ax),
+      series: [{ type: "bar", data: vals, barWidth: "58%", itemStyle: { borderRadius: [5, 5, 0, 0] },
+        markPoint: { data: [{ type: "max", name: "Peak" }] } }]
+    });
+  });
+
+  // 2. Platform split
+  H.loadCSV(base + "datasets/nepal-cyberbureau-complaints-by-platform.csv").then(function (rows) {
+    var labels = rows.map(function (r) { return r.platform; });
+    var vals = rows.map(function (r) { return num(r.complaints); });
+    H.makeChart(document.getElementById("chart-platforms"), {
+      color: [TEAL],
+      tooltip: { trigger: "axis", valueFormatter: function (v) { return Number(v).toLocaleString("en-US"); } },
+      grid: { left: 150, right: 20, top: 20, bottom: 30 },
+      xAxis: Object.assign({ type: "value" }, ax),
+      yAxis: Object.assign({ type: "category", data: labels, inverse: true, axisLabel: { fontSize: 11.5 } }, ax),
+      series: [{ type: "bar", data: vals, barWidth: "62%", itemStyle: { borderRadius: [0, 5, 5, 0] } }]
+    });
+  });
+
+  // 3. Offense types
+  H.loadCSV(base + "datasets/nepal-cyberbureau-offense-types.csv").then(function (rows) {
+    var labels = rows.map(function (r) { return r.category; });
+    var vals = rows.map(function (r) { return num(r.complaints); });
+    H.makeChart(document.getElementById("chart-offenses"), {
+      color: [BLUE],
+      tooltip: { trigger: "axis", valueFormatter: function (v) { return Number(v).toLocaleString("en-US"); } },
+      grid: { left: 170, right: 20, top: 20, bottom: 30 },
+      xAxis: Object.assign({ type: "value" }, ax),
+      yAxis: Object.assign({ type: "category", data: labels, inverse: true, axisLabel: { fontSize: 11.5 } }, ax),
+      series: [{ type: "bar", data: vals, barWidth: "62%", itemStyle: { borderRadius: [0, 5, 5, 0] } }]
+    });
+  });
+
+  // 4. Gender trend
+  H.loadCSV(base + "datasets/nepal-cyberbureau-complaints-by-gender.csv").then(function (rows) {
+    var labels = rows.map(function (r) { return r.period; });
+    var f = rows.map(function (r) { return num(r.girls_and_women); });
+    var m = rows.map(function (r) { return num(r.boys_and_men); });
+    H.makeChart(document.getElementById("chart-gender"), {
+      color: [PURPLE, BLUE],
+      tooltip: { trigger: "axis", valueFormatter: function (v) { return Number(v).toLocaleString("en-US"); } },
+      legend: { bottom: 0, data: ["Girls and women", "Boys and men"] },
+      grid: { left: 60, right: 20, top: 30, bottom: 60 },
+      xAxis: Object.assign({ type: "category", data: labels }, ax),
+      yAxis: Object.assign({ type: "value", axisLabel: { formatter: function (v) { return v >= 1000 ? (v / 1000) + "k" : v; } } }, ax),
+      series: [
+        { name: "Girls and women", type: "bar", data: f, barWidth: "34%", itemStyle: { borderRadius: [5, 5, 0, 0] } },
+        { name: "Boys and men", type: "bar", data: m, barWidth: "34%", itemStyle: { borderRadius: [5, 5, 0, 0] } }
+      ]
+    });
+  });
+
+  // 5. Prevalence studies
+  H.loadCSV(base + "datasets/nepal-cyberbullying-prevalence.csv").then(function (rows) {
+    var order = [0, 1, 2, 4, 3, 5];
+    var labels = order.map(function (i) {
+      var r = rows[i];
+      return r.study.split(" (")[0] + ": " + r.indicator;
+    });
+    var vals = order.map(function (i) { return num(rows[i].value_pct); });
+    H.makeChart(document.getElementById("chart-prevalence"), {
+      color: [RED],
+      tooltip: { trigger: "axis", formatter: "{b}: {c}%" },
+      grid: { left: 200, right: 30, top: 20, bottom: 30 },
+      xAxis: Object.assign({ type: "value", max: 50, axisLabel: { formatter: "{value}%" } }, ax),
+      yAxis: Object.assign({ type: "category", data: labels, inverse: true, axisLabel: { fontSize: 10.5 } }, ax),
+      series: [{ type: "bar", data: vals, barWidth: "58%", itemStyle: { borderRadius: [0, 5, 5, 0] },
+        label: { show: true, position: "right", formatter: "{c}%" } }]
+    });
+  });
+
+  // 6. Reporting behavior
+  H.loadCSV(base + "datasets/nepal-online-abuse-reporting.csv").then(function (rows) {
+    var voc = rows.slice(0, 4);
+    var labels = voc.map(function (r) { return r.response; });
+    var vals = voc.map(function (r) { return num(r.value_pct); });
+    H.makeChart(document.getElementById("chart-reporting"), {
+      color: [GREEN],
+      tooltip: { trigger: "axis", formatter: "{b}: {c}%" },
+      grid: { left: 190, right: 30, top: 20, bottom: 30 },
+      xAxis: Object.assign({ type: "value", max: 80, axisLabel: { formatter: "{value}%" } }, ax),
+      yAxis: Object.assign({ type: "category", data: labels, inverse: true, axisLabel: { fontSize: 11 } }, ax),
+      series: [{ type: "bar", data: vals, barWidth: "58%", itemStyle: { borderRadius: [0, 5, 5, 0] },
+        label: { show: true, position: "right", formatter: "{c}%" } }]
+    });
+  });
+
+  // 7. Enforcement funnel (log scale)
+  H.loadCSV(base + "datasets/nepal-cyberbureau-enforcement-gap.csv").then(function (rows) {
+    var labels = rows.map(function (r) { return r.fiscal_year; });
+    var comp = rows.map(function (r) { return num(r.complaints); });
+    var filed = rows.map(function (r) { return num(r.cases_filed_or_registered); });
+    H.makeChart(document.getElementById("chart-enforcement"), {
+      color: [ORANGE, TEAL],
+      tooltip: { trigger: "axis", valueFormatter: function (v) { return Number(v).toLocaleString("en-US"); } },
+      legend: { bottom: 0, data: ["Complaints", "Cases filed / registered"] },
+      grid: { left: 60, right: 20, top: 30, bottom: 60 },
+      xAxis: Object.assign({ type: "category", data: labels }, ax),
+      yAxis: Object.assign({ type: "log", logBase: 10 }, ax),
+      series: [
+        { name: "Complaints", type: "bar", data: comp, barWidth: "34%", itemStyle: { borderRadius: [5, 5, 0, 0] } },
+        { name: "Cases filed / registered", type: "bar", data: filed, barWidth: "34%", itemStyle: { borderRadius: [5, 5, 0, 0] } }
+      ]
+    });
+  });
+
+  // 8. Global comparators
+  H.loadCSV(base + "datasets/global-online-bullying-comparators.csv").then(function (rows) {
+    var labels = rows.map(function (r) { return r.indicator + " (" + r.population + ")"; });
+    var vals = rows.map(function (r) { return num(r.value_pct); });
+    H.makeChart(document.getElementById("chart-global"), {
+      color: [BLUE],
+      tooltip: { trigger: "axis", formatter: "{b}: {c}%" },
+      grid: { left: 200, right: 30, top: 20, bottom: 30 },
+      xAxis: Object.assign({ type: "value", max: 60, axisLabel: { formatter: "{value}%" } }, ax),
+      yAxis: Object.assign({ type: "category", data: labels, inverse: true, axisLabel: { fontSize: 10.5 } }, ax),
+      series: [{ type: "bar", data: vals, barWidth: "58%", itemStyle: { borderRadius: [0, 5, 5, 0] },
+        label: { show: true, position: "right", formatter: "{c}%" } }]
+    });
+  });
+});
+</script>
+
+</body>
+</html>

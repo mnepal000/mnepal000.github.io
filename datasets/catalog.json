@@ -135,7 +135,7 @@
   {
     "file": "kathmandu-pm25-peak-vs-average.csv",
     "title": "Kathmandu PM2.5: WHO guideline vs annual average vs peak day",
-    "description": "PM2.5 in \u00b5g/m\u00b3 for the WHO annual guideline (5), Kathmandu's 2024 annual average (45.1), and the April 2025 single-day peak (204.5) when the city topped global pollution rankings.",
+    "description": "PM2.5 in µg/m³ for the WHO annual guideline (5), Kathmandu's 2024 annual average (45.1), and the April 2025 single-day peak (204.5) when the city topped global pollution rankings.",
     "source": "WHO, IQAir, ANI",
     "years": "2024-2025",
     "tags": [
@@ -143,6 +143,102 @@
       "climate",
       "health",
       "air quality"
+    ]
+  },
+  {
+    "file": "nepal-cyberbureau-complaints-annual.csv",
+    "title": "Cybercrime complaints, Nepal Police Cyber Bureau, FY 2018/19 to 2025/26",
+    "description": "Annual cybercrime complaints registered with the Cyber Bureau by fiscal year.",
+    "source": "Nepal Police Cyber Bureau, via Radio Nepal, Himalaya Times, MEA Tech Watch",
+    "years": "2018/19-2025/26",
+    "tags": [
+      "nepal",
+      "digital safety",
+      "cybercrime"
+    ]
+  },
+  {
+    "file": "nepal-cyberbureau-complaints-by-platform.csv",
+    "title": "Cybercrime complaints by platform, FY 2025/26",
+    "description": "All-age cybercrime complaints by platform where reported.",
+    "source": "Nepal Police Cyber Bureau, via Himalaya Times",
+    "years": "2025/26",
+    "tags": [
+      "nepal",
+      "digital safety",
+      "platforms"
+    ]
+  },
+  {
+    "file": "nepal-cyberbureau-complaints-by-gender.csv",
+    "title": "Cybercrime complaints by gender of complainant",
+    "description": "Complaints from girls and women vs boys and men, FY 2018/19, 2023/24, 2024/25.",
+    "source": "Nepal Police Cyber Bureau, via The Farsight Nepal, MEA Tech Watch",
+    "years": "2018/19-2024/25",
+    "tags": [
+      "nepal",
+      "digital safety",
+      "gender"
+    ]
+  },
+  {
+    "file": "nepal-cyberbureau-offense-types.csv",
+    "title": "Cybercrime complaints by offense type, FY 2024/25",
+    "description": "Complaints by offense category for FY 2024/25 (one published breakdown; see story for a conflicting series).",
+    "source": "Nepal Police Cyber Bureau, via MEA Tech Watch",
+    "years": "2024/25",
+    "tags": [
+      "nepal",
+      "digital safety",
+      "cybercrime"
+    ]
+  },
+  {
+    "file": "nepal-cyberbullying-prevalence.csv",
+    "title": "Cyberbullying victimisation in Nepal, selected studies",
+    "description": "Reported victimisation shares from peer-reviewed Nepali studies and ChildSafeNet/UNICEF.",
+    "source": "BMJ Open, Academia Research Journal, ChildSafeNet/UNICEF Nepal",
+    "years": "2020-2024",
+    "tags": [
+      "nepal",
+      "digital safety",
+      "children"
+    ]
+  },
+  {
+    "file": "nepal-online-abuse-reporting.csv",
+    "title": "How victims of online abuse respond, Nepal",
+    "description": "Reporting and coping behavior from VOC/ECPAT, Terre des Hommes, and ChildSafeNet surveys.",
+    "source": "Voice of Children/ECPAT Luxembourg, Terre des Hommes, ChildSafeNet",
+    "years": "2017-2025",
+    "tags": [
+      "nepal",
+      "digital safety",
+      "children"
+    ]
+  },
+  {
+    "file": "nepal-cyberbureau-enforcement-gap.csv",
+    "title": "Cybercrime complaints vs cases filed",
+    "description": "Complaints received vs cases filed or registered in court, selected fiscal years.",
+    "source": "GIWMS government study (2022), Nepal Police Cyber Bureau",
+    "years": "2018/19-2025/26",
+    "tags": [
+      "nepal",
+      "digital safety",
+      "justice"
+    ]
+  },
+  {
+    "file": "global-online-bullying-comparators.csv",
+    "title": "Online bullying and abuse, global reference points",
+    "description": "Youth online bullying and tech-facilitated abuse figures for 30 countries, Indonesia, and Pakistan.",
+    "source": "UNICEF, UNICEF Indonesia, UNICEF Innocenti/ECPAT/INTERPOL",
+    "years": "2019-2026",
+    "tags": [
+      "global",
+      "digital safety",
+      "children"
     ]
   }
 ]
