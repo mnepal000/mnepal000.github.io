@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seven hours down the river: the Bhotekoshi flood, hour by hour | HimalData</title>
+<meta name="description" content="A scroll-driven reconstruction of 26 August 2026, following the Bhotekoshi flood wave from a collapsing mountainside to Devghat, hour by hour.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/js/portal.js" defer></script>
+<style>
+  .scrolly-intro { min-height: 96vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 24px; background: linear-gradient(180deg, #0f2a3d 0%, #1d4a63 70%, #2a5f7c 100%); color: #fff; }
+  .scrolly-intro .topic { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; opacity: .75; margin-bottom: 14px; }
+  .scrolly-intro h1 { font-family: var(--serif); font-size: clamp(34px, 6vw, 64px); margin: 0 0 16px; line-height: 1.08; }
+  .scrolly-intro .dek { max-width: 620px; font-size: 18px; line-height: 1.6; opacity: .92; }
+  .scrolly-intro .scroll-hint { margin-top: 40px; font-size: 14px; opacity: .7; animation: hint-bob 2s ease-in-out infinite; }
+  @keyframes hint-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+  .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--orange); z-index: 60; }
+  .scroll-wrap { position: relative; background: #0f2a3d; }
+  .scroll-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+  .scroll-stage svg { width: 100%; height: 100%; display: block; }
+  .stage-clock { position: absolute; top: 18px; left: 20px; color: #fff; background: rgba(10,25,35,.62); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 10px 16px; backdrop-filter: blur(4px); }
+  .stage-clock .t { font-size: 34px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 1px; line-height: 1; }
+  .stage-clock .d { font-size: 12.5px; opacity: .8; margin-top: 4px; }
+  .stage-beat { position: absolute; top: 18px; right: 20px; color: #fff; background: rgba(10,25,35,.62); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 10px 16px; font-size: 14px; max-width: 240px; text-align: right; backdrop-filter: blur(4px); }
+  .stage-note { position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; color: rgba(255,255,255,.55); font-size: 12px; }
+  .step { position: relative; z-index: 2; min-height: 110vh; display: flex; align-items: center; pointer-events: none; padding: 0 6vw; }
+  .step:nth-child(odd) { justify-content: flex-start; }
+  .step:nth-child(even) { justify-content: flex-end; }
+  .step-card { pointer-events: auto; max-width: 500px; background: rgba(12,28,40,.88); color: #f4f1ea; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; padding: 26px 28px; box-shadow: 0 12px 40px rgba(0,0,0,.35); opacity: .28; transform: translateY(14px); transition: opacity .45s, transform .45s; }
+  .step.active .step-card { opacity: 1; transform: translateY(0); }
+  .step-card .time-chip { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; color: #ffd9a8; border: 1px solid rgba(255,217,168,.45); border-radius: 20px; padding: 4px 12px; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
+  .step-card h2 { font-family: var(--serif); font-size: 26px; margin: 0 0 10px; color: #fff; }
+  .step-card p { font-size: 16.5px; line-height: 1.65; margin: 0 0 10px; color: #e9e4d8; }
+  .step-card p:last-child { margin-bottom: 0; }
+  .step-card blockquote { margin: 12px 0 4px; padding-left: 14px; border-left: 3px solid var(--orange); font-style: italic; color: #fff; font-size: 16.5px; line-height: 1.6; }
+  .step-card .attr { font-size: 13px; opacity: .65; font-style: normal; }
+  .flood-water { stroke-dasharray: 100; stroke-dashoffset: 100; }
+  .flood-dashes { stroke-dasharray: 2.5 9; animation: flood-scroll 1s linear infinite; }
+  @keyframes flood-scroll { to { stroke-dashoffset: -11.5; } }
+  .wp { fill: #0f2a3d; stroke: rgba(255,255,255,.75); stroke-width: 2; transition: fill .4s; }
+  .wp.lit { fill: #ffb347; stroke: #fff; }
+  .wp-label { fill: rgba(255,255,255,.85); font-size: 15px; font-weight: 600; }
+  .wp-sub { fill: rgba(255,255,255,.55); font-size: 12px; }
+  .debris-bit { opacity: 0; }
+  svg.avalanche .debris-bit { opacity: 1; animation: debris-fall 1.6s ease-in infinite; }
+  svg.avalanche .debris-bit:nth-child(2n) { animation-delay: .5s; }
+  svg.avalanche .debris-bit:nth-child(3n) { animation-delay: 1s; }
+  @keyframes debris-fall { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(90px); opacity: 0; } }
+  .scrolly-outro { background: #f7f4ec; padding: 80px 24px; }
+  .scrolly-outro .wrap-narrow { max-width: 720px; margin: 0 auto; }
+  .scrolly-outro h2 { font-family: var(--serif); font-size: 32px; margin: 0 0 14px; }
+  .scrolly-outro p { font-size: 17px; line-height: 1.7; color: var(--ink); }
+  .toll-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin: 26px 0; }
+  .toll-band .stat { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px; text-align: center; }
+  .toll-band .num { font-size: 30px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .toll-band .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 26px 0; }
+  .btn { display: inline-block; background: var(--orange); color: #fff; font-weight: 700; padding: 12px 22px; border-radius: 8px; text-decoration: none; }
+  .btn:hover { color: #fff; filter: brightness(1.06); }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+  .method-box { margin-top: 34px; }
+  video.before-after { width: 100%; border-radius: 10px; margin: 18px 0 6px; background: #000; }
+  @media (max-width: 700px) {
+    .step { justify-content: center !important; padding: 0 4vw; align-items: flex-end; padding-bottom: 12vh; }
+    .step-card { max-width: 94vw; padding: 20px; }
+    .stage-beat { display: none; }
+    .stage-clock .t { font-size: 26px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .flood-dashes, .scrolly-intro .scroll-hint { animation: none; }
+    svg.avalanche .debris-bit { animation: none; opacity: .6; }
+    .step-card { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">Himal<span class="dot">Data</span></span>
+      <span class="brand-tag">Nepal and South Asia</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Stories</a>
+      <a href="../data/index.html">Data</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<section class="scrolly-intro">
+  <div class="topic">Interactive &middot; Nepal</div>
+  <h1>Seven hours down the river</h1>
+  <p class="dek">On the morning of 26 August 2026, a mountainside collapsed in Rasuwa and sent a wall of mud, boulders, and splintered forest down the Bhotekoshi and Trishuli. Scroll to follow the flood wave, hour by hour, from Langtang Lirung to Devghat.</p>
+  <div class="scroll-hint">Scroll &darr;</div>
+</section>
+
+<div class="scroll-wrap" id="scroll-wrap">
+  <div class="scroll-stage">
+    <svg id="flood-svg" viewBox="0 0 640 960" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Schematic map of the flood wave traveling downstream">
+      <defs>
+        <linearGradient id="skygrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#0e283c"/>
+          <stop offset="0.45" stop-color="#14384e"/>
+          <stop offset="0.75" stop-color="#1c4a5e"/>
+          <stop offset="1" stop-color="#256078"/>
+        </linearGradient>
+        <linearGradient id="peakgrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#e8eef2"/>
+          <stop offset="0.55" stop-color="#9fb3c2"/>
+          <stop offset="1" stop-color="#5d7484"/>
+        </linearGradient>
+        <radialGradient id="frontglow" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stop-color="#cfeaff" stop-opacity="0.95"/>
+          <stop offset="0.5" stop-color="#7cc4ee" stop-opacity="0.45"/>
+          <stop offset="1" stop-color="#7cc4ee" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <rect x="0" y="0" width="640" height="960" fill="url(#skygrad)"/>
+
+      <!-- Langtang Lirung massif -->
+      <polygon points="120,230 300,40 480,230" fill="url(#peakgrad)"/>
+      <polygon points="245,95 300,40 355,95 330,110 300,92 270,110" fill="#ffffff" opacity="0.9"/>
+      <polygon points="40,230 150,120 260,230" fill="#6d8798"/>
+      <polygon points="380,230 500,110 620,230" fill="#6d8798"/>
+      <polygon points="128,142 150,120 172,142" fill="#ffffff" opacity="0.7"/>
+      <polygon points="478,132 500,110 522,132" fill="#ffffff" opacity="0.7"/>
+      <text x="300" y="262" text-anchor="middle" class="wp-label">Langtang Lirung</text>
+      <text x="300" y="282" text-anchor="middle" class="wp-sub">7,227 m</text>
+
+      <!-- avalanche debris bits -->
+      <g fill="#c8b89a">
+        <polygon class="debris-bit" points="290,180 302,180 296,196"/>
+        <polygon class="debris-bit" points="315,190 327,190 321,206"/>
+        <polygon class="debris-bit" points="272,200 284,200 278,216"/>
+        <polygon class="debris-bit" points="330,205 340,205 335,219"/>
+      </g>
+
+      <!-- hills flanking the valley -->
+      <polygon points="0,960 0,420 150,560 90,960" fill="#22484f" opacity="0.55"/>
+      <polygon points="640,960 640,420 490,560 550,960" fill="#22484f" opacity="0.55"/>
+
+      <!-- river base -->
+      <path id="river-base" d="M 320 240 C 250 330, 410 380, 345 480 C 285 575, 425 630, 365 730 C 330 800, 395 860, 350 940"
+            fill="none" stroke="#5e8fa8" stroke-width="11" stroke-linecap="round" opacity="0.85"/>
+      <!-- flood water overlay (revealed) -->
+      <path id="flood-water" class="flood-water" d="M 320 240 C 250 330, 410 380, 345 480 C 285 575, 425 630, 365 730 C 330 800, 395 860, 350 940"
+            fill="none" stroke="#2f7fc4" stroke-width="17" stroke-linecap="round" pathLength="100"/>
+      <path id="flood-dashes" class="flood-water flood-dashes" d="M 320 240 C 250 330, 410 380, 345 480 C 285 575, 425 630, 365 730 C 330 800, 395 860, 350 940"
+            fill="none" stroke="#bfe2f7" stroke-width="17" stroke-linecap="round" pathLength="100" opacity="0.8"/>
+
+      <!-- flood front marker -->
+      <g id="flood-front" opacity="0">
+        <circle r="34" fill="url(#frontglow)"/>
+        <circle r="9" fill="#eaf6ff" stroke="#ffffff" stroke-width="2.5"/>
+      </g>
+
+      <!-- waypoints -->
+      <g id="waypoints">
+        <g><circle class="wp" data-wp="0" cx="320" cy="243" r="8"/><text class="wp-label" x="338" y="238">Lhende Khola</text><text class="wp-sub" x="338" y="256">origin</text></g>
+        <g><circle class="wp" data-wp="1" cx="297" cy="352" r="8"/><text class="wp-label" x="315" y="348">Syafrubesi</text><text class="wp-sub" x="315" y="366">gauge goes silent</text></g>
+        <g><circle class="wp" data-wp="2" cx="357" cy="492" r="8"/><text class="wp-label" x="240" y="488" text-anchor="end">Galchhi</text><text class="wp-sub" x="240" y="506" text-anchor="end">10:28</text></g>
+        <g><circle class="wp" data-wp="3" cx="338" cy="618" r="8"/><text class="wp-label" x="356" y="614">Malekhu</text><text class="wp-sub" x="356" y="632">11:50</text></g>
+        <g><circle class="wp" data-wp="4" cx="372" cy="742" r="8"/><text class="wp-label" x="250" y="738" text-anchor="end">Mugling</text><text class="wp-sub" x="250" y="756" text-anchor="end">13:00</text></g>
+        <g><circle class="wp" data-wp="5" cx="352" cy="892" r="8"/><text class="wp-label" x="370" y="888">Devghat</text><text class="wp-sub" x="370" y="906">15:20</text></g>
+      </g>
+    </svg>
+
+    <div class="stage-clock">
+      <div class="t" id="stage-time">08:40</div>
+      <div class="d">NPT &middot; 26 Aug 2026</div>
+    </div>
+    <div class="stage-beat" id="stage-beat">The mountain falls</div>
+    <div class="stage-note">Schematic map, not to scale &middot; Waypoint times from the Department of Hydrology and Meteorology</div>
+  </div>
+
+  <section class="step" data-i="0">
+    <div class="step-card">
+      <span class="time-chip">08:40 NPT</span>
+      <h2>The mountain falls</h2>
+      <p>About two square kilometers of rock wall and glacier ice break off Langtang Lirung and drop 1,400 meters into the Lhende Khola. Seismometers read the impact as an earthquake, magnitude 4.4, later revised to 5.2. The US Geological Survey concludes there was no earthquake at all. The shaking <em>was</em> the mountain falling.</p>
+    </div>
+  </section>
+
+  <section class="step" data-i="1">
+    <div class="step-card">
+      <span class="time-chip">08:50 NPT</span>
+      <h2>The gauge goes silent</h2>
+      <p>Ten minutes later, the monitoring station at Bhote Koshi-Syafrubesi stops transmitting. Its last reading: a river level of 1.62 meters. What is coming down the valley no longer resembles water.</p>
+      <blockquote>&ldquo;It wasn't really water. It was gas-like, all black and it moved like boiling water.&rdquo;<br><span class="attr">Yangee Tamang, watching from a helicopter over Syabrubesi</span></blockquote>
+    </div>
+  </section>
+
+  <section class="step" data-i="2">
+    <div class="step-card">
+      <span class="time-chip">09:15 NPT</span>
+      <h2>The warning</h2>
+      <p>The Department of Hydrology and Meteorology confirms a major flood wave and warns everyone downstream. By now the slurry of mud, boulders, and splintered forest is moving at nearly 190 kilometers an hour, running in places 80 meters above the river's normal level.</p>
+    </div>
+  </section>
+
+  <section class="step" data-i="3">
+    <div class="step-card">
+      <span class="time-chip">10:28 NPT</span>
+      <h2>Galchhi</h2>
+      <p>One hour and thirteen minutes after the warning, the wave reaches Galchhi on the Trishuli. Bridges, riverside settlements, and hydropower intakes in its path have minutes, not hours.</p>
+    </div>
+  </section>
+
+  <section class="step" data-i="4">
+    <div class="step-card">
+      <span class="time-chip">11:50 NPT</span>
+      <h2>Malekhu</h2>
+      <p>The wave reaches Malekhu, the busy highway town where the Prithvi Highway meets the river. Three hours and ten minutes have passed since the mountain fell. Downstream, nobody has yet seen the worst of it.</p>
+    </div>
+  </section>
+
+  <section class="step" data-i="5">
+    <div class="step-card">
+      <span class="time-chip">13:00 NPT</span>
+      <h2>Mugling</h2>
+      <p>The wave reaches Mugling, the junction town where highways and rivers meet. It has been traveling for over four hours and shows no sign of weakening. The debris it carries has been grinding everything in the river corridor to slurry.</p>
+    </div>
+  </section>
+
+  <section class="step" data-i="6">
+    <div class="step-card">
+      <span class="time-chip">15:20 NPT</span>
+      <h2>Devghat</h2>
+      <p>The wave reaches Devghat, the holy confluence town. Forty minutes later, at 16:00, instruments record the peak: about 5,850 cubic meters of water, mud, and debris passing every second. Nearly seven hours after a mountainside collapsed in Rasuwa, the flood is still a flood.</p>
+    </div>
+  </section>
+
+  <section class="step" data-i="7">
+    <div class="step-card">
+      <span class="time-chip">THE WEEKS AFTER</span>
+      <h2>The count</h2>
+      <p>The wave passed in hours. The counting took weeks. By mid-September, about 1,400 deaths were confirmed and more than 5,000 people were still missing, the missing list still longer than the confirmed dead.</p>
+      <blockquote>&ldquo;Mother was swept away. I jumped and moved forward, then got trapped in the net.&rdquo;<br><span class="attr">Ishara Tamang, age 5, found alive in Khalte village; her mother was still missing</span></blockquote>
+    </div>
+  </section>
+</div>
+
+<section class="scrolly-outro">
+  <div class="wrap-narrow">
+    <h2>After the water</h2>
+    <div class="toll-band">
+      <div class="stat"><div class="num">1,399</div><div class="label">confirmed dead (15 Sept 2026)</div></div>
+      <div class="stat"><div class="num">5,179</div><div class="label">still missing (15 Sept 2026)</div></div>
+      <div class="stat"><div class="num">13,742</div><div class="label">rescued (15 Sept 2026)</div></div>
+    </div>
+    <p>Nine days after the flood, rescuers heard voices inside the tunnel of the 60-megawatt Upper Trishuli-3A hydropower project and pulled two men alive from about 170 meters inside: Sanjay Sah, 30, a mechanical foreman from Saptari, and Kabir Maharjan, 45, a mechanical supervisor from Kathmandu. Sah had reportedly stayed behind in the control room to help others escape. The next day, a Nepali Army team working with South Korea's disaster response unit pulled a Chinese worker alive from an audit tunnel at Upper Trishuli-1.</p>
+    <p>Shiva Giri, a technical officer at the Mailung Hydropower project, ran with seven friends for about twelve hours when the flood hit, a dog at their heels, and spent the night in a cave before a Nepali Army helicopter lifted them out. He lost his cousin and his friends. He told RSS afterward that it would have been worse if the mountain had fallen at night, when everyone was asleep. The mountain fell at 8:40 in the morning.</p>
+    <video class="before-after" controls preload="metadata">
+      <source src="../assets/img/nepal-flood-2026-before-after.webm" type="video/webm">
+    </video>
+    <p style="font-size:13.5px;color:var(--muted);">Satellite before-and-after: the collapse site above the Lhende Khola, 24 vs 26 August 2026 (Sentinel-2).</p>
+    <div class="cta-row">
+      <a class="btn" href="bhotekoshi-flood-2026.html">Read the full data story</a>
+      <a class="btn ghost" href="../datasets/bhotekoshi-flood-wave-timeline.csv" download>Download the wave timeline (CSV)</a>
+    </div>
+    <div class="method-box">
+      <h4>Method and caveats</h4>
+      <p>This is a schematic reconstruction, not a surveyed map: the river path, distances, and terrain are illustrative. Waypoint arrival times come from the Department of Hydrology and Meteorology via the wave-timeline dataset. Casualty figures are confirmed dead and reported missing as of 15 September 2026 (OCHA SitRep 8) and kept rising afterward. Survivor accounts are from RSS/Gothalo, Nepali Times via Global Voices, and People's Review reporting, as cited in the full story.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>HimalData &middot; Data stories from Nepal and South Asia</span>
+    <span><a href="index.html">More stories</a></span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var STEPS = [
+    { time: "08:40", beat: "The mountain falls", front: 0.03, wp: 0, avalanche: true },
+    { time: "08:50", beat: "The gauge goes silent", front: 0.16, wp: 1, avalanche: false },
+    { time: "09:15", beat: "The warning", front: 0.27, wp: 1, avalanche: false },
+    { time: "10:28", beat: "Galchhi", front: 0.43, wp: 2, avalanche: false },
+    { time: "11:50", beat: "Malekhu", front: 0.60, wp: 3, avalanche: false },
+    { time: "13:00", beat: "Mugling", front: 0.78, wp: 4, avalanche: false },
+    { time: "15:20", beat: "Devghat", front: 0.95, wp: 5, avalanche: false },
+    { time: "SEPT", beat: "The count", front: 1.0, wp: 5, avalanche: false }
+  ];
+  var WP_FRAC = [0.03, 0.16, 0.43, 0.60, 0.78, 0.95];
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var svg = document.getElementById("flood-svg");
+  var water = document.getElementById("flood-water");
+  var dashes = document.getElementById("flood-dashes");
+  var front = document.getElementById("flood-front");
+  var river = document.getElementById("river-base");
+  var timeEl = document.getElementById("stage-time");
+  var beatEl = document.getElementById("stage-beat");
+  var progress = document.getElementById("scroll-progress");
+  var wrap = document.getElementById("scroll-wrap");
+  var steps = Array.prototype.slice.call(document.querySelectorAll(".step"));
+  var wpDots = Array.prototype.slice.call(document.querySelectorAll(".wp"));
+
+  var L = river.getTotalLength();
+  function pointAt(frac) { return river.getPointAtLength(Math.max(0, Math.min(1, frac)) * L); }
+
+  var target = STEPS[0].front, current = 0, active = -1;
+
+  function setActive(i) {
+    if (i === active) return;
+    active = i;
+    steps.forEach(function (s, k) { s.classList.toggle("active", k === i); });
+    var st = STEPS[i];
+    target = st.front;
+    timeEl.textContent = st.time;
+    beatEl.textContent = st.beat;
+    if (st.avalanche) svg.classList.add("avalanche"); else svg.classList.remove("avalanche");
+    if (reduceMotion) { current = target; render(); }
+  }
+
+  function render() {
+    var off = 100 - current * 100;
+    water.style.strokeDashoffset = off;
+    dashes.style.strokeDashoffset = off;
+    if (current <= 0.005) {
+      front.setAttribute("opacity", "0");
+    } else {
+      var p = pointAt(current);
+      front.setAttribute("opacity", "1");
+      front.setAttribute("transform", "translate(" + p.x + "," + p.y + ")");
+    }
+    wpDots.forEach(function (d, k) {
+      d.classList.toggle("lit", current >= WP_FRAC[k] - 0.015);
+    });
+  }
+
+  function tick() {
+    if (!reduceMotion && Math.abs(target - current) > 0.0005) {
+      current += (target - current) * 0.07;
+      render();
+    }
+    requestAnimationFrame(tick);
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) setActive(parseInt(e.target.getAttribute("data-i"), 10));
+    });
+  }, { rootMargin: "-42% 0px -42% 0px", threshold: 0 });
+
+  steps.forEach(function (s) { io.observe(s); });
+  setActive(0);
+  render();
+  tick();
+
+  function onScroll() {
+    var r = wrap.getBoundingClientRect();
+    var total = r.height - window.innerHeight;
+    var done = Math.max(0, Math.min(1, -r.top / total));
+    progress.style.width = (done * 100).toFixed(1) + "%";
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+});
+</script>
+
+</body>
+</html>
