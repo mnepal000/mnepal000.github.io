@@ -12,11 +12,35 @@
   body { background: #0a1622; }
   .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--orange); z-index: 60; }
 
-  .hero { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; padding: 0 24px 12vh; background: radial-gradient(120% 90% at 50% 0%, #14384e 0%, #0a1622 70%); color: #fff; }
+  .hero { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; padding: 0 24px 10vh; color: #fff;
+    background: linear-gradient(rgba(8,15,22,.42) 0%, rgba(8,15,22,.55) 55%, rgba(8,15,22,.88) 100%), url('../assets/img/Langtang_Lirung_002.jpg') center 28%/cover; }
   .hero .kicker { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; opacity: .7; margin-bottom: 18px; }
   .hero h1 { font-family: var(--serif); font-size: clamp(40px, 7.5vw, 84px); margin: 0 0 18px; line-height: 1.02; font-weight: 700; }
   .hero .dek { max-width: 640px; font-size: clamp(16px, 2.2vw, 20px); line-height: 1.65; opacity: .88; }
   .hero .scroll-hint { margin-top: 46px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; opacity: .6; animation: hint-bob 2.2s ease-in-out infinite; }
+  .hero .photo-credit { margin-top: 26px; font-size: 12px; opacity: .55; letter-spacing: .5px; }
+  .listen-btn { margin-top: 20px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.4); color: #fff; padding: 13px 26px; border-radius: 30px; font-size: 15.5px; font-weight: 600; cursor: pointer; backdrop-filter: blur(4px); transition: background .25s; }
+  .listen-btn:hover { background: rgba(255,255,255,.26); }
+
+  .sat-interlude { min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; justify-content: center; text-align: center; padding: 0 24px 11vh; color: #fff;
+    background: linear-gradient(rgba(6,12,18,.05) 0%, rgba(6,12,18,.35) 55%, rgba(6,12,18,.85) 100%), url('../assets/img/nepal-flood-before-2026-08-24-sentinel2.png') center/cover; }
+  .sat-kicker { font-size: 12.5px; letter-spacing: 3px; text-transform: uppercase; color: #ffd9a8; margin-bottom: 12px; }
+  .sat-interlude h2 { font-family: var(--serif); font-size: clamp(30px, 5vw, 54px); margin: 0 0 12px; text-shadow: 0 2px 22px rgba(0,0,0,.75); }
+  .sat-interlude p { max-width: 620px; margin: 0 auto; font-size: 17px; line-height: 1.65; opacity: .92; text-shadow: 0 1px 12px rgba(0,0,0,.8); }
+  .sat-interlude .src { margin-top: 14px; font-size: 12.5px; opacity: .6; }
+
+  .audio-player { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 80; display: flex; align-items: center; gap: 12px; background: rgba(9,18,27,.94); border: 1px solid rgba(255,255,255,.15); border-radius: 14px; padding: 10px 14px; color: #fff; backdrop-filter: blur(10px); box-shadow: 0 12px 34px rgba(0,0,0,.45); }
+  .audio-player[hidden] { display: none; }
+  .ap-btn { background: var(--orange); border: none; color: #fff; width: 44px; height: 44px; border-radius: 50%; font-size: 16px; cursor: pointer; flex: none; display: flex; align-items: center; justify-content: center; }
+  .ap-btn.ghost { background: transparent; border: 1px solid rgba(255,255,255,.28); width: 34px; height: 34px; font-size: 12px; }
+  .ap-main { flex: 1; min-width: 0; }
+  .ap-title { font-size: 13.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ap-title .ch { color: #ffd9a8; font-weight: 400; }
+  .ap-progress { height: 5px; background: rgba(255,255,255,.18); border-radius: 3px; margin-top: 8px; cursor: pointer; }
+  .ap-fill { height: 100%; width: 0%; background: var(--orange); border-radius: 3px; }
+  .ap-time { font-size: 12px; opacity: .7; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  figure.sat-fig { margin: 26px 0 6px; }
+  figure.sat-fig img { width: 100%; border-radius: 10px; display: block; }
   @keyframes hint-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
 
   .scroll-wrap { position: relative; }
@@ -120,6 +144,7 @@
   <div class="kicker">26 August 2026 &middot; Rasuwa, Nepal</div>
   <h1>Seven hours down the river</h1>
   <p class="dek">A mountainside collapses at 8:40 in the morning. By nightfall, a wall of mud and boulders has traveled two river systems and rewritten the map. This is the flood, hour by hour.</p>
+  <div><button class="listen-btn" id="listen-btn">&#9654; Listen to this story &middot; about 3 min</button></div>
   <div class="scroll-hint">Scroll &darr;</div>
 </section>
 
@@ -365,6 +390,15 @@
   </div>
 </div>
 
+<section class="sat-interlude">
+  <div>
+    <div class="sat-kicker">Satellite &middot; 24 August 2026</div>
+    <h2>The valley, two days before</h2>
+    <p>A Sentinel-2 satellite looks down on the high valley beneath Langtang Lirung. In forty-eight hours, a mountainside above this valley will collapse, and the river below will run black.</p>
+    <div class="src">Copernicus Sentinel-2 &middot; processed natural color</div>
+  </div>
+</section>
+
 <section class="outro">
   <div class="narrow">
     <h2>After the water</h2>
@@ -375,6 +409,10 @@
     </div>
     <p>Nine days after the flood, rescuers heard voices inside the tunnel of the 60-megawatt Upper Trishuli-3A hydropower project and pulled two men alive from about 170 meters inside: Sanjay Sah, 30, a mechanical foreman from Saptari, and Kabir Maharjan, 45, a mechanical supervisor from Kathmandu. Sah had reportedly stayed behind in the control room to help others escape. The next day, a Nepali Army team working with South Korea's disaster response unit pulled a Chinese worker alive from an audit tunnel at Upper Trishuli-1.</p>
     <p>Shiva Giri, a technical officer at the Mailung Hydropower project, ran with seven friends for about twelve hours when the flood hit, a dog at their heels, and spent the night in a cave before a Nepali Army helicopter lifted them out. He lost his cousin and his friends. He told RSS afterward that it would have been worse if the mountain had fallen at night, when everyone was asleep. The mountain fell at 8:40 in the morning.</p>
+    <figure class="sat-fig">
+      <img src="../assets/img/bhotekoshi-flood-landsat-2026-08-26.png" alt="Landsat satellite view of the flood's path through the valley on 26 August 2026">
+      <figcaption class="vid-cap">Landsat view of the flood's path through the valley, 26 August 2026. (USGS Landsat)</figcaption>
+    </figure>
     <video class="before-after" controls preload="metadata">
       <source src="../assets/img/nepal-flood-2026-before-after.webm" type="video/webm">
     </video>
@@ -397,7 +435,93 @@
   </div>
 </footer>
 
+<div class="audio-player" id="audio-player" hidden>
+  <button class="ap-btn ghost" id="ap-prev" aria-label="Previous chapter">&#9198;</button>
+  <button class="ap-btn" id="ap-play" aria-label="Play or pause">&#9654;</button>
+  <button class="ap-btn ghost" id="ap-next" aria-label="Next chapter">&#9197;</button>
+  <div class="ap-main">
+    <div class="ap-title"><span class="ch" id="ap-chapter">Prologue</span> &middot; Seven hours down the river</div>
+    <div class="ap-progress" id="ap-progress"><div class="ap-fill" id="ap-fill"></div></div>
+  </div>
+  <div class="ap-time" id="ap-time">0:00 / 0:00</div>
+  <button class="ap-btn ghost" id="ap-close" aria-label="Close player">&times;</button>
+  <audio id="narration" preload="metadata" src="../assets/audio/seven-hours-narration/seven-hours-narration.mp3"></audio>
+</div>
+
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+  /* chapter start times (seconds) */
+  var CHAPTERS = [
+    { t: 0, title: "Prologue" },
+    { t: 16.2, title: "The mountain falls" },
+    { t: 38.5, title: "The gauge goes silent" },
+    { t: 63.2, title: "The warning" },
+    { t: 79.8, title: "Galchhi" },
+    { t: 91.7, title: "Malekhu" },
+    { t: 104.4, title: "Mugling" },
+    { t: 117.8, title: "Devghat" },
+    { t: 138.0, title: "The count" }
+  ];
+  var audio = document.getElementById("narration");
+  var player = document.getElementById("audio-player");
+  var playBtn = document.getElementById("ap-play");
+  var prevBtn = document.getElementById("ap-prev");
+  var nextBtn = document.getElementById("ap-next");
+  var closeBtn = document.getElementById("ap-close");
+  var listenBtn = document.getElementById("listen-btn");
+  var fill = document.getElementById("ap-fill");
+  var bar = document.getElementById("ap-progress");
+  var timeEl = document.getElementById("ap-time");
+  var chEl = document.getElementById("ap-chapter");
+
+  function fmt(s) {
+    s = Math.max(0, Math.floor(s || 0));
+    return Math.floor(s / 60) + ":" + (s % 60 < 10 ? "0" : "") + (s % 60);
+  }
+  function chapterIndex(t) {
+    var idx = 0;
+    for (var i = 0; i < CHAPTERS.length; i++) { if (t >= CHAPTERS[i].t - 0.3) idx = i; }
+    return idx;
+  }
+  function refresh() {
+    var d = audio.duration || 0, c = audio.currentTime || 0;
+    fill.style.width = d > 0 ? (c / d * 100).toFixed(2) + "%" : "0%";
+    timeEl.textContent = fmt(c) + " / " + fmt(d);
+    if (CHAPTERS.length) chEl.textContent = CHAPTERS[chapterIndex(c)].title;
+    playBtn.innerHTML = audio.paused ? "&#9654;" : "&#10074;&#10074;";
+  }
+  listenBtn.addEventListener("click", function () {
+    player.hidden = false;
+    audio.play();
+  });
+  playBtn.addEventListener("click", function () {
+    if (audio.paused) audio.play(); else audio.pause();
+  });
+  prevBtn.addEventListener("click", function () {
+    var i = chapterIndex(audio.currentTime);
+    if (i > 0 && audio.currentTime - CHAPTERS[i].t < 3) i--;
+    audio.currentTime = CHAPTERS.length ? CHAPTERS[i].t + 0.05 : 0;
+  });
+  nextBtn.addEventListener("click", function () {
+    var i = chapterIndex(audio.currentTime);
+    if (CHAPTERS.length && i < CHAPTERS.length - 1) audio.currentTime = CHAPTERS[i + 1].t + 0.05;
+  });
+  closeBtn.addEventListener("click", function () {
+    audio.pause();
+    player.hidden = true;
+  });
+  bar.addEventListener("click", function (e) {
+    var r = bar.getBoundingClientRect();
+    var d = audio.duration || 0;
+    if (d > 0) audio.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * d;
+  });
+  audio.addEventListener("timeupdate", refresh);
+  audio.addEventListener("loadedmetadata", refresh);
+  audio.addEventListener("play", refresh);
+  audio.addEventListener("pause", refresh);
+  refresh();
+});
+</script>
 document.addEventListener("DOMContentLoaded", function () {
   "use strict";
   var KEYS = [
