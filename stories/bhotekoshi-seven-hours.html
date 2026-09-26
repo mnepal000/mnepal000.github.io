@@ -8,68 +8,91 @@
 <link rel="stylesheet" href="../assets/css/style.css">
 <script src="../assets/js/portal.js" defer></script>
 <style>
-  .scrolly-intro { min-height: 96vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 24px; background: linear-gradient(180deg, #0f2a3d 0%, #1d4a63 70%, #2a5f7c 100%); color: #fff; }
-  .scrolly-intro .topic { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; opacity: .75; margin-bottom: 14px; }
-  .scrolly-intro h1 { font-family: var(--serif); font-size: clamp(34px, 6vw, 64px); margin: 0 0 16px; line-height: 1.08; }
-  .scrolly-intro .dek { max-width: 620px; font-size: 18px; line-height: 1.6; opacity: .92; }
-  .scrolly-intro .scroll-hint { margin-top: 40px; font-size: 14px; opacity: .7; animation: hint-bob 2s ease-in-out infinite; }
-  @keyframes hint-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+  html { scroll-behavior: auto; }
+  body { background: #0a1622; }
   .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--orange); z-index: 60; }
-  .scroll-wrap { position: relative; background: #0f2a3d; }
-  .scroll-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
-  .scroll-stage svg { width: 100%; height: 100%; display: block; }
-  .stage-clock { position: absolute; top: 18px; left: 20px; color: #fff; background: rgba(10,25,35,.62); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 10px 16px; backdrop-filter: blur(4px); }
-  .stage-clock .t { font-size: 34px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 1px; line-height: 1; }
-  .stage-clock .d { font-size: 12.5px; opacity: .8; margin-top: 4px; }
-  .stage-beat { position: absolute; top: 18px; right: 20px; color: #fff; background: rgba(10,25,35,.62); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 10px 16px; font-size: 14px; max-width: 240px; text-align: right; backdrop-filter: blur(4px); }
-  .stage-note { position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; color: rgba(255,255,255,.55); font-size: 12px; }
-  .step { position: relative; z-index: 2; min-height: 110vh; display: flex; align-items: center; pointer-events: none; padding: 0 6vw; }
-  .step:nth-child(odd) { justify-content: flex-start; }
-  .step:nth-child(even) { justify-content: flex-end; }
-  .step-card { pointer-events: auto; max-width: 500px; background: rgba(12,28,40,.88); color: #f4f1ea; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; padding: 26px 28px; box-shadow: 0 12px 40px rgba(0,0,0,.35); opacity: .28; transform: translateY(14px); transition: opacity .45s, transform .45s; }
-  .step.active .step-card { opacity: 1; transform: translateY(0); }
-  .step-card .time-chip { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; color: #ffd9a8; border: 1px solid rgba(255,217,168,.45); border-radius: 20px; padding: 4px 12px; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
-  .step-card h2 { font-family: var(--serif); font-size: 26px; margin: 0 0 10px; color: #fff; }
-  .step-card p { font-size: 16.5px; line-height: 1.65; margin: 0 0 10px; color: #e9e4d8; }
-  .step-card p:last-child { margin-bottom: 0; }
-  .step-card blockquote { margin: 12px 0 4px; padding-left: 14px; border-left: 3px solid var(--orange); font-style: italic; color: #fff; font-size: 16.5px; line-height: 1.6; }
-  .step-card .attr { font-size: 13px; opacity: .65; font-style: normal; }
+
+  .hero { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; padding: 0 24px 12vh; background: radial-gradient(120% 90% at 50% 0%, #14384e 0%, #0a1622 70%); color: #fff; }
+  .hero .kicker { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; opacity: .7; margin-bottom: 18px; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(40px, 7.5vw, 84px); margin: 0 0 18px; line-height: 1.02; font-weight: 700; }
+  .hero .dek { max-width: 640px; font-size: clamp(16px, 2.2vw, 20px); line-height: 1.65; opacity: .88; }
+  .hero .scroll-hint { margin-top: 46px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; opacity: .6; animation: hint-bob 2.2s ease-in-out infinite; }
+  @keyframes hint-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+
+  .scroll-wrap { position: relative; }
+  .stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: #0a1622; }
+  .stage svg { width: 100%; height: 100%; display: block; }
+
+  .cap { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 0 6vw; pointer-events: none; opacity: 0; visibility: hidden; }
+  .cap-inner { max-width: 600px; text-align: center; color: #f5f1e8; }
+  .cap .chapter { font-size: 12.5px; letter-spacing: 3px; text-transform: uppercase; color: #ffb347; margin-bottom: 14px; }
+  .cap h2 { font-family: var(--serif); font-size: clamp(30px, 5vw, 52px); margin: 0 0 16px; line-height: 1.08; color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,.7); }
+  .cap p { font-size: clamp(16px, 2.1vw, 19.5px); line-height: 1.7; margin: 0 auto; max-width: 560px; text-shadow: 0 1px 14px rgba(0,0,0,.85); color: #ece7da; }
+  .cap p.lede::first-letter { font-family: var(--serif); font-size: 3.2em; float: left; line-height: .85; padding-right: 10px; color: #ffd9a8; }
+  .cap blockquote { margin: 20px auto 0; max-width: 520px; font-family: var(--serif); font-style: italic; font-size: clamp(17px, 2.4vw, 22px); line-height: 1.55; color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,.8); }
+  .cap blockquote .attr { display: block; margin-top: 10px; font-family: var(--sans); font-style: normal; font-size: 13.5px; color: rgba(255,255,255,.65); }
+  .cap-hero .cap-inner { max-width: 760px; }
+  .cap-hero h2 { font-size: clamp(44px, 8vw, 88px); }
+  .cap-count .toll { display: flex; gap: 34px; justify-content: center; margin: 26px 0 8px; flex-wrap: wrap; }
+  .cap-count .toll div { text-align: center; }
+  .cap-count .toll .n { font-size: clamp(34px, 5.5vw, 54px); font-weight: 700; color: #fff; font-variant-numeric: tabular-nums; text-shadow: 0 2px 20px rgba(0,0,0,.8); }
+  .cap-count .toll .l { font-size: 12.5px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.6); margin-top: 6px; }
+
+  .stage-clock { position: absolute; top: 20px; left: 22px; color: #fff; z-index: 5; }
+  .stage-clock .t { font-size: clamp(38px, 5.5vw, 58px); font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 2px; line-height: 1; text-shadow: 0 2px 18px rgba(0,0,0,.8); }
+  .stage-clock .b { margin-top: 8px; font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase; color: #ffd9a8; text-shadow: 0 1px 10px rgba(0,0,0,.8); }
+  .stage-clock .d { font-size: 12px; opacity: .65; margin-top: 4px; letter-spacing: 1px; }
+
+  .rail { position: absolute; right: 26px; top: 50%; transform: translateY(-50%); height: 46vh; width: 2px; background: rgba(255,255,255,.16); z-index: 5; }
+  .rail .tick { position: absolute; left: -4px; width: 10px; height: 2px; background: rgba(255,255,255,.35); }
+  .rail .tick span { position: absolute; right: 16px; top: -7px; font-size: 11px; color: rgba(255,255,255,.55); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .rail .dot { position: absolute; left: -5px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: #ffb347; box-shadow: 0 0 12px rgba(255,179,71,.9); }
+
+  .stage-vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(115% 100% at 50% 45%, transparent 55%, rgba(4,10,16,.55) 100%); z-index: 4; }
+  .stage-dim { position: absolute; inset: 0; background: #060d14; opacity: 0; pointer-events: none; z-index: 3; transition: opacity .2s linear; }
+
+  .spacers .sp { aria-hidden: true; }
+
   .flood-water { stroke-dasharray: 100; stroke-dashoffset: 100; }
-  .flood-dashes { stroke-dasharray: 2.5 9; animation: flood-scroll 1s linear infinite; }
-  @keyframes flood-scroll { to { stroke-dashoffset: -11.5; } }
-  .wp { fill: #0f2a3d; stroke: rgba(255,255,255,.75); stroke-width: 2; transition: fill .4s; }
-  .wp.lit { fill: #ffb347; stroke: #fff; }
-  .wp-label { fill: rgba(255,255,255,.85); font-size: 15px; font-weight: 600; }
-  .wp-sub { fill: rgba(255,255,255,.55); font-size: 12px; }
-  .debris-bit { opacity: 0; }
-  svg.avalanche .debris-bit { opacity: 1; animation: debris-fall 1.6s ease-in infinite; }
-  svg.avalanche .debris-bit:nth-child(2n) { animation-delay: .5s; }
-  svg.avalanche .debris-bit:nth-child(3n) { animation-delay: 1s; }
-  @keyframes debris-fall { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(90px); opacity: 0; } }
-  .scrolly-outro { background: #f7f4ec; padding: 80px 24px; }
-  .scrolly-outro .wrap-narrow { max-width: 720px; margin: 0 auto; }
-  .scrolly-outro h2 { font-family: var(--serif); font-size: 32px; margin: 0 0 14px; }
-  .scrolly-outro p { font-size: 17px; line-height: 1.7; color: var(--ink); }
-  .toll-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin: 26px 0; }
-  .toll-band .stat { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px; text-align: center; }
-  .toll-band .num { font-size: 30px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .flood-foam { stroke-dasharray: 2.5 9; }
+  .wp-label { fill: rgba(255,255,255,.88); font-size: 16px; font-weight: 600; }
+  .wp-sub { fill: rgba(255,255,255,.55); font-size: 12.5px; }
+  .settle { opacity: .55; transition: opacity .5s; }
+  .settle.hit { opacity: 1; }
+  .settle .pulse { opacity: 0; }
+  .settle.hit .pulse { opacity: 1; animation: pulse-ring 1.8s ease-out infinite; transform-origin: center; transform-box: fill-box; }
+  @keyframes pulse-ring { 0% { transform: scale(.4); opacity: .9; } 100% { transform: scale(2.4); opacity: 0; } }
+  .settle.hit .wp-label { fill: #ffd9a8; }
+  #origin-burst { opacity: 0; transition: opacity .6s; }
+  #origin-burst.on { opacity: 1; }
+  .debris-bit { animation: debris-fall 1.7s ease-in infinite; }
+  .debris-bit:nth-child(2n) { animation-delay: .55s; }
+  .debris-bit:nth-child(3n) { animation-delay: 1.1s; }
+  @keyframes debris-fall { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(110px); opacity: 0; } }
+
+  .outro { background: #f7f4ec; padding: 90px 24px; color: var(--ink); }
+  .outro .narrow { max-width: 720px; margin: 0 auto; }
+  .outro h2 { font-family: var(--serif); font-size: clamp(30px, 4.5vw, 42px); margin: 0 0 16px; }
+  .outro p { font-size: 17.5px; line-height: 1.75; }
+  .toll-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin: 28px 0; }
+  .toll-band .stat { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 18px; text-align: center; }
+  .toll-band .num { font-size: 32px; font-weight: 700; font-variant-numeric: tabular-nums; }
   .toll-band .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
-  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 26px 0; }
-  .btn { display: inline-block; background: var(--orange); color: #fff; font-weight: 700; padding: 12px 22px; border-radius: 8px; text-decoration: none; }
+  video.before-after { width: 100%; border-radius: 10px; margin: 20px 0 6px; background: #000; }
+  .vid-cap { font-size: 13.5px; color: var(--muted); }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 30px 0; }
+  .btn { display: inline-block; background: var(--orange); color: #fff; font-weight: 700; padding: 13px 24px; border-radius: 8px; text-decoration: none; }
   .btn:hover { color: #fff; filter: brightness(1.06); }
   .btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
-  .method-box { margin-top: 34px; }
-  video.before-after { width: 100%; border-radius: 10px; margin: 18px 0 6px; background: #000; }
+  .method-box { margin-top: 36px; }
+
   @media (max-width: 700px) {
-    .step { justify-content: center !important; padding: 0 4vw; align-items: flex-end; padding-bottom: 12vh; }
-    .step-card { max-width: 94vw; padding: 20px; }
-    .stage-beat { display: none; }
-    .stage-clock .t { font-size: 26px; }
+    .rail { display: none; }
+    .cap { padding: 0 7vw; }
+    .stage-clock { top: 14px; left: 14px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .flood-dashes, .scrolly-intro .scroll-hint { animation: none; }
-    svg.avalanche .debris-bit { animation: none; opacity: .6; }
-    .step-card { transition: none; }
+    .hero .scroll-hint, .debris-bit, .settle.hit .pulse { animation: none; }
   }
 </style>
 </head>
@@ -91,162 +114,256 @@
 
 <div class="scroll-progress" id="scroll-progress"></div>
 
-<section class="scrolly-intro">
-  <div class="topic">Interactive &middot; Nepal</div>
+<section class="hero">
+  <div class="kicker">26 August 2026 &middot; Rasuwa, Nepal</div>
   <h1>Seven hours down the river</h1>
-  <p class="dek">On the morning of 26 August 2026, a mountainside collapsed in Rasuwa and sent a wall of mud, boulders, and splintered forest down the Bhotekoshi and Trishuli. Scroll to follow the flood wave, hour by hour, from Langtang Lirung to Devghat.</p>
+  <p class="dek">A mountainside collapses at 8:40 in the morning. By nightfall, a wall of mud and boulders has traveled two river systems and rewritten the map. This is the flood, hour by hour.</p>
   <div class="scroll-hint">Scroll &darr;</div>
 </section>
 
 <div class="scroll-wrap" id="scroll-wrap">
-  <div class="scroll-stage">
-    <svg id="flood-svg" viewBox="0 0 640 960" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Schematic map of the flood wave traveling downstream">
+  <div class="stage" id="stage">
+    <svg id="flood-svg" viewBox="0 0 640 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Animated schematic map of the flood wave traveling downstream">
       <defs>
-        <linearGradient id="skygrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#0e283c"/>
-          <stop offset="0.45" stop-color="#14384e"/>
-          <stop offset="0.75" stop-color="#1c4a5e"/>
-          <stop offset="1" stop-color="#256078"/>
+        <linearGradient id="bggrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#0b1c2b"/>
+          <stop offset="0.5" stop-color="#10293c"/>
+          <stop offset="1" stop-color="#16414f"/>
         </linearGradient>
         <linearGradient id="peakgrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#e8eef2"/>
-          <stop offset="0.55" stop-color="#9fb3c2"/>
+          <stop offset="0" stop-color="#f2f6f9"/>
+          <stop offset="0.5" stop-color="#a9bdcb"/>
           <stop offset="1" stop-color="#5d7484"/>
         </linearGradient>
         <radialGradient id="frontglow" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0" stop-color="#cfeaff" stop-opacity="0.95"/>
-          <stop offset="0.5" stop-color="#7cc4ee" stop-opacity="0.45"/>
+          <stop offset="0" stop-color="#d8efff" stop-opacity="0.95"/>
+          <stop offset="0.45" stop-color="#7cc4ee" stop-opacity="0.5"/>
           <stop offset="1" stop-color="#7cc4ee" stop-opacity="0"/>
         </radialGradient>
+        <radialGradient id="burstglow" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stop-color="#ff9a5c" stop-opacity="0.9"/>
+          <stop offset="1" stop-color="#ff9a5c" stop-opacity="0"/>
+        </radialGradient>
+        <mask id="floodmask" maskUnits="userSpaceOnUse" x="-400" y="-400" width="1440" height="1800">
+          <rect x="-400" y="-400" width="1440" height="1800" fill="black"/>
+          <path id="flood-maskpath" d="M 320 235 C 250 330, 410 380, 345 480 C 285 575, 425 630, 365 730 C 330 800, 395 860, 350 950"
+                fill="none" stroke="white" stroke-width="20" stroke-linecap="round" pathLength="100"
+                stroke-dasharray="100" stroke-dashoffset="100"/>
+        </mask>
       </defs>
 
-      <rect x="0" y="0" width="640" height="960" fill="url(#skygrad)"/>
+      <rect x="-400" y="-400" width="1440" height="1800" fill="url(#bggrad)"/>
 
-      <!-- Langtang Lirung massif -->
-      <polygon points="120,230 300,40 480,230" fill="url(#peakgrad)"/>
-      <polygon points="245,95 300,40 355,95 330,110 300,92 270,110" fill="#ffffff" opacity="0.9"/>
-      <polygon points="40,230 150,120 260,230" fill="#6d8798"/>
-      <polygon points="380,230 500,110 620,230" fill="#6d8798"/>
-      <polygon points="128,142 150,120 172,142" fill="#ffffff" opacity="0.7"/>
-      <polygon points="478,132 500,110 522,132" fill="#ffffff" opacity="0.7"/>
-      <text x="300" y="262" text-anchor="middle" class="wp-label">Langtang Lirung</text>
-      <text x="300" y="282" text-anchor="middle" class="wp-sub">7,227 m</text>
+      <g id="camera">
+        <!-- far ridges -->
+        <polygon points="-400,420  -200,240  -40,340  140,200  320,330  500,210  680,330  860,220  1040,360  1040,-400  -400,-400" fill="#0d2231" opacity="0.9"/>
+        <!-- Langtang massif -->
+        <polygon points="120,400 300,90 480,400" fill="url(#peakgrad)"/>
+        <polygon points="238,160 300,90 362,160 332,178 300,156 268,178" fill="#ffffff" opacity="0.92"/>
+        <polygon points="-40,400 120,250 280,400" fill="#54707f"/>
+        <polygon points="360,400 520,240 680,400" fill="#54707f"/>
+        <polygon points="96,274 120,250 144,274" fill="#ffffff" opacity="0.65"/>
+        <polygon points="496,264 520,240 544,264" fill="#ffffff" opacity="0.65"/>
+        <!-- mid hills -->
+        <polygon points="-400,620 -180,470 60,560 300,460 540,560 780,470 1040,580 1040,400 -400,400" fill="#14303e" opacity="0.85"/>
+        <polygon points="-400,820 -140,660 140,740 420,650 700,740 1040,660 1040,580 -400,580" fill="#1a3a48" opacity="0.7"/>
+        <!-- contour whispers -->
+        <g fill="none" stroke="#ffffff" stroke-width="1" opacity="0.07">
+          <path d="M -200,700 Q 200,620 520,700 Q 800,760 1100,680"/>
+          <path d="M -200,780 Q 200,700 520,780 Q 800,840 1100,760"/>
+          <path d="M -200,860 Q 200,780 520,860 Q 800,920 1100,840"/>
+        </g>
 
-      <!-- avalanche debris bits -->
-      <g fill="#c8b89a">
-        <polygon class="debris-bit" points="290,180 302,180 296,196"/>
-        <polygon class="debris-bit" points="315,190 327,190 321,206"/>
-        <polygon class="debris-bit" points="272,200 284,200 278,216"/>
-        <polygon class="debris-bit" points="330,205 340,205 335,219"/>
+        <!-- valley floor -->
+        <path d="M 320 235 C 250 330, 410 380, 345 480 C 285 575, 425 630, 365 730 C 330 800, 395 860, 350 950"
+              fill="none" stroke="#1d3a4c" stroke-width="120" stroke-linecap="round" opacity="0.55"/>
+        <path d="M 320 235 C 250 330, 410 380, 345 480 C 285 575, 425 630, 365 730 C 330 800, 395 860, 350 950"
+              fill="none" stroke="#23485c" stroke-width="64" stroke-linecap="round" opacity="0.5"/>
+
+        <!-- river base -->
+        <path id="river-base" d="M 320 235 C 250 330, 410 380, 345 480 C 285 575, 425 630, 365 730 C 330 800, 395 860, 350 950"
+              fill="none" stroke="#4e7d95" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+        <!-- flood water -->
+        <path id="flood-water" class="flood-water" d="M 320 235 C 250 330, 410 380, 345 480 C 285 575, 425 630, 365 730 C 330 800, 395 860, 350 950"
+              fill="none" stroke="#2f8fd6" stroke-width="18" stroke-linecap="round" pathLength="100"/>
+        <path id="flood-foam" class="flood-foam" mask="url(#floodmask)" d="M 320 235 C 250 330, 410 380, 345 480 C 285 575, 425 630, 365 730 C 330 800, 395 860, 350 950"
+              fill="none" stroke="#cfe9fa" stroke-width="18" stroke-linecap="round" opacity="0.75"/>
+
+        <!-- debris particles -->
+        <g id="debris" fill="#d8c9a8"></g>
+
+        <!-- flood front -->
+        <g id="flood-front" opacity="0">
+          <circle r="40" fill="url(#frontglow)"/>
+          <circle r="10" fill="#eaf6ff" stroke="#ffffff" stroke-width="2.5"/>
+        </g>
+
+        <!-- collapse site -->
+        <g id="origin-burst">
+          <circle cx="320" cy="250" r="70" fill="url(#burstglow)"/>
+          <g fill="#e0cba0">
+            <polygon class="debris-bit" points="300,250 314,250 307,268"/>
+            <polygon class="debris-bit" points="326,258 340,258 333,276"/>
+            <polygon class="debris-bit" points="284,264 298,264 291,282"/>
+            <polygon class="debris-bit" points="342,268 354,268 348,284"/>
+            <polygon class="debris-bit" points="312,276 324,276 318,292"/>
+          </g>
+        </g>
+        <text class="wp-label" x="300" y="120" text-anchor="middle">Langtang Lirung</text>
+        <text class="wp-sub" x="300" y="140" text-anchor="middle">7,227 m &middot; the collapse begins here</text>
+
+        <!-- Syafrubesi gauge -->
+        <g>
+          <rect x="252" y="344" width="10" height="14" fill="#c8d6de"/>
+          <line x1="257" y1="344" x2="257" y2="332" stroke="#c8d6de" stroke-width="2"/>
+          <circle cx="257" cy="330" r="2.5" fill="#ff6b6b"/>
+          <text class="wp-label" x="272" y="352">Syafrubesi</text>
+          <text class="wp-sub" x="272" y="370">gauge &middot; last reading 1.62 m</text>
+        </g>
+
+        <!-- settlements -->
+        <g class="settle" data-frac="0.43">
+          <circle class="pulse" cx="408" cy="502" r="16" fill="none" stroke="#ffb347" stroke-width="2"/>
+          <g fill="#e8ddc2"><rect x="400" y="494" width="7" height="6"/><rect x="410" y="497" width="6" height="6"/><rect x="404" y="504" width="7" height="5"/></g>
+          <text class="wp-label" x="428" y="500">Galchhi</text>
+          <text class="wp-sub" x="428" y="518">wave arrives 10:28</text>
+        </g>
+        <g class="settle" data-frac="0.60">
+          <circle class="pulse" cx="282" cy="632" r="16" fill="none" stroke="#ffb347" stroke-width="2"/>
+          <g fill="#e8ddc2"><rect x="274" y="624" width="7" height="6"/><rect x="284" y="627" width="6" height="6"/><rect x="278" y="634" width="7" height="5"/></g>
+          <text class="wp-label" x="170" y="630" text-anchor="end">Malekhu</text>
+          <text class="wp-sub" x="170" y="648" text-anchor="end">wave arrives 11:50</text>
+        </g>
+        <g class="settle" data-frac="0.78">
+          <circle class="pulse" cx="424" cy="752" r="16" fill="none" stroke="#ffb347" stroke-width="2"/>
+          <g fill="#e8ddc2"><rect x="416" y="744" width="7" height="6"/><rect x="426" y="747" width="6" height="6"/><rect x="420" y="754" width="7" height="5"/></g>
+          <text class="wp-label" x="444" y="750">Mugling</text>
+          <text class="wp-sub" x="444" y="768">wave arrives 13:00</text>
+        </g>
+        <g class="settle" data-frac="0.95">
+          <circle class="pulse" cx="292" cy="902" r="16" fill="none" stroke="#ffb347" stroke-width="2"/>
+          <g fill="#e8ddc2"><rect x="284" y="894" width="7" height="6"/><rect x="294" y="897" width="6" height="6"/><rect x="288" y="904" width="7" height="5"/></g>
+          <text class="wp-label" x="180" y="900" text-anchor="end">Devghat</text>
+          <text class="wp-sub" x="180" y="918" text-anchor="end">wave arrives 15:20</text>
+        </g>
       </g>
 
-      <!-- hills flanking the valley -->
-      <polygon points="0,960 0,420 150,560 90,960" fill="#22484f" opacity="0.55"/>
-      <polygon points="640,960 640,420 490,560 550,960" fill="#22484f" opacity="0.55"/>
-
-      <!-- river base -->
-      <path id="river-base" d="M 320 240 C 250 330, 410 380, 345 480 C 285 575, 425 630, 365 730 C 330 800, 395 860, 350 940"
-            fill="none" stroke="#5e8fa8" stroke-width="11" stroke-linecap="round" opacity="0.85"/>
-      <!-- flood water overlay (revealed) -->
-      <path id="flood-water" class="flood-water" d="M 320 240 C 250 330, 410 380, 345 480 C 285 575, 425 630, 365 730 C 330 800, 395 860, 350 940"
-            fill="none" stroke="#2f7fc4" stroke-width="17" stroke-linecap="round" pathLength="100"/>
-      <path id="flood-dashes" class="flood-water flood-dashes" d="M 320 240 C 250 330, 410 380, 345 480 C 285 575, 425 630, 365 730 C 330 800, 395 860, 350 940"
-            fill="none" stroke="#bfe2f7" stroke-width="17" stroke-linecap="round" pathLength="100" opacity="0.8"/>
-
-      <!-- flood front marker -->
-      <g id="flood-front" opacity="0">
-        <circle r="34" fill="url(#frontglow)"/>
-        <circle r="9" fill="#eaf6ff" stroke="#ffffff" stroke-width="2.5"/>
-      </g>
-
-      <!-- waypoints -->
-      <g id="waypoints">
-        <g><circle class="wp" data-wp="0" cx="320" cy="243" r="8"/><text class="wp-label" x="338" y="238">Lhende Khola</text><text class="wp-sub" x="338" y="256">origin</text></g>
-        <g><circle class="wp" data-wp="1" cx="297" cy="352" r="8"/><text class="wp-label" x="315" y="348">Syafrubesi</text><text class="wp-sub" x="315" y="366">gauge goes silent</text></g>
-        <g><circle class="wp" data-wp="2" cx="357" cy="492" r="8"/><text class="wp-label" x="240" y="488" text-anchor="end">Galchhi</text><text class="wp-sub" x="240" y="506" text-anchor="end">10:28</text></g>
-        <g><circle class="wp" data-wp="3" cx="338" cy="618" r="8"/><text class="wp-label" x="356" y="614">Malekhu</text><text class="wp-sub" x="356" y="632">11:50</text></g>
-        <g><circle class="wp" data-wp="4" cx="372" cy="742" r="8"/><text class="wp-label" x="250" y="738" text-anchor="end">Mugling</text><text class="wp-sub" x="250" y="756" text-anchor="end">13:00</text></g>
-        <g><circle class="wp" data-wp="5" cx="352" cy="892" r="8"/><text class="wp-label" x="370" y="888">Devghat</text><text class="wp-sub" x="370" y="906">15:20</text></g>
-      </g>
+      <rect x="-400" y="-400" width="1440" height="1800" fill="none"/>
     </svg>
+
+    <div class="stage-dim" id="stage-dim"></div>
+    <div class="stage-vignette"></div>
+
+    <div class="cap cap-hero" data-a="0" data-b="0.069">
+      <div class="cap-inner">
+        <div class="chapter">A reconstruction in nine movements</div>
+        <h2>The river stops being a river</h2>
+        <p>What follows is drawn from river-gauge records, the Department of Hydrology and Meteorology, and the reporters who walked the valley afterward. Keep scrolling. The water is already moving.</p>
+      </div>
+    </div>
+
+    <div class="cap" data-a="0.069" data-b="0.178">
+      <div class="cap-inner">
+        <div class="chapter">I. The collapse &middot; 08:40</div>
+        <h2>The mountain falls</h2>
+        <p class="lede">About two square kilometers of rock wall and glacier ice tear off Langtang Lirung and fall 1,400 meters into the Lhende Khola. Seismometers read the impact as an earthquake, magnitude 4.4, later revised to 5.2. The US Geological Survey concludes there was no earthquake at all. The shaking was the mountain falling.</p>
+      </div>
+    </div>
+
+    <div class="cap" data-a="0.178" data-b="0.287">
+      <div class="cap-inner">
+        <div class="chapter">I. The collapse &middot; 08:50</div>
+        <h2>The gauge goes silent</h2>
+        <p>Ten minutes later, the monitoring station at Bhote Koshi-Syafrubesi stops transmitting. Its last reading: a river level of 1.62 meters. What is coming down the valley no longer resembles water.</p>
+        <blockquote>&ldquo;It wasn't really water. It was gas-like, all black and it moved like boiling water.&rdquo;<span class="attr">Yangee Tamang, watching from a helicopter over Syabrubesi</span></blockquote>
+      </div>
+    </div>
+
+    <div class="cap" data-a="0.287" data-b="0.396">
+      <div class="cap-inner">
+        <div class="chapter">I. The collapse &middot; 09:15</div>
+        <h2>The warning</h2>
+        <p>The Department of Hydrology and Meteorology confirms a major flood wave and warns everyone downstream. By now the slurry of mud, boulders, and splintered forest is moving at nearly 190 kilometers an hour, running in places 80 meters above the river's normal level.</p>
+      </div>
+    </div>
+
+    <div class="cap" data-a="0.396" data-b="0.515">
+      <div class="cap-inner">
+        <div class="chapter">II. Down the valley &middot; 10:28</div>
+        <h2>Galchhi</h2>
+        <p>One hour and thirteen minutes after the warning, the wave reaches Galchhi on the Trishuli. Bridges, riverside settlements, and hydropower intakes in its path have minutes, not hours.</p>
+      </div>
+    </div>
+
+    <div class="cap" data-a="0.515" data-b="0.634">
+      <div class="cap-inner">
+        <div class="chapter">II. Down the valley &middot; 11:50</div>
+        <h2>Malekhu</h2>
+        <p>The wave reaches Malekhu, the busy highway town where the Prithvi Highway meets the river. Three hours and ten minutes have passed since the mountain fell. Downstream, nobody has yet seen the worst of it.</p>
+      </div>
+    </div>
+
+    <div class="cap" data-a="0.634" data-b="0.752">
+      <div class="cap-inner">
+        <div class="chapter">II. Down the valley &middot; 13:00</div>
+        <h2>Mugling</h2>
+        <p>The wave reaches Mugling, the junction town where highways and rivers meet. It has been traveling for over four hours and shows no sign of weakening, grinding everything in the river corridor to slurry as it goes.</p>
+      </div>
+    </div>
+
+    <div class="cap" data-a="0.752" data-b="0.861">
+      <div class="cap-inner">
+        <div class="chapter">III. The confluence &middot; 15:20</div>
+        <h2>Devghat</h2>
+        <p>The wave reaches Devghat, the holy confluence town. Forty minutes later, at 16:00, instruments record the peak: about 5,850 cubic meters of water, mud, and debris passing every second. Nearly seven hours after a mountainside collapsed in Rasuwa, the flood is still a flood.</p>
+      </div>
+    </div>
+
+    <div class="cap cap-count" data-a="0.861" data-b="1.001">
+      <div class="cap-inner">
+        <div class="chapter">IV. The count</div>
+        <h2>The wave passed in hours. The counting took weeks.</h2>
+        <div class="toll">
+          <div><div class="n" id="toll-dead">0</div><div class="l">confirmed dead</div></div>
+          <div><div class="n" id="toll-missing">0</div><div class="l">still missing</div></div>
+          <div><div class="n" id="toll-rescued">0</div><div class="l">rescued</div></div>
+        </div>
+        <p style="font-size:14px;opacity:.65;">As of 15 September 2026 &middot; OCHA SitRep 8</p>
+        <blockquote>&ldquo;Mother was swept away. I jumped and moved forward, then got trapped in the net.&rdquo;<span class="attr">Ishara Tamang, age 5, found alive in Khalte village</span></blockquote>
+      </div>
+    </div>
 
     <div class="stage-clock">
       <div class="t" id="stage-time">08:40</div>
-      <div class="d">NPT &middot; 26 Aug 2026</div>
+      <div class="b" id="stage-beat">The mountain falls</div>
+      <div class="d">NPT &middot; 26 AUG 2026</div>
     </div>
-    <div class="stage-beat" id="stage-beat">The mountain falls</div>
-    <div class="stage-note">Schematic map, not to scale &middot; Waypoint times from the Department of Hydrology and Meteorology</div>
+
+    <div class="rail" id="rail">
+      <div class="tick" style="top:0%"><span>08:40</span></div>
+      <div class="tick" style="top:28.7%"><span>10:28</span></div>
+      <div class="tick" style="top:51.5%"><span>13:00</span></div>
+      <div class="tick" style="top:63.4%"><span>15:20</span></div>
+      <div class="tick" style="top:100%"><span>the count</span></div>
+      <div class="dot" id="rail-dot"></div>
+    </div>
   </div>
 
-  <section class="step" data-i="0">
-    <div class="step-card">
-      <span class="time-chip">08:40 NPT</span>
-      <h2>The mountain falls</h2>
-      <p>About two square kilometers of rock wall and glacier ice break off Langtang Lirung and drop 1,400 meters into the Lhende Khola. Seismometers read the impact as an earthquake, magnitude 4.4, later revised to 5.2. The US Geological Survey concludes there was no earthquake at all. The shaking <em>was</em> the mountain falling.</p>
-    </div>
-  </section>
-
-  <section class="step" data-i="1">
-    <div class="step-card">
-      <span class="time-chip">08:50 NPT</span>
-      <h2>The gauge goes silent</h2>
-      <p>Ten minutes later, the monitoring station at Bhote Koshi-Syafrubesi stops transmitting. Its last reading: a river level of 1.62 meters. What is coming down the valley no longer resembles water.</p>
-      <blockquote>&ldquo;It wasn't really water. It was gas-like, all black and it moved like boiling water.&rdquo;<br><span class="attr">Yangee Tamang, watching from a helicopter over Syabrubesi</span></blockquote>
-    </div>
-  </section>
-
-  <section class="step" data-i="2">
-    <div class="step-card">
-      <span class="time-chip">09:15 NPT</span>
-      <h2>The warning</h2>
-      <p>The Department of Hydrology and Meteorology confirms a major flood wave and warns everyone downstream. By now the slurry of mud, boulders, and splintered forest is moving at nearly 190 kilometers an hour, running in places 80 meters above the river's normal level.</p>
-    </div>
-  </section>
-
-  <section class="step" data-i="3">
-    <div class="step-card">
-      <span class="time-chip">10:28 NPT</span>
-      <h2>Galchhi</h2>
-      <p>One hour and thirteen minutes after the warning, the wave reaches Galchhi on the Trishuli. Bridges, riverside settlements, and hydropower intakes in its path have minutes, not hours.</p>
-    </div>
-  </section>
-
-  <section class="step" data-i="4">
-    <div class="step-card">
-      <span class="time-chip">11:50 NPT</span>
-      <h2>Malekhu</h2>
-      <p>The wave reaches Malekhu, the busy highway town where the Prithvi Highway meets the river. Three hours and ten minutes have passed since the mountain fell. Downstream, nobody has yet seen the worst of it.</p>
-    </div>
-  </section>
-
-  <section class="step" data-i="5">
-    <div class="step-card">
-      <span class="time-chip">13:00 NPT</span>
-      <h2>Mugling</h2>
-      <p>The wave reaches Mugling, the junction town where highways and rivers meet. It has been traveling for over four hours and shows no sign of weakening. The debris it carries has been grinding everything in the river corridor to slurry.</p>
-    </div>
-  </section>
-
-  <section class="step" data-i="6">
-    <div class="step-card">
-      <span class="time-chip">15:20 NPT</span>
-      <h2>Devghat</h2>
-      <p>The wave reaches Devghat, the holy confluence town. Forty minutes later, at 16:00, instruments record the peak: about 5,850 cubic meters of water, mud, and debris passing every second. Nearly seven hours after a mountainside collapsed in Rasuwa, the flood is still a flood.</p>
-    </div>
-  </section>
-
-  <section class="step" data-i="7">
-    <div class="step-card">
-      <span class="time-chip">THE WEEKS AFTER</span>
-      <h2>The count</h2>
-      <p>The wave passed in hours. The counting took weeks. By mid-September, about 1,400 deaths were confirmed and more than 5,000 people were still missing, the missing list still longer than the confirmed dead.</p>
-      <blockquote>&ldquo;Mother was swept away. I jumped and moved forward, then got trapped in the net.&rdquo;<br><span class="attr">Ishara Tamang, age 5, found alive in Khalte village; her mother was still missing</span></blockquote>
-    </div>
-  </section>
+  <div class="spacers" aria-hidden="true">
+    <div class="sp" style="height:70vh"></div>
+    <div class="sp" style="height:110vh"></div>
+    <div class="sp" style="height:110vh"></div>
+    <div class="sp" style="height:110vh"></div>
+    <div class="sp" style="height:120vh"></div>
+    <div class="sp" style="height:120vh"></div>
+    <div class="sp" style="height:120vh"></div>
+    <div class="sp" style="height:110vh"></div>
+    <div class="sp" style="height:140vh"></div>
+  </div>
 </div>
 
-<section class="scrolly-outro">
-  <div class="wrap-narrow">
+<section class="outro">
+  <div class="narrow">
     <h2>After the water</h2>
     <div class="toll-band">
       <div class="stat"><div class="num">1,399</div><div class="label">confirmed dead (15 Sept 2026)</div></div>
@@ -258,7 +375,7 @@
     <video class="before-after" controls preload="metadata">
       <source src="../assets/img/nepal-flood-2026-before-after.webm" type="video/webm">
     </video>
-    <p style="font-size:13.5px;color:var(--muted);">Satellite before-and-after: the collapse site above the Lhende Khola, 24 vs 26 August 2026 (Sentinel-2).</p>
+    <p class="vid-cap">Satellite before-and-after: the collapse site above the Lhende Khola, 24 vs 26 August 2026 (Sentinel-2).</p>
     <div class="cta-row">
       <a class="btn" href="bhotekoshi-flood-2026.html">Read the full data story</a>
       <a class="btn ghost" href="../datasets/bhotekoshi-flood-wave-timeline.csv" download>Download the wave timeline (CSV)</a>
@@ -279,91 +396,154 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  var STEPS = [
-    { time: "08:40", beat: "The mountain falls", front: 0.03, wp: 0, avalanche: true },
-    { time: "08:50", beat: "The gauge goes silent", front: 0.16, wp: 1, avalanche: false },
-    { time: "09:15", beat: "The warning", front: 0.27, wp: 1, avalanche: false },
-    { time: "10:28", beat: "Galchhi", front: 0.43, wp: 2, avalanche: false },
-    { time: "11:50", beat: "Malekhu", front: 0.60, wp: 3, avalanche: false },
-    { time: "13:00", beat: "Mugling", front: 0.78, wp: 4, avalanche: false },
-    { time: "15:20", beat: "Devghat", front: 0.95, wp: 5, avalanche: false },
-    { time: "SEPT", beat: "The count", front: 1.0, wp: 5, avalanche: false }
+  "use strict";
+  var KEYS = [
+    { p: 0.000, min: 520, front: 0.00, beat: "The collapse begins" },
+    { p: 0.069, min: 530, front: 0.16, beat: "The mountain falls" },
+    { p: 0.178, min: 555, front: 0.27, beat: "The gauge goes silent" },
+    { p: 0.287, min: 628, front: 0.43, beat: "The warning" },
+    { p: 0.396, min: 710, front: 0.60, beat: "Galchhi" },
+    { p: 0.515, min: 780, front: 0.78, beat: "Malekhu" },
+    { p: 0.634, min: 920, front: 0.95, beat: "Mugling" },
+    { p: 0.752, min: 960, front: 1.00, beat: "Devghat" },
+    { p: 0.861, min: 960, front: 1.00, beat: "Peak flow" },
+    { p: 1.001, min: 960, front: 1.00, beat: "The count" }
   ];
-  var WP_FRAC = [0.03, 0.16, 0.43, 0.60, 0.78, 0.95];
-  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var TOLL = { dead: 1399, missing: 5179, rescued: 13742 };
 
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var narrow = window.matchMedia && window.matchMedia("(max-width: 700px)").matches;
+
+  var wrap = document.getElementById("scroll-wrap");
   var svg = document.getElementById("flood-svg");
-  var water = document.getElementById("flood-water");
-  var dashes = document.getElementById("flood-dashes");
-  var front = document.getElementById("flood-front");
+  var camera = document.getElementById("camera");
   var river = document.getElementById("river-base");
+  var water = document.getElementById("flood-water");
+  var foam = document.getElementById("flood-foam");
+  var maskPath = document.getElementById("flood-maskpath");
+  var front = document.getElementById("flood-front");
+  var debrisG = document.getElementById("debris");
+  var burst = document.getElementById("origin-burst");
+  var dim = document.getElementById("stage-dim");
   var timeEl = document.getElementById("stage-time");
   var beatEl = document.getElementById("stage-beat");
   var progress = document.getElementById("scroll-progress");
-  var wrap = document.getElementById("scroll-wrap");
-  var steps = Array.prototype.slice.call(document.querySelectorAll(".step"));
-  var wpDots = Array.prototype.slice.call(document.querySelectorAll(".wp"));
+  var railDot = document.getElementById("rail-dot");
+  var caps = Array.prototype.slice.call(document.querySelectorAll(".cap"));
+  var settles = Array.prototype.slice.call(document.querySelectorAll(".settle"));
+  var tollDead = document.getElementById("toll-dead");
+  var tollMissing = document.getElementById("toll-missing");
+  var tollRescued = document.getElementById("toll-rescued");
 
   var L = river.getTotalLength();
-  function pointAt(frac) { return river.getPointAtLength(Math.max(0, Math.min(1, frac)) * L); }
-
-  var target = STEPS[0].front, current = 0, active = -1;
-
-  function setActive(i) {
-    if (i === active) return;
-    active = i;
-    steps.forEach(function (s, k) { s.classList.toggle("active", k === i); });
-    var st = STEPS[i];
-    target = st.front;
-    timeEl.textContent = st.time;
-    beatEl.textContent = st.beat;
-    if (st.avalanche) svg.classList.add("avalanche"); else svg.classList.remove("avalanche");
-    if (reduceMotion) { current = target; render(); }
+  function pointAt(f) {
+    return river.getPointAtLength(Math.max(0, Math.min(1, f)) * L);
+  }
+  function normalAt(f) {
+    var a = pointAt(Math.max(0, f - 0.004)), b = pointAt(Math.min(1, f + 0.004));
+    var dx = b.x - a.x, dy = b.y - a.y, m = Math.sqrt(dx * dx + dy * dy) || 1;
+    return { x: -dy / m, y: dx / m };
   }
 
-  function render() {
-    var off = 100 - current * 100;
-    water.style.strokeDashoffset = off;
-    dashes.style.strokeDashoffset = off;
-    if (current <= 0.005) {
-      front.setAttribute("opacity", "0");
-    } else {
-      var p = pointAt(current);
-      front.setAttribute("opacity", "1");
-      front.setAttribute("transform", "translate(" + p.x + "," + p.y + ")");
-    }
-    wpDots.forEach(function (d, k) {
-      d.classList.toggle("lit", current >= WP_FRAC[k] - 0.015);
-    });
+  var DEBRIS_N = 26, debris = [];
+  for (var i = 0; i < DEBRIS_N; i++) {
+    var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    var r = 2.5 + (i % 4);
+    c.setAttribute("r", r);
+    c.setAttribute("opacity", 0.55 + (i % 3) * 0.15);
+    debrisG.appendChild(c);
+    debris.push({ el: c, back: 0.015 + (i % 13) * 0.011 + Math.floor(i / 13) * 0.05, jit: (i * 37) % 12 - 6, sp: 0.6 + (i % 5) * 0.25 });
   }
 
-  function tick() {
-    if (!reduceMotion && Math.abs(target - current) > 0.0005) {
-      current += (target - current) * 0.07;
-      render();
-    }
-    requestAnimationFrame(tick);
+  function stateAt(p) {
+    var i = 0;
+    while (i < KEYS.length - 2 && p > KEYS[i + 1].p) i++;
+    var a = KEYS[i], b = KEYS[i + 1];
+    var t = (p - a.p) / (b.p - a.p);
+    t = Math.max(0, Math.min(1, t));
+    return {
+      min: a.min + (b.min - a.min) * t,
+      front: a.front + (b.front - a.front) * t,
+      beat: t < 0.5 ? a.beat : b.beat
+    };
   }
+  function fmt(min) {
+    var h = Math.floor(min / 60), m = Math.floor(min % 60);
+    return h + ":" + (m < 10 ? "0" : "") + m;
+  }
+  function fmtNum(n) { return Math.floor(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
 
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) setActive(parseInt(e.target.getAttribute("data-i"), 10));
-    });
-  }, { rootMargin: "-42% 0px -42% 0px", threshold: 0 });
-
-  steps.forEach(function (s) { io.observe(s); });
-  setActive(0);
-  render();
-  tick();
-
-  function onScroll() {
+  var foamOff = 0, lastT = 0;
+  function frame(now) {
     var r = wrap.getBoundingClientRect();
     var total = r.height - window.innerHeight;
-    var done = Math.max(0, Math.min(1, -r.top / total));
-    progress.style.width = (done * 100).toFixed(1) + "%";
+    var p = total > 0 ? Math.max(0, Math.min(1, -r.top / total)) : 0;
+    var st = stateAt(p);
+    var dt = Math.min(0.05, (now - lastT) / 1000 || 0.016);
+    lastT = now;
+
+    var off = 100 - st.front * 100;
+    water.style.strokeDashoffset = off;
+    maskPath.style.strokeDashoffset = off;
+    if (!reduceMotion) { foamOff = (foamOff + dt * 26) % 11.5; }
+    foam.style.strokeDashoffset = -foamOff;
+
+    if (st.front <= 0.004) { front.setAttribute("opacity", "0"); }
+    else {
+      var fp = pointAt(st.front);
+      front.setAttribute("opacity", "1");
+      front.setAttribute("transform", "translate(" + fp.x + "," + fp.y + ")");
+    }
+
+    var j, d;
+    for (j = 0; j < debris.length; j++) {
+      d = debris[j];
+      var f = st.front - d.back;
+      if (f < 0.008 || st.front <= 0.004) { d.el.setAttribute("opacity", "0"); continue; }
+      var dp = pointAt(f), nrm = normalAt(f);
+      var wob = reduceMotion ? 0 : Math.sin(now / 700 + j * 1.7) * 5;
+      d.el.setAttribute("cx", dp.x + nrm.x * (d.jit + wob));
+      d.el.setAttribute("cy", dp.y + nrm.y * (d.jit + wob));
+      d.el.setAttribute("opacity", 0.5);
+    }
+
+    burst.classList.toggle("on", p < 0.10);
+
+    for (j = 0; j < settles.length; j++) {
+      var sf = parseFloat(settles[j].getAttribute("data-frac"));
+      settles[j].classList.toggle("hit", st.front >= sf - 0.055 && st.front <= sf + 0.02);
+    }
+
+    var sMax = narrow ? 1.3 : 1.62, sMin = narrow ? 1.0 : 1.04;
+    var s = sMax - (sMax - sMin) * p;
+    var cf = pointAt(Math.max(0.03, Math.min(0.97, st.front)));
+    camera.setAttribute("transform", "translate(320 500) scale(" + s.toFixed(4) + ") translate(" + (-cf.x).toFixed(1) + " " + (-cf.y).toFixed(1) + ")");
+
+    for (j = 0; j < caps.length; j++) {
+      var cap = caps[j];
+      var a = parseFloat(cap.getAttribute("data-a")), b = parseFloat(cap.getAttribute("data-b"));
+      var fade = 0.022, o = Math.min(1, (p - a) / fade, (b - p) / fade);
+      o = Math.max(0, Math.min(1, o));
+      cap.style.opacity = o.toFixed(3);
+      cap.style.visibility = o < 0.02 ? "hidden" : "visible";
+    }
+
+    dim.style.opacity = p > 0.861 ? Math.min(0.55, (p - 0.861) * 4).toFixed(3) : "0";
+
+    timeEl.textContent = fmt(st.min);
+    beatEl.textContent = st.beat;
+    progress.style.width = (p * 100).toFixed(2) + "%";
+    railDot.style.top = "calc(" + (p * 100).toFixed(2) + "% - 6px)";
+
+    var tt = Math.max(0, Math.min(1, (p - 0.885) / 0.09));
+    var e = 1 - Math.pow(1 - tt, 3);
+    tollDead.textContent = fmtNum(TOLL.dead * e);
+    tollMissing.textContent = fmtNum(TOLL.missing * e);
+    tollRescued.textContent = fmtNum(TOLL.rescued * e);
+
+    requestAnimationFrame(frame);
   }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+  requestAnimationFrame(frame);
 });
 </script>
 
