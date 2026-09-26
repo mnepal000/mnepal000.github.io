@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seven hours down the river: the Bhotekoshi flood, hour by hour | HimalData</title>
+<title>Seven hours down the river: the Bhotekoshi flood, hour by hour | Nepal's Data</title>
 <meta name="description" content="A scroll-driven reconstruction of 26 August 2026, following the Bhotekoshi flood wave from a collapsing mountainside to Devghat, hour by hour.">
 <link rel="stylesheet" href="../assets/css/style.css">
 <script src="../assets/js/portal.js" defer></script>
@@ -430,7 +430,7 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>HimalData &middot; Data stories from Nepal and South Asia</span>
+    <span>Nepal's Data &middot; Data stories from Nepal and South Asia</span>
     <span><a href="index.html">More stories</a></span>
   </div>
 </footer>
@@ -591,8 +591,7 @@ document.addEventListener("DOMContentLoaded", function () {
     t = Math.max(0, Math.min(1, t));
     return {
       min: a.min + (b.min - a.min) * t,
-      front: a.front + (b.front - a.front) * t,
-      beat: t < 0.5 ? a.beat : b.beat
+      front: a.front + (b.front - a.front) * t
     };
   }
   function fmt(min) {
@@ -647,6 +646,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var cf = pointAt(Math.max(0.03, Math.min(0.97, st.front)));
     camera.setAttribute("transform", "translate(320 500) scale(" + s.toFixed(4) + ") translate(" + (-cf.x).toFixed(1) + " " + (-cf.y).toFixed(1) + ")");
 
+    var bestO = -1, bestCap = null;
     for (j = 0; j < caps.length; j++) {
       var cap = caps[j];
       var a = parseFloat(cap.getAttribute("data-a")), b = parseFloat(cap.getAttribute("data-b"));
@@ -654,12 +654,37 @@ document.addEventListener("DOMContentLoaded", function () {
       o = Math.max(0, Math.min(1, o));
       cap.style.opacity = o.toFixed(3);
       cap.style.visibility = o < 0.02 ? "hidden" : "visible";
+      if (o > bestO) { bestO = o; bestCap = cap; }
+    }
+    /* stage kicker always mirrors the most-visible caption: no lag between the two */
+    if (bestCap) {
+      var capH2 = bestCap.querySelector("h2");
+      if (capH2) beatEl.textContent = capH2.textContent;
+    }
+
+    /* keep settlement labels inside the viewport while the camera pans */
+    for (j = 0; j < settles.length; j++) {
+      var sg = settles[j];
+      if (!sg._lbl) {
+        sg._lbl = Array.prototype.slice.call(sg.querySelectorAll(".wp-label,.wp-sub")).map(function (t) {
+          return { el: t, x: parseFloat(t.getAttribute("x")), anchor: t.getAttribute("text-anchor") || "start", w: t.getComputedTextLength() };
+        });
+      }
+      for (var k = 0; k < sg._lbl.length; k++) {
+        var lt = sg._lbl[k];
+        var sx = 320 + s * (lt.x - cf.x);
+        var lEdge = lt.anchor === "end" ? sx - lt.w * s : (lt.anchor === "middle" ? sx - lt.w * s / 2 : sx);
+        var rEdge = lEdge + lt.w * s;
+        var ldx = 0;
+        if (lEdge < 12) ldx = (12 - lEdge) / s;
+        else if (rEdge > 628) ldx = (628 - rEdge) / s;
+        lt.el.setAttribute("transform", "translate(" + ldx.toFixed(1) + " 0)");
+      }
     }
 
     dim.style.opacity = p > 0.861 ? Math.min(0.55, (p - 0.861) * 4).toFixed(3) : "0";
 
     timeEl.textContent = fmt(st.min);
-    beatEl.textContent = st.beat;
     progress.style.width = (p * 100).toFixed(2) + "%";
     railDot.style.top = "calc(" + (p * 100).toFixed(2) + "% - 6px)";
 

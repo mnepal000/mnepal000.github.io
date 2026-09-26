@@ -1,4 +1,4 @@
-# HimalData
+# Nepal's Data
 
 A data storytelling portal on social and political issues in **Nepal and South Asia**: long-form data stories with interactive visualizations, backed by an open CSV data catalog.
 
