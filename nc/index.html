@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NC Convention Voting — Demo Prototype</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="demo-banner">⚠ डेमो प्रोटोटाइप — यो आधिकारिक निर्वाचन प्रणाली होइन &nbsp;|&nbsp; DEMO PROTOTYPE — not the official election system. No real votes are recorded.</div>
+<div class="wrap">
+
+  <!-- ============ VIEW: LOGIN ============ -->
+  <section id="view-login">
+    <header class="app-head">
+      <h1>नेपाली कांग्रेस १५औं महाधिवेशन — मतदान डेमो</h1>
+      <p class="sub">Nepali Congress 15th General Convention — Voting Demo (prototype for testing the flow only)</p>
+    </header>
+    <div class="card">
+      <h2>मतदाता साइन-इन (Voter sign-in)</h2>
+      <p class="muted">यो डेमोमा ३ जना काल्पनिक मतदाता छन्। तलको एकल साइन-इन लिङ्क प्रयोग गर्नुहोस् वा नाम, एनसी मतदाता नं. र टोकन आफैं भर्नुहोस्।<br>
+      This demo has 3 fictitious voters. Use a single sign-in link below, or enter the name, NC voter ID and token manually.</p>
+      <div id="demo-links"></div>
+    </div>
+    <div class="card">
+      <h2>म्यानुअल साइन-इन (Manual sign-in)</h2>
+      <label class="field">नाम (Name)
+        <input type="text" id="login-name" placeholder="डेमो मतदाता १" autocomplete="off">
+      </label>
+      <label class="field">एनसी मतदाता नं. (NC voter ID)
+        <input type="text" id="login-ncid" placeholder="DEMO-0001" autocomplete="off">
+      </label>
+      <label class="field">एकल साइन-इन टोकन (Single sign-in token)
+        <input type="text" id="login-token" placeholder="nc-demo-7f3a-0001" autocomplete="off">
+      </label>
+      <p class="error" id="login-error" style="display:none"></p>
+      <button id="btn-login">साइन-इन गर्नुहोस् (Sign in)</button>
+    </div>
+    <div class="card">
+      <h2>निर्वाचन समिति (Election committee)</h2>
+      <p class="muted">परिणाम हेर्न समिति कोड चाहिन्छ। डेमो कोड: <strong id="committee-code-hint"></strong><br>
+      Viewing results requires the committee code.</p>
+      <a class="btn secondary" href="committee.html">समिति ड्यासबोर्ड (Committee dashboard)</a>
+    </div>
+  </section>
+
+  <!-- ============ VIEW: BALLOT ============ -->
+  <section id="view-ballot" style="display:none">
+    <div class="topbar">
+      <header class="app-head">
+        <h1>मतपत्र (Ballot)</h1>
+        <p class="sub" id="voter-line"></p>
+      </header>
+      <div><button class="secondary" id="btn-logout">साइन-आउट (Sign out)</button></div>
+    </div>
+    <div class="progress">
+      <div class="small muted" id="progress-label"></div>
+      <div class="bar"><div id="progress-fill"></div></div>
+    </div>
+    <div class="ballot-grid">
+      <nav class="race-nav" id="race-nav" aria-label="Races"></nav>
+      <div class="card" style="margin-top:0">
+        <div id="race-detail"></div>
+        <div style="margin-top:16px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+          <button class="secondary" id="btn-prev-race">← अघिल्लो (Previous)</button>
+          <button id="btn-review">समीक्षा / पेश गर्नुहोस् (Review &amp; submit) →</button>
+          <button class="secondary" id="btn-next-race">पछिल्लो (Next) →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIEW: REVIEW ============ -->
+  <section id="view-review" style="display:none">
+    <header class="app-head">
+      <h1>समीक्षा (Review your ballot)</h1>
+      <p class="sub">पेश गर्नुअघि आफ्नो छनोट जाँच्नुहोस्। Check your selections before submitting.</p>
+    </header>
+    <div class="card"><div id="review-list"></div></div>
+    <button class="secondary" id="btn-back-ballot">← मतपत्रमा फर्कनुहोस् (Back to ballot)</button>
+    <button id="btn-submit">मत पेश गर्नुहोस् (Submit ballot)</button>
+  </section>
+
+  <!-- ============ VIEW: RECEIPT ============ -->
+  <section id="view-receipt" style="display:none">
+    <div class="card receipt">
+      <h2>धन्यवाद! मत दर्ता भयो (Thank you — ballot recorded)</h2>
+      <p class="muted">तपाईंको रसिद कोड (your receipt code):</p>
+      <div class="code" id="receipt-code"></div>
+      <p class="muted small">डेमो नोट: यो मत यही ब्राउजरमा मात्र सुरक्षित छ। वास्तविक प्रणालीमा मत इन्क्रिप्टेड सर्भरमा जान्छ।<br>
+      Demo note: this ballot is stored in this browser only. A production system would send it encrypted to a secure server.</p>
+      <button class="secondary" id="btn-done">समाप्त (Done)</button>
+    </div>
+  </section>
+
+  <footer class="note">
+    डेमो प्रोटोटाइप — परीक्षण प्रयोजनका लागि मात्र। उम्मेदवार सूची २०८३ असोज २१ को अन्तिम नामावलीमा आधारित छ। वास्तविक निर्वाचनमा मतदाता नामावली, एकल साइन-इन लिङ्क वितरण, इन्क्रिप्सन र अडिट सुरक्षित सर्भरमा हुनुपर्छ।<br>
+    Demo prototype for testing only. Candidate list based on the published final list dated 2083 Ashoj 21. A production election needs the real voter roll, single sign-in link distribution, encryption and audit on secured servers.
+  </footer>
+</div>
+<script src="js/candidates.js"></script>
+<script src="js/demo-voters.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

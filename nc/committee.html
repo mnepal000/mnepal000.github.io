@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Committee Dashboard — NC Convention Voting Demo</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="demo-banner">⚠ डेमो प्रोटोटाइप — यो आधिकारिक निर्वाचन प्रणाली होइन &nbsp;|&nbsp; DEMO PROTOTYPE — not the official election system.</div>
+<div class="wrap">
+  <header class="app-head">
+    <h1>निर्वाचन समिति ड्यासबोर्ड (Election committee dashboard)</h1>
+    <p class="sub">परिणाम समितिले मात्र हेर्न सक्छ। Results are visible to the committee only.</p>
+  </header>
+
+  <section id="gate">
+    <div class="card">
+      <h2>समिति कोड (Committee code)</h2>
+      <p class="muted">डेमो कोड: <strong id="code-hint"></strong></p>
+      <label class="field">कोड प्रविष्ट गर्नुहोस् (Enter code)
+        <input type="password" id="committee-code" autocomplete="off">
+      </label>
+      <p class="error" id="code-error" style="display:none"></p>
+      <button id="btn-unlock">परिणाम हेर्नुहोस् (View results)</button>
+      <a class="btn secondary" href="index.html">← मतदाता पृष्ठ (Voter page)</a>
+    </div>
+  </section>
+
+  <section id="dashboard" style="display:none">
+    <div class="card">
+      <div class="topbar">
+        <h2 style="margin:0">मतदान स्थिति (Turnout)</h2>
+        <button class="secondary" id="btn-reset">डेमो रिसेट (Reset demo)</button>
+      </div>
+      <p id="turnout-line" class="muted"></p>
+    </div>
+    <div id="results"></div>
+  </section>
+
+  <footer class="note">
+    डेमो नोट: वास्तविक प्रणालीमा मतपत्र समितिको निजी साँचो (private key) ले मात्र खोलिने गरी इन्क्रिप्ट हुन्छन्, मतदाता पहिचानबाट अलग राखिन्छन्, र सबै घटना अडिट लगमा दर्ता हुन्छन्।<br>
+    Demo note: in production, ballots would be encrypted so only the committee's private key can open them, kept separate from voter identity, with a full audit log.
+  </footer>
+</div>
+<script src="js/candidates.js"></script>
+<script src="js/demo-voters.js"></script>
+<script src="js/committee.js"></script>
+</body>
+</html>
