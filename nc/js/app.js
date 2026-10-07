@@ -163,6 +163,9 @@
     state.currentRace = raceId;
     var picker = $("race-picker-mobile");
     if (picker) picker.value = raceId;
+    // Review button appears only on the last race of the ballot.
+    var isLast = state.raceOrder.length && state.raceOrder[state.raceOrder.length - 1] === raceId;
+    $("btn-review").style.display = isLast ? "" : "none";
     var race = raceById(raceId);
     var navBtns = $("race-nav").querySelectorAll("button[data-race]");
     for (var i = 0; i < navBtns.length; i++) {
@@ -344,7 +347,9 @@
     $("btn-review").addEventListener("click", function () { buildReview(); show("view-review"); });
     $("btn-back-ballot").addEventListener("click", function () { show("view-ballot"); });
     $("btn-submit").addEventListener("click", function () {
-      if (confirm("मत पेश गर्ने? Submit your ballot? This demo records it in this browser only.")) submitBallot();
+      if (!confirm("पहिलो चेतावनी: के तपाईं आफ्नो मत पेश गर्न निश्चित हुनुहुन्छ?\nकृपया सबै छनोटहरू फेरि जाँच्नुहोस्।\n\nWarning 1 of 2: Are you sure you want to submit your ballot? Please double-check every selection.")) return;
+      if (!confirm("अन्तिम चेतावनी: पेश गरेपछि मत परिवर्तन गर्न सकिँदैन।\nजारी राख्ने हो?\n\nWarning 2 of 2 (final): once submitted, the ballot cannot be changed. Continue?")) return;
+      submitBallot();
     });
     $("btn-done").addEventListener("click", function () {
       state.voter = null; state.selections = {};
