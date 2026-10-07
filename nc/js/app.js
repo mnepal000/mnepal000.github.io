@@ -120,8 +120,10 @@
   function buildBallot() {
     var nav = $("race-nav");
     nav.innerHTML = "";
+    var picker = $("race-picker-mobile");
+    picker.innerHTML = "";
     state.raceOrder = [];
-    var lastGroup = null;
+    var lastGroup = null, lastPickerGroup = null, optgroup = null;
     NC_BALLOT.races.forEach(function (race) {
       var g = groupOf(race);
       if (g !== lastGroup) {
@@ -131,16 +133,26 @@
         nav.appendChild(gh);
         lastGroup = g;
       }
+      if (g !== lastPickerGroup) {
+        optgroup = document.createElement("optgroup");
+        optgroup.label = g;
+        picker.appendChild(optgroup);
+        lastPickerGroup = g;
+      }
+      var label = race.position + (race.category ? " · " + race.category : "");
       var b = document.createElement("button");
       b.type = "button";
       b.dataset.race = race.id;
-      var label = race.position + (race.category ? " · " + race.category : "");
       b.innerHTML = '<span class="tick" style="display:none">✓ </span>' + esc(label);
       if (race.unopposed) {
         b.innerHTML += ' <span class="small muted">(निर्विरोध)</span>';
       }
       b.addEventListener("click", function () { showRace(race.id); });
       nav.appendChild(b);
+      var o = document.createElement("option");
+      o.value = race.id;
+      o.textContent = label + (race.unopposed ? " (निर्विरोध)" : "");
+      optgroup.appendChild(o);
       if (!race.unopposed) state.raceOrder.push(race.id);
     });
     showRace(state.raceOrder[0]);
@@ -149,6 +161,8 @@
 
   function showRace(raceId) {
     state.currentRace = raceId;
+    var picker = $("race-picker-mobile");
+    if (picker) picker.value = raceId;
     var race = raceById(raceId);
     var navBtns = $("race-nav").querySelectorAll("button[data-race]");
     for (var i = 0; i < navBtns.length; i++) {
@@ -322,6 +336,9 @@
     }
     $("btn-login").addEventListener("click", function () {
       attemptLogin($("login-token").value, $("login-name").value, $("login-ncid").value);
+    });
+    $("race-picker-mobile").addEventListener("change", function (e) {
+      showRace(e.target.value);
     });
     $("btn-logout").addEventListener("click", function () {
       state.voter = null; state.selections = {};
