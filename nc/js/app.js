@@ -250,6 +250,8 @@
       renderList(e.target.value.trim());
     });
     renderList("");
+    // Make the race change visible: scroll the race detail back into view.
+    try { d.scrollIntoView({ block: "start" }); } catch (e) { window.scrollTo(0, 0); }
   }
 
   function markNavDone() {
@@ -326,14 +328,7 @@
   /* ---------- wire up ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     renderDemoLinks();
-    var qt = getQueryToken();
-    if (qt) {
-      $("login-token").value = qt;
-      var v = findVoter(qt);
-      if (v) { $("login-name").value = v.name; $("login-ncid").value = v.nc_id; }
-      attemptLogin(qt, "", "");
-      if (state.voter) return;
-    }
+    // Wire every button first, so the token auto-login path below gets working buttons too.
     $("btn-login").addEventListener("click", function () {
       attemptLogin($("login-token").value, $("login-name").value, $("login-ncid").value);
     });
@@ -356,5 +351,13 @@
       $("login-name").value = ""; $("login-ncid").value = ""; $("login-token").value = "";
       show("view-login");
     });
+    // Token auto-login runs last, after all buttons are wired.
+    var qt = getQueryToken();
+    if (qt) {
+      $("login-token").value = qt;
+      var v = findVoter(qt);
+      if (v) { $("login-name").value = v.name; $("login-ncid").value = v.nc_id; }
+      attemptLogin(qt, "", "");
+    }
   });
 })();
