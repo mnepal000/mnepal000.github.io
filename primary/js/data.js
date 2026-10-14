@@ -1,7 +1,7 @@
 /* स्थानीय तह प्राइमरी डेमो : काल्पनिक डेटा (Fictional demo data) */
 var DEMO = {
-  party: "नमुना प्रजातान्त्रिक पार्टी",
-  partyEn: "Sample Democratic Party",
+  party: "नेपाली कांग्रेस",
+  partyEn: "Nepali Congress",
   municipality: "नमुना नगरपालिका",
   municipalityEn: "Sample Municipality",
   committeeCode: "SAMITI-2083",

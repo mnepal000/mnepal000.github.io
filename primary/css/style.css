@@ -2,8 +2,8 @@
 :root {
   --ink: #1d2733;
   --muted: #5b6b7c;
-  --brand: #0b5fa5;
-  --brand-dark: #084a82;
+  --brand: #1b7a3d;
+  --brand-dark: #0e5a2a;
   --accent: #c1121f;
   --bg: #f4f6f9;
   --card: #ffffff;
@@ -58,9 +58,9 @@ body {
 .en { color: var(--muted); font-size: 0.88em; }
 .tag {
   display: inline-block;
-  background: #eef4fb;
+  background: #e9f4ed;
   color: var(--brand-dark);
-  border: 1px solid #c9dff2;
+  border: 1px solid #bfe0cc;
   border-radius: 999px;
   padding: 2px 10px;
   font-size: 13px;
@@ -100,7 +100,18 @@ body {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 16px;
-  background: #fbfdff;
+  background: #fbfefd;
+}
+.party-badge {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 10px;
+}
+.party-badge svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
 }
 .voter-card .vname { font-size: 19px; font-weight: 700; margin: 0 0 4px; }
 .voter-card .vmeta { color: var(--muted); font-size: 14px; margin: 2px 0 12px; }
@@ -137,13 +148,13 @@ ol.steps li, ul.rules li { margin: 8px 0; }
   border: 2px solid #9fb0c3; border-radius: 50%;
   position: relative;
 }
-.cand input:checked + .box { border-color: var(--brand); background: #f0f7ff; }
+.cand input:checked + .box { border-color: var(--brand); background: #f0f8f2; }
 .cand input:checked + .box .radio { border-color: var(--brand); }
 .cand input:checked + .box .radio::after {
   content: ""; position: absolute; inset: 4px;
   background: var(--brand); border-radius: 50%;
 }
-.cand input:focus-visible + .box { outline: 3px solid #9ec7ee; outline-offset: 2px; }
+.cand input:focus-visible + .box { outline: 3px solid #a8d8b8; outline-offset: 2px; }
 .cand .cname { font-size: 18px; font-weight: 600; }
 .warn { color: var(--accent); font-weight: 600; margin: 8px 0; min-height: 24px; }
 .race-nav { display: flex; gap: 10px; margin-top: 14px; }
@@ -186,7 +197,7 @@ table.results { border-collapse: collapse; width: 100%; min-width: 420px; font-s
 table.results th, table.results td {
   border: 1px solid var(--line); padding: 10px 12px; text-align: left;
 }
-table.results th { background: #eef4fb; }
+table.results th { background: #e9f4ed; }
 table.results tr.winner td { background: #eaf6ec; font-weight: 700; }
 .code-input {
   width: 100%; min-height: 52px; font-size: 18px; padding: 10px 14px;
