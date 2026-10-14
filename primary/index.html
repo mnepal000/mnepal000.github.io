@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>स्थानीय तह प्राइमरी डेमो (Local Primary Demo)</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="demo-ribbon">डेमो (Demo): यो आधिकारिक निर्वाचन होइन। सबै नाम, पद र तथ्याङ्क काल्पनिक हुन्। <span class="en">(This is not an official election. All names and data are fictional.)</span></div>
+
+<header class="site-head">
+  <h1>स्थानीय तह प्राइमरी डेमो</h1>
+  <p>उम्मेदवार छनोट प्राइमरी <span class="en">(Candidate Selection Primary)</span> : नमुना प्रजातान्त्रिक पार्टी <span class="en">(काल्पनिक)</span></p>
+  <p>नमुना नगरपालिका <span class="en">(Sample Municipality)</span> : ५ वटा वडा</p>
+</header>
+
+<div class="wrap">
+
+  <div class="card">
+    <h2>यो के हो? <span class="en">(What is this?)</span></h2>
+    <p class="lead">अमेरिकी प्राइमरी <span class="en">(US Primary)</span> बाट प्रेरित यो डेमोले देखाउँछ: पार्टीका दर्तावाल सदस्यहरूले गोप्य मतदानबाट <strong>नगर प्रमुख, उपप्रमुख, वडा अध्यक्ष र वडा सदस्य (कोटा सिटसहित)</strong> पदका लागि पार्टीका आधिकारिक उम्मेदवार कसरी छान्न सक्छन्।</p>
+    <div class="notice">
+      <strong>महत्त्वपूर्ण:</strong> यो केवल प्रदर्शनका लागि बनाइएको प्रोटोटाइप हो। यहाँ खसेको मत कतै पठाइँदैन, तपाईंको आफ्नै ब्राउजरमा मात्र सुरक्षित रहन्छ। वास्तविक निर्वाचन प्रणालीका लागि सुरक्षित सर्भर, वास्तविक मतदाता नामावली र स्वतन्त्र निर्वाचन समिति आवश्यक पर्छ।
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>डेमोमा प्रयोग भएका नियम <span class="en">(Demo rules)</span></h2>
+    <ul class="rules">
+      <li><strong>बन्द प्राइमरी (Closed Primary):</strong> पार्टीका दर्तावाल सदस्य मात्र मतदान गर्न पाउने</li>
+      <li><strong>एक व्यक्ति, एक मत (One person, one vote):</strong> प्रत्येक पदका लागि उम्मेदवार छान्ने; वडा सदस्य खुला जस्ता २-सिट दौडमा २ जनासम्म छान्न मिल्ने</li>
+      <li><strong>कोटा सिट (Quota seats):</strong> वडा सदस्यमा महिला र दलित महिला सिटका लागि छुट्टै दौड</li>
+      <li><strong>गोप्य मतदान (Secret ballot)</strong></li>
+      <li><strong>विजेता:</strong> सबैभन्दा बढी मत ल्याउने उम्मेदवार नै पार्टीको आधिकारिक उम्मेदवार <span class="en">(Nominee)</span> बन्छन्; बहु-सिट दौडमा शीर्ष सिट-सङ्ख्याका उम्मेदवार विजयी</li>
+      <li>पूरा नियमावलीका लागि <a href="guidelines.html"><strong>प्राइमरी निर्देशिका (Guidelines)</strong></a> हेर्नुहोस्</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>कसरी प्रयोग गर्ने <span class="en">(How to try it)</span></h2>
+    <ol class="steps">
+      <li>तलका ३ जना काल्पनिक डेमो मतदातामध्ये एक छान्नुहोस् र <strong>मतदान सुरु गर्नुहोस्</strong> थिच्नुहोस्।</li>
+      <li>२२ वटा दौड <span class="en">(Races)</span> मा आआफ्नो उम्मेदवार छानेर <strong>अर्को (Next)</strong> थिच्दै जानुहोस्।</li>
+      <li>अन्तिममा <strong>समीक्षा (Review)</strong> मा आफ्नो छनोट जाँचेर <strong>मत पेश गर्नुहोस् (Submit)</strong>।</li>
+      <li>नतिजा हेर्न <strong>नतिजा (Results)</strong> पृष्ठमा निर्वाचन समितिको कोड हाल्नुहोस्।</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>मतदाता साइन-इन <span class="en">(Voter Sign-in)</span></h2>
+    <p class="muted">डेमो मतदाता छान्नुहोस्। प्रत्येक कोड एकपटक मात्र मतदान गर्न मिल्छ <span class="en">(one-time demo link)</span>।</p>
+    <div class="voter-grid" id="voterGrid"></div>
+  </div>
+
+  <div class="card">
+    <h2>थप लिङ्क</h2>
+    <div class="btn-row">
+      <a class="btn btn-ghost" href="guidelines.html">प्राइमरी निर्देशिका <span class="en">(Guidelines)</span></a>
+      <a class="btn btn-ghost" href="results.html">नतिजा : निर्वाचन समिति <span class="en">(Results)</span></a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-foot">
+  स्थानीय तह प्राइमरी डेमो : शैक्षिक प्रयोजनको प्रोटोटाइप। सबै विवरण काल्पनिक हुन्।
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+(function () {
+  var grid = document.getElementById("voterGrid");
+  DEMO.voters.forEach(function (v) {
+    var d = document.createElement("div");
+    d.className = "voter-card";
+    d.innerHTML =
+      '<p class="vname">' + v.name + '</p>' +
+      '<p class="vmeta">वडा नं. ' + v.ward + ' <span class="en">(Ward ' + v.ward + ')</span><br>मतदाता कोड <span class="en">(Voter code)</span>: <strong>' + v.code + '</strong></p>' +
+      '<a class="btn btn-primary" href="ballot.html?v=' + encodeURIComponent(v.code) + '">मतदान सुरु गर्नुहोस् <span class="en">(Start Voting)</span></a>';
+    grid.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>

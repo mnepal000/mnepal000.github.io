@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>मतपत्र (Ballot) : स्थानीय तह प्राइमरी डेमो</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="demo-ribbon">डेमो (Demo): यो आधिकारिक निर्वाचन होइन। सबै नाम, पद र तथ्याङ्क काल्पनिक हुन्। <span class="en">(This is not an official election. All names and data are fictional.)</span></div>
+
+<header class="site-head">
+  <h1>प्राइमरी मतपत्र <span class="en">(Primary Ballot)</span></h1>
+  <p id="voterLine"></p>
+</header>
+
+<div class="wrap">
+  <div id="app"></div>
+</div>
+
+<div class="modal-back" id="modalBack">
+  <div class="modal" role="dialog" aria-modal="true">
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+    <div class="btn-row">
+      <button class="btn btn-ghost" id="modalNo">रद्द गर्नुहोस् <span class="en">(Cancel)</span></button>
+      <button class="btn btn-accent" id="modalYes">हो, पेश गर्नुहोस् <span class="en">(Yes, submit)</span></button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-foot">
+  स्थानीय तह प्राइमरी डेमो : शैक्षिक प्रयोजनको प्रोटोटाइप। सबै विवरण काल्पनिक हुन्।
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/ballot.js"></script>
+</body>
+</html>
